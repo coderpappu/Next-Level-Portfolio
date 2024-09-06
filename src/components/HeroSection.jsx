@@ -8,28 +8,23 @@ import pappuImg from "../assets/pappudey.png";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-10 z-50 px-4 sm:px-6 lg:px-8">
-      <div className="intro_text text-center mb-8">
+    <div className="relative h-screen hero-section pt-[60px] md:pt-[100px] pb-10 z-50 px-4 sm:px-6 lg:px-8">
+      <div className="intro_text">
         {/* SVG for animated "Hi" text */}
-        <svg viewBox="0 0 500 500" className="w-full max-w-xs mx-auto">
-          <text
-            x="50%"
-            y="50%"
-            textAnchor="middle"
-            className="animate-stroke text-3xl sm:text-4xl lg:text-5xl"
-          >
+        <svg viewBox="0 0 500 500">
+          <text x="50%" y="50%" textAnchor="middle" className="animate-stroke ">
             Hi
           </text>
         </svg>
       </div>
       <div className="flex flex-col lg:flex-row justify-between font-sora">
         {/* Left side */}
-        <div className="w-full lg:w-[55%] mb-8 sm:mb-12 lg:mb-0">
+        <div className="w-full lg:w-[65%] mb-8 sm:mb-12 lg:mb-0">
           <h2 className="text-3xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-5 font-bold text-white">
             I am Pappu
           </h2>
           <h2
-            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3] inline-block"
+            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] xl:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3] inline-block"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
@@ -38,7 +33,7 @@ const HeroSection = () => {
             Software Engineer +
           </h2>
           <h2
-            className="text-4xl sm:text-5xl  md:text-[50px] lg:text-[50px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
+            className="text-4xl sm:text-5xl  md:text-[50px] lg:text-[50px] xl:text-[65px]  font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
@@ -88,7 +83,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right side */}
-        <div className="relative max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-[380px] w-full mx-auto hero-image-box z-30">
+        <div className="relative max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[35%] w-full mx-auto hero-image-box z-30">
           <img
             src={pappuImg}
             alt="pappudey_picture"
