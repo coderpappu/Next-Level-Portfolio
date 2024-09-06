@@ -5,7 +5,7 @@ const Counter = () => {
     <div className="w-full py-5 flex flex-wrap justify-center items-center opacity-70">
       {/* First Counter */}
       <div className="flex flex-wrap justify-center  items-center w-1/2 sm:w-[25%] mb-4 px-4">
-        <h2 className="text-5xl sm:text-6xl text-white font-poppins font-bold">
+        <h2 className="text-6xl sm:text-6xl text-white font-poppins font-bold">
           04
         </h2>
         <div className="ml-3">
