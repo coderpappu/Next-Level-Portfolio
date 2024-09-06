@@ -8,7 +8,7 @@ import pappuImg from "../assets/pappudey.png";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen hero-section pt-[60px] md:pt-[100px] pb-10 z-50 px-4 sm:px-6 lg:px-8">
+    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-28 z-50 px-4 sm:px-6 lg:px-8">
       <div className="intro_text">
         {/* SVG for animated "Hi" text */}
         <svg viewBox="0 0 500 500">
@@ -19,7 +19,7 @@ const HeroSection = () => {
       </div>
       <div className="flex flex-col lg:flex-row justify-between font-sora">
         {/* Left side */}
-        <div className="w-full lg:w-[65%] mb-8 sm:mb-12 lg:mb-0">
+        <div className="w-full lg:w-[56%] mb-8 sm:mb-12 lg:mb-0">
           <h2 className="text-3xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-5 font-bold text-white">
             I am Pappu
           </h2>
@@ -83,13 +83,13 @@ const HeroSection = () => {
         </div>
 
         {/* Right side */}
-        <div className="relative max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[35%] w-full mx-auto hero-image-box z-30">
+        <div className=" max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[44%] w-full mx-auto hero-image-box z-30">
           <img
             src={pappuImg}
             alt="pappudey_picture"
             className="rounded-[38px] border-2 border-[#7343D2] transform rotate-[4.29deg] transition-transform duration-300 ease-in-out hover:rotate-0 hover:border-[#0DCFD2] w-full h-auto"
           />
-          <span className="absolute bottom-0 left-0 w-[150px] sm:w-[180px] md:w-[200px] lg:w-[220px] h-[150px] sm:h-[180px] md:h-[200px] lg:h-[220px] rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 blur-[100px] opacity-35 -ml-[5%] -mb-[5%]"></span>
+         
         </div>
       </div>
     </div>
