@@ -24,12 +24,12 @@ const HeroSection = () => {
       </div>
       <div className="flex flex-col lg:flex-row justify-between font-sora">
         {/* Left side */}
-        <div className="w-full lg:w-[55%] mb-8 lg:mb-0">
-          <h2 className="text-xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-0 font-bold text-white">
+        <div className="w-full lg:w-[55%] mb-8 sm:mb-12 lg:mb-0">
+          <h2 className="text-3xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-5 font-bold text-white">
             I am Pappu
           </h2>
           <h2
-            className="text-[27px] sm:text-5xl lg:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] lg:leading-[1.1] inline-block"
+            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3] inline-block"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
@@ -38,7 +38,7 @@ const HeroSection = () => {
             Software Engineer +
           </h2>
           <h2
-            className="text-[27px] sm:text-5xl lg:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] lg:leading-[1.1]"
+            className="text-4xl sm:text-5xl  md:text-[50px] lg:text-[50px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
@@ -46,11 +46,11 @@ const HeroSection = () => {
           >
             UX Designer
           </h2>
-          <p className="mt-4 sm:mt-6 lg:mt-10 text-sm sm:text-lg lg:text-lg text-[#ffffffb0] max-w-full sm:max-w-[70%]">
+          <p className="mt-4 sm:mt-6 lg:mt-10 text-base sm:text-lg lg:text-lg text-[#ffffffb0] max-w-full sm:w-[90%] md:max-w-[70%]">
             I break down complex user experience problems to create integrity
             focused solutions that connect billions of people
           </p>
-          <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:justify-center md:justify-start sm:flex-row items-center gap-4">
             <button className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border border-[#0EABE6] hover:bg-[#0DCFD2] text-[#0EABE6] rounded-full cursor-pointer transition duration-300 ease-in-out">
               Download CV
             </button>
@@ -88,7 +88,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right side */}
-        <div className="relative max-w-[250px] sm:max-w-sm md:max-w-md lg:max-w-[430px] w-full mx-auto hero-image-box z-30">
+        <div className="relative max-w-[280px] sm:max-w-sm md:max-w-md lg:max-w-[380px] w-full mx-auto hero-image-box z-30">
           <img
             src={pappuImg}
             alt="pappudey_picture"
