@@ -1,0 +1,104 @@
+import React from "react";
+// Assuming you'll add the CSS here
+import { RiFacebookFill } from "react-icons/ri";
+import { BiLogoLinkedin } from "react-icons/bi";
+import { IoLogoGithub } from "react-icons/io";
+import { Link } from "react-router-dom";
+import pappuImg from "../assets/pappudey.png";
+
+const HeroSection = () => {
+  return (
+    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-10 z-50 px-4 sm:px-6 lg:px-8">
+      <div className="intro_text text-center mb-8">
+        {/* SVG for animated "Hi" text */}
+        <svg viewBox="0 0 500 500" className="w-full max-w-xs mx-auto">
+          <text
+            x="50%"
+            y="50%"
+            textAnchor="middle"
+            className="animate-stroke text-3xl sm:text-4xl lg:text-5xl"
+          >
+            Hi
+          </text>
+        </svg>
+      </div>
+      <div className="flex flex-col lg:flex-row justify-between font-sora">
+        {/* Left side */}
+        <div className="w-full lg:w-[55%] mb-8 lg:mb-0">
+          <h2 className="text-xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-0 font-bold text-white">
+            I am Pappu
+          </h2>
+          <h2
+            className="text-[27px] sm:text-5xl lg:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] lg:leading-[1.1] inline-block"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
+            }}
+          >
+            Software Engineer +
+          </h2>
+          <h2
+            className="text-[27px] sm:text-5xl lg:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] lg:leading-[1.1]"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
+            }}
+          >
+            UX Designer
+          </h2>
+          <p className="mt-4 sm:mt-6 lg:mt-10 text-sm sm:text-lg lg:text-lg text-[#ffffffb0] max-w-full sm:max-w-[70%]">
+            I break down complex user experience problems to create integrity
+            focused solutions that connect billions of people
+          </p>
+          <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <button className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border border-[#0EABE6] hover:bg-[#0DCFD2] text-[#0EABE6] rounded-full cursor-pointer transition duration-300 ease-in-out">
+              Download CV
+            </button>
+            {/* Social media icons */}
+            <ul className="flex space-x-4">
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  to="#"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <RiFacebookFill size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  to="#"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <BiLogoLinkedin size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  to="#"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <IoLogoGithub size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Right side */}
+        <div className="relative max-w-[250px] sm:max-w-sm md:max-w-md lg:max-w-[430px] w-full mx-auto hero-image-box z-30">
+          <img
+            src={pappuImg}
+            alt="pappudey_picture"
+            className="rounded-[38px] border-2 border-[#7343D2] transform rotate-[4.29deg] transition-transform duration-300 ease-in-out hover:rotate-0 hover:border-[#0DCFD2] w-full h-auto"
+          />
+          <span className="absolute bottom-0 left-0 w-[150px] sm:w-[180px] md:w-[200px] lg:w-[220px] h-[150px] sm:h-[180px] md:h-[200px] lg:h-[220px] rounded-full bg-gradient-to-tr from-blue-600 to-sky-400 blur-[100px] opacity-35 -ml-[5%] -mb-[5%]"></span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;

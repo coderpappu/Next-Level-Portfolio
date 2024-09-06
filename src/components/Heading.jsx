@@ -11,8 +11,8 @@ const Heading = () => {
   };
 
   return (
-    <div className="border-b border-[#506b860f] py-5 font-poppins fixed w-full bg-[#0F172A] z-50">
-      <div className="xl:wrapper-container sm:px-6 px-6 flex flex-wrap items-center justify-between text-[#e0e0e0]">
+    <div className="border-b border-[#506b860f] py-5 font-poppins  w-full bg-[#0F172A] z-50">
+      <div className="xl:wrapper-container lg:px-0 px-6 flex flex-wrap items-center justify-between text-[#e0e0e0]">
         {/* Logo */}
         <div>
           <img src={Logo} alt="pappudey Logo" className="w-8 h-8" />

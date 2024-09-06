@@ -1,10 +1,12 @@
-import React from "react";
-import Home from "./Home";
-
+import HeroSection from "../components/HeroSection";
+import Heading from "../components/Heading";
 const Layout = () => {
   return (
-    <div className="wrapper-container">
-      <Home />
+    <div>
+      <Heading />
+      <div className="xl:wrapper-container">
+        <HeroSection />
+      </div>
     </div>
   );
 };

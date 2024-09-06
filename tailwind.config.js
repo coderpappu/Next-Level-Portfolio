@@ -5,6 +5,8 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        russo: ["Russo One", "sans-serif"],
+        sora: ["Sora", "sans-serif"],
       },
     },
   },
