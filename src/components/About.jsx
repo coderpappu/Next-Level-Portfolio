@@ -38,7 +38,7 @@ const About = () => {
 
         <div className="w-[60%] border-l border-violet-600 border-opacity-45 border-dashed">
           <div
-            className="w-[80%] h-[250px] p-[2px] ml-10 rounded-md bg-gradient-to-bl to-[#37baf814 ] from-[#3730a38a]"
+            className="w-[80%] h-[250px] p-[2px] ml-10 rounded-md bg-gradient-to-l to-[#37baf814 ] via-[#3730a38a]  from-[#1d1b4793]"
             id="profile_card"
           >
             <div className="bg-[#0F172A]">
