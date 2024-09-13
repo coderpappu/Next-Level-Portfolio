@@ -7,7 +7,7 @@ const CareerSummary = () => {
       <div className="w-[50%]">
         {/* Experience Section  */}
         <div className=" flex flex-wrap justify-start items-center">
-          <BsFillClipboardCheckFill size={28} color="#0DCFD2" />
+          <BsFillClipboardCheckFill size={28} className="text-blue-500" />
           <h2
             className="text-4xl font-sora font-bold  ml-2  text-transparent bg-clip-text"
             style={{
@@ -23,14 +23,14 @@ const CareerSummary = () => {
         <div className="my-9">
           <div className="flex flex-wrap font-sora ">
             <div className="w-[106px] mt-5 mr-2">
-              <h2 className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 text-sm text-white py-1 px-3 rounded-full mt-1">
+              <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
                 2021- 2024
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
-              <div className="w-[3px] h-[190px] bg-indigo-500 opacity-45"></div>
-              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-indigo-500 opacity-45 absolute top-[38px]"></div>
-              <div className="w-4 h-4 bg-[#0F172A] border border-indigo-500 rounded-full absolute top-[30px] "></div>
+              <div className="w-[3px] h-[190px] bg-cyan-500 opacity-45"></div>
+              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-cyan-500 opacity-45 absolute top-[38px]"></div>
+              <div className="w-4 h-4 bg-[#0F172A] border border-cyan-500 rounded-full absolute top-[30px] "></div>
             </div>
             <div className="w-[400px] mt-7 ml-2">
               <h3
@@ -52,16 +52,16 @@ const CareerSummary = () => {
           </div>
 
           {/* Card  */}
-          <div className="flex flex-wrap font-sora mt-[-1.4px]">
+          <div className="flex flex-wrap font-sora ">
             <div className=" mt-5 mr-2">
-              <h2 className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 text-sm text-white py-1 px-3 rounded-full mt-1">
+              <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
                 2020- 2021
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
-              <div className="w-[3px] h-[190px] bg-gradient-to-b from-indigo-500  opacity-45"></div>
-              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-indigo-500 opacity-45 absolute top-[40px]"></div>
-              <div className="w-4 h-4 bg-[#0F172A] border border-indigo-500 rounded-full absolute top-[33px] "></div>
+              <div className="w-[3px] h-[190px] bg-gradient-to-b from-cyan-500  opacity-45"></div>
+              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-cyan-500 opacity-45 absolute top-[40px]"></div>
+              <div className="w-4 h-4 bg-[#0F172A] border border-cyan-500 rounded-full absolute top-[33px] "></div>
             </div>
             <div className="w-[410px] mt-7 ml-2">
               <h3
@@ -87,7 +87,7 @@ const CareerSummary = () => {
       {/* Next Side  */}
       <div className="w-[50%]">
         <div className=" flex flex-wrap justify-start items-center">
-          <FaGraduationCap size={28} color="#0DCFD2" />
+          <FaGraduationCap size={28} className="text-blue-500" />
           <h2
             className="text-4xl font-sora font-bold  ml-2  text-transparent bg-clip-text"
             style={{
@@ -102,14 +102,14 @@ const CareerSummary = () => {
         <div className="my-9">
           <div className="flex flex-wrap font-sora ">
             <div className="w-[106px] mt-5 mr-2">
-              <h2 className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 text-sm text-white py-1 px-3 rounded-full mt-1">
+              <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500 text-sm text-white py-1 px-3 rounded-full mt-1">
                 2021- 2024
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
-              <div className="w-[3px] h-[190px] bg-indigo-500 opacity-45"></div>
-              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-indigo-500 opacity-45 absolute top-[38px]"></div>
-              <div className="w-4 h-4 bg-[#0F172A] border border-indigo-500 rounded-full absolute top-[30px] "></div>
+              <div className="w-[3px] h-[190px] bg-cyan-500 opacity-45"></div>
+              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-cyan-500 opacity-45 absolute top-[38px]"></div>
+              <div className="w-4 h-4 bg-[#0F172A] border border-cyan-500 rounded-full absolute top-[30px] "></div>
             </div>
             <div className="w-[410px] mt-7 ml-2">
               <h3
@@ -133,16 +133,16 @@ const CareerSummary = () => {
           </div>
 
           {/* Card  */}
-          <div className="flex flex-wrap font-sora mt-[-1.4px]">
+          <div className="flex flex-wrap font-sora ">
             <div className=" mt-5 mr-2">
-              <h2 className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 text-sm text-white py-1 px-3 rounded-full mt-1">
+              <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
                 2020- 2021
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
-              <div className="w-[3px] h-[190px] bg-gradient-to-b from-indigo-500  opacity-45"></div>
-              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-indigo-500 opacity-45 absolute top-[40px]"></div>
-              <div className="w-4 h-4 bg-[#0F172A] border border-indigo-500 rounded-full absolute top-[33px] "></div>
+              <div className="w-[3px] h-[190px] bg-gradient-to-b from-cyan-500  opacity-45"></div>
+              <div className="w-[70px] h-[3px] rounded-full bg-gradient-to-r from-cyan-500 opacity-45 absolute top-[40px]"></div>
+              <div className="w-4 h-4 bg-[#0F172A] border border-cyan-500 rounded-full absolute top-[33px] "></div>
             </div>
             <div className="w-[400px] mt-7 ml-2">
               <h3
