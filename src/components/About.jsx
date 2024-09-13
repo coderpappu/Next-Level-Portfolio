@@ -38,16 +38,12 @@ const About = () => {
 
         <div className="w-[60%] border-l border-violet-600 border-opacity-45 border-dashed">
           <div
-            className="w-[80%] h-[250px] p-[2px] ml-10 rounded-md"
+            className="w-[80%] h-[250px] p-[2px] ml-10 rounded-md bg-gradient-to-bl to-[#37baf814 ] from-[#3730a38a]"
             id="profile_card"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgb(0 71 137) 0%, rgb(255 0 171 / 7%) 100%)",
-            }}
           >
             <div className="bg-[#0F172A]">
               <div
-                className="w-full h-[300px] rounded-md text-justify p-4  "
+                className="w-full h-[300px] rounded-md text-justify p-6  "
                 id="about_us"
                 style={{
                   backgroundImage:
@@ -66,6 +62,10 @@ const About = () => {
                   low-risk high-yield supply chains via scalable intellectual
                   capital
                 </h3>
+
+                <button className="px-8 py-3 bg-[#1D1D49] rounded-md mt-5 font-sora text-sm">
+                  Know More
+                </button>
               </div>
             </div>
           </div>
