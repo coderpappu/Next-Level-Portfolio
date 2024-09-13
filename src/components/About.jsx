@@ -63,7 +63,7 @@ const About = () => {
                   capital
                 </h3>
 
-                <button className="px-8 py-3 bg-[#1D1D49] rounded-md mt-5 font-sora text-sm">
+                <button className="px-8 py-3 bg-gradient-to-r from-violet-950 via-violet-900 to-violet-950 rounded-md mt-5 font-sora text-sm">
                   Know More
                 </button>
               </div>

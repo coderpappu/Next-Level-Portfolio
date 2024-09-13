@@ -88,7 +88,9 @@ const Heading = () => {
           )}
         </ul>
         <div className="text-center mt-4">
-          <button className="buttonStyle px-4">Hire Me</button>
+          <button className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 px-4">
+            Hire Me
+          </button>
         </div>
       </div>
     </div>
