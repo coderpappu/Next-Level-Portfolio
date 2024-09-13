@@ -4,6 +4,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Sora:wght@100..800&display=swap");
+
+:root {
+  --box-border: radial-gradient(
+    circle,
+    rgba(255, 59, 0, 0.8520658263305322) 0%,
+    rgba(121, 9, 103, 1) 47%,
+    rgba(86, 136, 240, 1) 100%
+  );
+}
+
 .buttonStyle {
   background: linear-gradient(
       90deg,
@@ -110,4 +120,28 @@
   100% {
     transform: scale(1);
   }
+}
+
+.gradient-border {
+  background: radial-gradient(
+        circle at 100% 100%,
+        #ffffff 0,
+        #ffffff 3px,
+        transparent 3px
+      )
+      0% 0%/8px 8px no-repeat,
+    radial-gradient(circle at 0 100%, #ffffff 0, #ffffff 3px, transparent 3px)
+      100% 0%/8px 8px no-repeat,
+    radial-gradient(circle at 100% 0, #ffffff 0, #ffffff 3px, transparent 3px)
+      0% 100%/8px 8px no-repeat,
+    radial-gradient(circle at 0 0, #ffffff 0, #ffffff 3px, transparent 3px) 100%
+      100%/8px 8px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 10px)
+      calc(100% - 16px) no-repeat,
+    linear-gradient(#ffffff, #ffffff) 50% 50% / calc(100% - 16px)
+      calc(100% - 10px) no-repeat,
+    linear-gradient(90deg, transparent 0%, #48abe0 100%);
+  border-radius: 8px;
+  padding: 9px;
+  box-sizing: border-box;
 }

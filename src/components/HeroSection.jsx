@@ -8,7 +8,7 @@ import pappuImg from "../assets/pappudey.png";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-28 z-50 px-4 sm:px-6 lg:px-8">
+    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-16 z-50 px-4 sm:px-6 lg:px-0">
       <div className="intro_text">
         {/* SVG for animated "Hi" text */}
         <svg viewBox="0 0 500 500">
@@ -89,7 +89,6 @@ const HeroSection = () => {
             alt="pappudey_picture"
             className="rounded-[38px] border-2 border-[#7343D2] transform rotate-[4.29deg] transition-transform duration-300 ease-in-out hover:rotate-0 hover:border-[#0DCFD2] w-full h-auto"
           />
-         
         </div>
       </div>
     </div>
