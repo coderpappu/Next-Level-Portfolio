@@ -24,7 +24,7 @@ const CareerSummary = () => {
           <div className="flex flex-wrap font-sora ">
             <div className="w-[106px] mt-5 mr-2">
               <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
-                2021- 2024
+                4 months
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
@@ -53,9 +53,9 @@ const CareerSummary = () => {
 
           {/* Card  */}
           <div className="flex flex-wrap font-sora ">
-            <div className=" mt-5 mr-2">
+            <div className="w-[106px] mt-5 mr-2">
               <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
-                2020- 2021
+                2021- 2022
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
