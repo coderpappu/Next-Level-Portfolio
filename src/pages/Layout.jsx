@@ -1,8 +1,9 @@
-import HeroSection from "../components/HeroSection";
-import Heading from "../components/Heading";
-import Counter from "../components/Counter";
 import About from "../components/About";
 import CareerSummary from "../components/CareerSummary";
+import Counter from "../components/Counter";
+import Heading from "../components/Heading";
+import HeroSection from "../components/HeroSection";
+import StackCard from "../components/StackCard";
 const Layout = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Layout = () => {
         <Counter />
         <About />
         <CareerSummary />
+        <StackCard />
       </div>
     </div>
   );
