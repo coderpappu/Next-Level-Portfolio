@@ -1,10 +1,10 @@
 import React from "react";
 // Assuming you'll add the CSS here
-import { RiFacebookFill } from "react-icons/ri";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { IoLogoGithub } from "react-icons/io";
+import { RiFacebookFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import pappuImg from "../assets/pappudey.png";
+import pappuImg from "../assets/pappu-dey.jpg";
 
 const HeroSection = () => {
   return (
