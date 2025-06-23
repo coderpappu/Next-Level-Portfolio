@@ -7,6 +7,7 @@ import { AnimatedPinDemo } from "../components/Project";
 
 import StackCard from "../components/StackCard";
 import { InfiniteMovingCardsDemo } from "../components/Testomonials";
+
 const Layout = () => {
   return (
     <div>
