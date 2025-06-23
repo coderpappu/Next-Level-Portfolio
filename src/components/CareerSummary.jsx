@@ -1,9 +1,8 @@
-import React from "react";
 import { BsFillClipboardCheckFill } from "react-icons/bs";
 import { FaGraduationCap } from "react-icons/fa6";
 const CareerSummary = () => {
   return (
-    <div className="flex flex-wrap justify-between ">
+    <div id="resume" className="flex flex-wrap justify-between ">
       <div className="w-[50%]">
         {/* Experience Section  */}
         <div className=" flex flex-wrap justify-start items-center">
@@ -22,9 +21,9 @@ const CareerSummary = () => {
         {/* timeline  */}
         <div className="my-9">
           <div className="flex flex-wrap font-sora ">
-            <div className="w-[106px] mt-5 mr-2">
+            <div className="w-[108px] mt-5 mr-2">
               <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
-                4 months
+                01-10-2024
               </h2>
             </div>
             <div className="relative w-[95px] flex justify-center">
@@ -40,20 +39,21 @@ const CareerSummary = () => {
                     "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
                 }}
               >
-                Software Engineer - Intern
+                Software Engineer
               </h3>
               <p className="text-[#ffffffa2] my-2">Xceed Bangladesh LTD</p>
               <p className="text-justify text-sm text-[#ffffff78]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                necessitatibus porro perspiciatis quia minus ratione quis
-                voluptatem itaque unde nulla!
+                Custom SaaS software development, specializing in HRM solutions.
+                Programming to adapt and optimize systems for specific client
+                needs. Delivering tailored features within a dynamic, SaaS
+                environment.
               </p>
             </div>
           </div>
 
           {/* Card  */}
           <div className="flex flex-wrap font-sora ">
-            <div className="w-[106px] mt-5 mr-2">
+            <div className="w-[108px] mt-5 mr-2">
               <h2 className="bg-gradient-to-br from-cyan-500  to-blue-500  text-sm text-white py-1 px-3 rounded-full mt-1">
                 2021- 2022
               </h2>
@@ -75,9 +75,9 @@ const CareerSummary = () => {
               </h3>
               <p className="text-[#ffffffa2] my-2">Research Lab Chattogram</p>
               <p className="text-justify text-sm text-[#ffffff78]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                necessitatibus porro perspiciatis quia minus ratione quis
-                voluptatem itaque unde nulla!
+                Creating and managing websites from concept to deployment.
+                Proficient in both custom coding and WordPress development.
+                Ensuring optimal site performance and security.
               </p>
             </div>
           </div>
@@ -125,9 +125,9 @@ const CareerSummary = () => {
                 Chattogram Polytechnic Institute
               </p>
               <p className="text-justify text-sm text-[#ffffff78]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                necessitatibus porro perspiciatis quia minus ratione quis
-                voluptatem itaque unde nulla!
+                Completed a 4-year Diploma in CSE at Chattogram Polytechnic
+                Institute, achieving a 3.50 GPA. My education included practical
+                skill development, and I am committed to continued learning.
               </p>
             </div>
           </div>
@@ -158,9 +158,9 @@ const CareerSummary = () => {
                 Raozan Barrister Suresh Vidyayatan
               </p>
               <p className="text-justify text-sm text-[#ffffff78]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                necessitatibus porro perspiciatis quia minus ratione quis
-                voluptatem itaque unde nulla!
+                Secondary School Certificate (Science Group) | Raozan Barrister
+                Suresh Vidyayatan | Completed in 2020 | Foundation in science
+                education.
               </p>
             </div>
           </div>

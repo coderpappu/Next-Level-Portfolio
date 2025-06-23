@@ -1,4 +1,3 @@
-import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { LuMousePointerClick } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -117,7 +116,7 @@ const projects = [
 
 export function AnimatedPinDemo() {
   return (
-    <div className="w-full h-auto relative ">
+    <div id="work" className="w-full h-auto relative ">
       <div className="text-center">
         <h3
           className="text-5xl font-sora font-bold text-transparent bg-clip-text"

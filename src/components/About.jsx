@@ -1,5 +1,4 @@
-import React from "react";
-import ProfileImg from "../assets/pappudey.png";
+import ProfileImg from "../assets/pappu-dey.jpg";
 const About = () => {
   return (
     <div className=" text-white my-20">
@@ -30,7 +29,7 @@ const About = () => {
               id="profile_card_box "
             >
               <div className="w-full h-full  bg-[#0F172A] rounded-md">
-                {/* <img src={ProfileImg} alt="" className="h-[330px]" /> */}
+                <img src={ProfileImg} alt="" className="h-[330px]" />
               </div>
             </div>
           </div>

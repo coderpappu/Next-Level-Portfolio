@@ -1,14 +1,17 @@
-import React from "react";
 // Assuming you'll add the CSS here
 import { BiLogoLinkedin } from "react-icons/bi";
 import { IoLogoGithub } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import cvFile from "../assets/cv_pappu_dey_junior_software_engineer_CSE (2).pdf";
 import pappuImg from "../assets/pappu-dey.jpg";
 
 const HeroSection = () => {
   return (
-    <div className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-16 z-50 px-4 sm:px-6 lg:px-0">
+    <div
+      id="home"
+      className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-16 z-50 px-4 sm:px-6 lg:px-0"
+    >
       <div className="intro_text">
         {/* SVG for animated "Hi" text */}
         <svg viewBox="0 0 500 500">
@@ -46,14 +49,19 @@ const HeroSection = () => {
             focused solutions that connect billions of people
           </p>
           <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:justify-center md:justify-start sm:flex-row items-center gap-4">
-            <button className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border border-[#0EABE6] hover:bg-[#0DCFD2] text-[#0EABE6] rounded-full cursor-pointer transition duration-300 ease-in-out">
+            <a
+              href={cvFile}
+              download="Pappu_Dey_CV.pdf"
+              className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border border-[#0EABE6] hover:bg-[#0EABE6] hover:text-white text-[#0EABE6] rounded-full cursor-pointer transition duration-300 ease-in-out z-50"
+            >
               Download CV
-            </button>
+            </a>
             {/* Social media icons */}
             <ul className="flex space-x-4">
               <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
                 <Link
-                  to="#"
+                  target="_blank"
+                  to="https://www.facebook.com/coderpappudey"
                   className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 >
                   <RiFacebookFill size={20} />
@@ -62,7 +70,8 @@ const HeroSection = () => {
               </li>
               <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
                 <Link
-                  to="#"
+                  target="_blank"
+                  to="https://www.linkedin.com/in/coderpappu/"
                   className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 >
                   <BiLogoLinkedin size={20} />
@@ -71,7 +80,8 @@ const HeroSection = () => {
               </li>
               <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
                 <Link
-                  to="#"
+                  target="_blank"
+                  to="https://github.com/coderpappu/"
                   className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 >
                   <IoLogoGithub size={20} />

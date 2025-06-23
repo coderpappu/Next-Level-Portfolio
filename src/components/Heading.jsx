@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+
+const menuMap = [
+  { label: "Home", section: "home" },
+  { label: "Services", section: "services" },
+  { label: "Work", section: "work" },
+  { label: "Resume", section: "resume" },
+  { label: "Skills", section: "skills" },
+  { label: "Contact", section: "contact" },
+];
 
 const Heading = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +16,15 @@ const Heading = () => {
   // Toggle mobile menu visibility
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  // Scroll to section by id
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsOpen(false);
   };
 
   return (
@@ -21,27 +38,31 @@ const Heading = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center">
           <ul className="flex space-x-8 font-semibold">
-            {["Home", "Services", "Work", "Resume", "Skills", "Contact"].map(
-              (item, idx) => (
-                <li key={idx} className="relative group">
-                  <Link
-                    to={`/${item.toLowerCase()}`}
-                    className="relative group"
-                  >
-                    {item}
-                    <span className="top-6 absolute left-0 bottom-0 w-full h-[1px] bg-gradient-to-r from-[#38BDF8] to-[#0F172A] scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-300 ease-in-out"></span>
-                  </Link>
-                </li>
-              )
-            )}
+            {menuMap.map((item, idx) => (
+              <li key={idx} className="relative group">
+                <button
+                  onClick={() => scrollToSection(item.section)}
+                  className="relative group bg-transparent border-none outline-none cursor-pointer text-inherit"
+                >
+                  {item.label}
+                  <span className="top-6 absolute left-0 bottom-0 w-full h-[1px] bg-gradient-to-r from-[#38BDF8] to-[#0F172A] scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-300 ease-in-out"></span>
+                </button>
+              </li>
+            ))}
           </ul>
           <div className="w-36 text-center">
-            <button className="buttonStyle px-4">Hire Me</button>
+            <a
+              href="https://www.linkedin.com/in/coderpappu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="buttonStyle px-4 inline-block"
+            >
+              Hire Me
+            </a>
           </div>
         </div>
 
         {/* Mobile Menu Button */}
-
         <div className="md:hidden flex items-center">
           <button
             className="text-white focus:outline-none"
@@ -73,24 +94,26 @@ const Heading = () => {
         } md:hidden bg-[#0F172A] py-5 px-8`}
       >
         <ul className="space-y-4 text-center font-semibold">
-          {["Home", "Services", "Work", "Resume", "Skills", "Contact"].map(
-            (item, idx) => (
-              <li key={idx}>
-                <Link
-                  to={`/${item.toLowerCase()}`}
-                  className="block py-2 hover:text-[#38BDF8] text-[#ddd]"
-                  onClick={toggleMenu}
-                >
-                  {item}
-                </Link>
-              </li>
-            )
-          )}
+          {menuMap.map((item, idx) => (
+            <li key={idx}>
+              <button
+                onClick={() => scrollToSection(item.section)}
+                className="block py-2 hover:text-[#38BDF8] text-[#ddd] w-full bg-transparent border-none outline-none cursor-pointer text-inherit"
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
         </ul>
         <div className="text-center mt-4">
-          <button className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 px-4">
+          <a
+            href="https://www.linkedin.com/in/coderpappu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-br from-violet-950 via-violet-900 to-violet-950 px-4 inline-block"
+          >
             Hire Me
-          </button>
+          </a>
         </div>
       </div>
     </div>

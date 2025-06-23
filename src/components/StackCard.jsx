@@ -1,5 +1,3 @@
-import React from "react";
-
 import djangoImg from "../assets/django.svg";
 import gitImg from "../assets/git.svg";
 import githubImg from "../assets/github-v.svg";
@@ -45,7 +43,7 @@ const technologies = [
 
 const StackCard = () => {
   return (
-    <div className="text-white my-20 relative">
+    <div id="skills" className="text-white my-20 relative">
       {/* Experience Section  */}
       <div className="text-center">
         <h3
