@@ -1,6 +1,7 @@
 import About from "../components/About";
 import CareerSummary from "../components/CareerSummary";
 import Counter from "../components/Counter";
+import { LayoutGridDemo } from "../components/Gallary";
 import Heading from "../components/Heading";
 import HeroSection from "../components/HeroSection";
 import { AnimatedPinDemo } from "../components/Project";
@@ -22,6 +23,7 @@ const Layout = () => {
 
         <AnimatedPinDemo />
         <InfiniteMovingCardsDemo />
+        <LayoutGridDemo />
       </div>
     </div>
   );
