@@ -6,6 +6,7 @@ import { LayoutGridDemo } from "../components/Gallary";
 import Heading from "../components/Heading";
 import HeroSection from "../components/HeroSection";
 import { AnimatedPinDemo } from "../components/Project";
+import RecommendationSection from "../components/Recomendation";
 
 import StackCard from "../components/StackCard";
 import { InfiniteMovingCardsDemo } from "../components/Testomonials";
@@ -18,6 +19,7 @@ const Layout = () => {
         <HeroSection />
         <Counter />
         <About />
+        <RecommendationSection />
         <CareerSummary />
 
         <StackCard />
