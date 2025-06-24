@@ -70,6 +70,7 @@ const RecommendationSection = () => (
           >
             <img
               src={RecomendationLetter}
+              loading="lazy"
               alt="Recommendation Certificate"
               className="rounded-xl border-2 border-cyan-400 shadow-xl w-full w-[820px] transition"
             />
@@ -150,6 +151,7 @@ const RecommendationSection = () => (
         <div className="relative flex items-center justify-center p-2 w-full h-full">
           <img
             src={ICPC_Certificate}
+            loading="lazy"
             alt="ICPC Certificate"
             className="rounded-xl border-2 border-yellow-300 shadow-xl w-full max-w-[360px] transition"
           />

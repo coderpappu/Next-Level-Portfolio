@@ -139,7 +139,7 @@ export function AnimatedPinDemo() {
                 {project?.name}
               </h3>
               <div className="w-full h-[230px] overflow-hidden rounded-md">
-                <img src={project?.image} alt="" srcSet="" />
+                <img src={project?.image} alt="" srcSet="" loading="lazy"/>
               </div>
               <div className="text-base my-3 !p-0 font-normal">
                 <span className="text-slate-400 ">{project?.description}</span>

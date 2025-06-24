@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const AnimatedTooltip = ({ items }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -72,6 +72,7 @@ export const AnimatedTooltip = ({ items }) => {
             onMouseMove={handleMouseMove}
             src={item.image}
             alt={item.name}
+            loading="lazy"
             className="relative !m-0 h-9 w-9 rounded-full border-[1px] bg-[#07001ad7]  p-[3px] border-white object-cover object-top transition duration-500 group-hover:z-30 group-hover:scale-105"
           />
         </div>

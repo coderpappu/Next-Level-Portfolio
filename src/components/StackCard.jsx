@@ -81,6 +81,7 @@ const StackCard = () => {
                 src={tech.img}
                 alt={tech.name}
                 title={tech.name}
+                loading="lazy"
                 className="rounded-sm hover:scale-110 transition-transform duration-300"
               />
             </div>

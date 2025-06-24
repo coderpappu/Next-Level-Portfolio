@@ -11,8 +11,9 @@ const Footer = () => {
               <img
                 src={PappuDeyLogo}
                 alt=""
-                srcset=""
-                class="w-14 h-auto mb-1"
+                loading="lazy"
+                srcSet=""
+                className="w-14 h-auto mb-1"
               />
             </div>
             <div className="text-slate-500 mb-3">#A passionate Programmer</div>
@@ -66,21 +67,21 @@ const Footer = () => {
 
       {/* Bottom row: copyright & social */}
       <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto gap-6">
-        <div class="w-full h-16 px-3 lg:px-0 flex flex-wrap md:justify-between items-center text-white font-sora gap-5 md:gap-0  justify-center">
-          <p class="text-sm text-slate-200">
+        <div className="w-full h-16 px-3 lg:px-0 flex flex-wrap md:justify-between items-center text-white font-sora gap-5 md:gap-0  justify-center">
+          <p className="text-sm text-slate-200">
             All rights reserved © 2025 Pappu Dey
           </p>
-          <ul class="flex space-x-4">
-            <li class="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+          <ul className="flex space-x-4">
+            <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
               <a
-                class="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://www.facebook.com/coderpappudey"
                 target="_blank"
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="20"
                   width="20"
@@ -89,18 +90,18 @@ const Footer = () => {
                   <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path>
                 </svg>
               </a>
-              <span class="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
             </li>
-            <li class="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+            <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
               <a
-                class="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://www.linkedin.com/in/coderpappu/"
                 target="_blank"
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="20"
                   width="20"
@@ -110,18 +111,18 @@ const Footer = () => {
                   <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
                 </svg>
               </a>
-              <span class="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
             </li>
-            <li class="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+            <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
               <a
-                class="relative z-50 text-[#0EABE6] group-hover:text-white transition duration-300"
+                className="relative z-50 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://github.com/coderpappu/"
                 target="_blank"
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="20"
                   width="20"
@@ -130,7 +131,7 @@ const Footer = () => {
                   <path d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9 1.4.3 2.6.4 3.8.4 8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1-8.4 1.9-15.9 2.7-22.6 2.7-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1 10.5 0 20-3.4 25.6-6 2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8 0 0 1.6-.5 5-.5 8.1 0 26.4 3.1 56.6 24.1 17.9-5.1 37-7.6 56.1-7.7 19 .1 38.2 2.6 56.1 7.7 30.2-21 48.5-24.1 56.6-24.1 3.4 0 5 .5 5 .5 12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5 1.2 0 2.6-.1 4-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z"></path>
                 </svg>
               </a>
-              <span class="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
             </li>
           </ul>
         </div>

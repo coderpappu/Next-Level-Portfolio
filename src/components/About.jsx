@@ -1,4 +1,4 @@
-import ProfileImg from "../assets/pappu-dey.jpg";
+import ProfileImg from "../assets/pic.jpg";
 const About = () => {
   return (
     <div className=" text-white my-20">
@@ -16,20 +16,25 @@ const About = () => {
       <div className="flex flex-wrap justify-between mt-20 ">
         <div className="w-[20%] relative m-auto">
           <div>
-            {/* card  */}
+            {/* card */}
             <div
               className="w-[260px] h-[350px] rounded-md p-[3px] box-border bg-gradient-to-r from-sky-400 to-indigo-800"
               id="profile_card_box"
             >
-              <div className="w-full h-full  bg-[#131e36] rounded-md"></div>
+              <div className="w-full h-full bg-[#131e36] rounded-md"></div>
             </div>
 
             <div
-              className="w-[260px] h-[350px] rounded-md p-[3px] box-border bg-gradient-to-r  from-blue-600 hover:to-sky-400 to-sky-400 absolute top-[-20px] left-[-20px]  transform  transition-transform duration-300 ease-in-out -rotate-6"
-              id="profile_card_box "
+              className="w-[260px] h-[350px] rounded-md p-[3px] box-border bg-gradient-to-r from-blue-600 hover:to-sky-400 to-sky-400 absolute top-[-20px] left-[-20px] transform transition-transform duration-300 ease-in-out -rotate-6"
+              id="profile_card_box"
             >
-              <div className="w-full h-full  bg-[#0F172A] rounded-md">
-                <img src={ProfileImg} alt="" className="h-[330px]" />
+              <div className="w-full h-full bg-[#0F172A] rounded-md overflow-hidden">
+                <img
+                  src={ProfileImg}
+                  alt=""
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
