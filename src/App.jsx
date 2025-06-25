@@ -1,7 +1,19 @@
+import { Helmet } from "react-helmet";
 import "./App.css";
-import Heading from "./components/Heading";
-import Home from "./pages/Home";
 import Layout from "./pages/Layout";
+
+<Helmet>
+  <title>Pappu Dey — Full-Stack Developer & React Expert</title>
+  <meta
+    name="description"
+    content="Official portfolio of Pappu Dey, React.js and Full-Stack Software Engineer."
+  />
+  <meta
+    name="keywords"
+    content="Pappu Dey, React Developer, Bangladesh, Software Engineer, Web Developer"
+  />
+  <meta name="author" content="Pappu Dey" />
+</Helmet>;
 
 function App() {
   return (
