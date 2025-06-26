@@ -2,9 +2,6 @@
   font-family: "Poppine";
 } */
 
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&family=Sora:wght@100..800&display=swap");
-
 :root {
   --box-border: radial-gradient(
     circle,
@@ -145,4 +142,3 @@
   padding: 9px;
   box-sizing: border-box;
 }
-
