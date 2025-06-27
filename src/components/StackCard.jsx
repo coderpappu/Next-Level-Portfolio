@@ -43,7 +43,7 @@ const technologies = [
 
 const StackCard = () => {
   return (
-    <div id="skills" className="text-white my-20 relative">
+    <div id="skills" className="text-white my-20 relative block">
       {/* Experience Section  */}
       <div className="text-center">
         <h3
@@ -56,7 +56,7 @@ const StackCard = () => {
           Technology
         </h3>
       </div>
-      <div className="relative flex h-[30rem] w-full items-start justify-start flex-wrap ">
+      <div className="relative flex h-auto w-full items-start justify-start flex-wrap ">
         <div
           className={cn(
             "absolute inset-0",

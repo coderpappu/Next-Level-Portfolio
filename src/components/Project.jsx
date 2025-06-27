@@ -16,63 +16,6 @@ import { AnimatedTooltip } from "./Tooltip";
 
 import { IoLogoGithub } from "react-icons/io";
 
-// const projects = [
-//   {
-//     name: "E-Clearance",
-//     description:
-//       "E-Clearance is a smart and efficient clearance solution for universities and polytechnics.",
-//     image: DashboardImg,
-
-//     tech: [
-//       JsImg,
-//       reactImg,
-//       tailwindImg,
-//       nodeImg,
-//       djangoImg,
-//       prismaImg,
-//       mysqlImg,
-//     ],
-//     githubLink: "https://github.com/yourrepo",
-//     liveLink: "https://clearance.codexdevware.com",
-//   },
-//   {
-//     name: "Mini Dokan",
-//     description:
-//       "Mini Dokan is a multi vendor ecommerce website just like a Daraz.",
-//     image: DashboardImg,
-//     tech: [WordpressImg],
-//     githubLink: "https://github.com/yourrepo2",
-//     liveLink: "https://eshop.codexdevware.com",
-//   },
-//    {
-//     name: "E-Clearance",
-//     description:
-//       "E-Clearance is a smart and efficient clearance solution for universities and polytechnics.",
-//     image: DashboardImg,
-
-//     tech: [
-//       JsImg,
-//       reactImg,
-//       tailwindImg,
-//       nodeImg,
-//       djangoImg,
-//       prismaImg,
-//       mysqlImg,
-//     ],
-//     githubLink: "https://github.com/yourrepo",
-//     liveLink: "https://clearance.codexdevware.com",
-//   },
-//   {
-//     name: "Mini Dokan",
-//     description:
-//       "Mini Dokan is a multi vendor ecommerce website just like a Daraz.",
-//     image: DashboardImg,
-//     tech: [WordpressImg],
-//     githubLink: "https://github.com/yourrepo2",
-//     liveLink: "https://eshop.codexdevware.com",
-//   },
-// ];
-
 const projects = [
   {
     link: "www.clearance.codexdevware.com",
@@ -222,10 +165,10 @@ const projects = [
 
 export function AnimatedPinDemo() {
   return (
-    <section id="projects" className="py-16 text-white  relative">
+    <section id="projects" className="py-0 lg:py-16 text-white  relative">
       <div className="text-center mb-12">
         <h3
-          className="text-5xl font-sora font-bold text-transparent bg-clip-text"
+          className="text-3xl lg:text-5xl font-sora font-bold text-transparent bg-clip-text"
           style={{
             backgroundImage:
               "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
