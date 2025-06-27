@@ -12,11 +12,11 @@ const RecommendationSection = () => (
   <section className="relative w-full flex flex-col justify-center pt-5 pb-24 px-2 md:px-0 overflow-hidden">
     {/* Section titles */}
     <div className="flex flex-wrap md:flex-nowrap items-end justify-center gap-5 mb-12 w-full max-w-7xl mx-auto">
-      <div className="w-full md:w-4/5 flex flex-col items-end md:pr-10">
+      <div className="w-full md:w-4/5 flex flex-col items-start lg:items-end md:pr-10">
         <span className="inline-flex items-center gap-2 mb-2">
-          <FaCertificate className="text-[#0ea5ea] text-3xl drop-shadow" />
+          <FaCertificate className="text-[#0ea5ea] text-2xl lg:text-3xl drop-shadow" />
           <span
-            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent"
+            className="text-2xl lg:text-5xl font-bold bg-clip-text text-transparent"
             style={{
               backgroundImage:
                 "linear-gradient(90deg,#0ea5ea,#0dd1d1 60%,#0ea5ea)",
@@ -25,12 +25,12 @@ const RecommendationSection = () => (
             Campus Recognition
           </span>
         </span>
-        <span className="text-base text-[#ffffffbb] mt-1 text-right">
+        <span className="text-base text-[#ffffffbb] mt-1 text-left lg:text-right">
           Official Certificate of Appreciation from Chattogram Polytechnic
           Institute
         </span>
       </div>
-      <div className="w-full md:w-2/5 flex flex-col items-start ">
+      <div className="w-full md:w-2/5 lg:flex flex-col items-start hidden ">
         <span className="inline-flex items-center gap-2 mb-2">
           <FaAward className="text-[#0ea5ea] text-3xl drop-shadow" />
           <span
@@ -139,6 +139,24 @@ const RecommendationSection = () => (
           </a>
         </div>
       </motion.div>
+
+      <div className="w-full md:w-2/5 flex flex-col items-start lg:hidden">
+        <span className="inline-flex items-center gap-2 mb-2">
+          <FaAward className="text-[#0ea5ea] text-3xl drop-shadow" />
+          <span
+            className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg,#0ea5ea,#0dd1d1 60%,#0ea5ea)",
+            }}
+          >
+            ICPC
+          </span>
+        </span>
+        <span className="text-base text-[#ffffffbb] mt-1">
+          Regionalist - 2024 | Team - CPI Newbies | Rank - 189
+        </span>
+      </div>
 
       {/* ICPC Certificate Image Only (40%) */}
       <motion.div
