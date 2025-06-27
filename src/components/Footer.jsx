@@ -4,7 +4,7 @@ const Footer = () => {
     <footer id="contact">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start max-w-7xl mx-auto">
         {/* Left: Branding and Contact */}
-        <div className="w-full md:w-1/2 flex flex-col gap-4 mb-10 md:mb-0">
+        <div className="w-full md:w-1/2 flex flex-col gap-0 lg:gap-4 mb-10 md:mb-0 px-4">
           {/* Branding */}
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="text-slate-500 mb-3">#A passionate Programmer</div>
           </div>
           {/* Contact info */}
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-2 lg:gap-8 ">
             <div>
               <div className="text-slate-300 font-sora">Email</div>
               <div className="text-slate-500">pappudeydeveloper@gmail.com</div>
