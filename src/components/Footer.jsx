@@ -2,9 +2,9 @@ import PappuDeyLogo from "../assets/logo.png";
 const Footer = () => {
   return (
     <footer id="contact">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-start  mx-auto">
         {/* Left: Branding and Contact */}
-        <div className="w-full md:w-1/2 flex flex-col gap-0 lg:gap-4 mb-10 md:mb-0 px-4">
+        <div className="w-full md:w-1/2 flex flex-col gap-0 lg:gap-4 mb-10 md:mb-0 ">
           {/* Branding */}
           <div>
             <div className="flex items-center gap-2 mb-2">
