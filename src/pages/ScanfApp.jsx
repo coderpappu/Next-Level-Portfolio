@@ -1,5 +1,11 @@
 import { get, onValue, push, ref, set } from "firebase/database";
 import { useCallback, useEffect, useState } from "react";
+import ScanfLogo from "../assets/scanf-app.jpeg";
+import View01 from "../assets/view01.jpeg";
+import View02 from "../assets/view02.jpeg";
+import View03 from "../assets/view03.jpeg";
+import View04 from "../assets/view04.jpeg";
+import View05 from "../assets/view05.jpeg";
 import { database } from "../firebase";
 
 const ProScannerPage = () => {
@@ -20,18 +26,15 @@ const ProScannerPage = () => {
   useEffect(() => {
     const statsRef = ref(database, "app-db");
 
-    // Real-time listener for stats changes
     const unsubscribe = onValue(statsRef, (snapshot) => {
       if (snapshot.exists()) {
         setAppStats(snapshot.val());
       } else {
-        // Initialize database with default values
         set(statsRef, appStats);
       }
       setLoading(false);
     });
 
-    // Cleanup listener on unmount
     return () => unsubscribe();
   }, []);
 
@@ -46,7 +49,6 @@ const ProScannerPage = () => {
           id: key,
           ...reviewsData[key],
         }));
-        // Sort by timestamp, newest first
         reviewsArray.sort((a, b) => b.timestamp - a.timestamp);
         setReviews(reviewsArray);
       }
@@ -57,20 +59,15 @@ const ProScannerPage = () => {
 
   const handleDownload = useCallback(async () => {
     try {
-      // Get current stats
       const statsRef = ref(database, "app-db");
       const snapshot = await get(statsRef);
 
       if (snapshot.exists()) {
         const currentStats = snapshot.val();
-
-        // Increment download count
         const newStats = {
           ...currentStats,
           totalDownloads: currentStats.totalDownloads + 1,
         };
-
-        // Update Firebase
         await set(statsRef, newStats);
       }
     } catch (error) {
@@ -78,10 +75,7 @@ const ProScannerPage = () => {
     }
 
     // Simulate download
-    const appContent = `
-      This is a simulated download for Pro Scanner.
-      Replace with your real APK or external link later.
-    `;
+    const appContent = `This is a simulated download for Pro Scanner V1.0.`;
     const blob = new Blob([appContent], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -99,7 +93,6 @@ const ProScannerPage = () => {
       return;
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(userEmail)) {
       alert("Please enter a valid email address!");
@@ -109,14 +102,11 @@ const ProScannerPage = () => {
     setSubmitting(true);
 
     try {
-      // Update stats with new rating
       const statsRef = ref(database, "app-db");
       const snapshot = await get(statsRef);
 
       if (snapshot.exists()) {
         const currentStats = snapshot.val();
-
-        // Calculate new average rating
         const totalRatingPoints =
           currentStats.averageRating * currentStats.totalReviews;
         const newTotalReviews = currentStats.totalReviews + 1;
@@ -129,14 +119,10 @@ const ProScannerPage = () => {
           totalReviews: newTotalReviews,
         };
 
-        // Update Firebase stats
         await set(statsRef, newStats);
 
-        // Add review to database
         const reviewsRef = ref(database, "reviews");
         const newReviewRef = push(reviewsRef);
-
-        // Get first letter of email
         const firstLetter = userEmail.charAt(0).toUpperCase();
 
         await set(newReviewRef, {
@@ -147,7 +133,6 @@ const ProScannerPage = () => {
           timestamp: Date.now(),
         });
 
-        // Reset form
         setUserRating(0);
         setUserEmail("");
         setUserComment("");
@@ -162,6 +147,8 @@ const ProScannerPage = () => {
     }
   };
 
+  const screenshots = [View01, View02, View03, View04, View05];
+
   return (
     <div className="bg-[#0F172A] min-h-screen text-gray-100 py-10 md:py-16">
       <div className="max-w-6xl mx-auto px-6">
@@ -169,19 +156,20 @@ const ProScannerPage = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
           <div className="flex items-center gap-6">
             <img
-              src="https://placehold.co/120x120/0EA5EA/ffffff?text=SCAN"
+              src={ScanfLogo}
               alt="App Icon"
               className="rounded-3xl w-24 h-24 md:w-28 md:h-28 shadow-[0_0_20px_rgba(14,165,234,0.4)]"
             />
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-white">
-                Pro Scanner - PDF & OCR
+                Scanf - Free Scanner App
               </h1>
               <p className="text-lg bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent font-medium">
-                by ScanTech Solutions
+                by Pappu Dey
               </p>
               <div className="text-gray-400 text-sm mt-1">
-                Contains ads • In-app purchases
+                Version 1.0 - 100% free, no ads, no in-app purchases. Secure and
+                privacy-friendly.
               </div>
             </div>
           </div>
@@ -204,25 +192,7 @@ const ProScannerPage = () => {
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 
-                0l1.286 3.959a1 1 0 
-                00.95.69h4.162c.969 0 
-                1.371 1.24.588 
-                1.81l-3.368 
-                2.446a1 1 0 
-                00-.364 1.118l1.287 
-                3.96c.3.921-.755 
-                1.688-1.54 
-                1.118l-3.368-2.446a1 1 0 
-                00-1.175 0l-3.368 
-                2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 
-                1 0 
-                00-.364-1.118L2.05 
-                9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 
-                1 0 
-                00.95-.69L9.049 2.927z"
-                />
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.959a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.446a1 1 0 00-.364 1.118l1.287 3.96c.3.921-.755 1.688-1.54 1.118l-3.368-2.446a1 1 0 00-1.175 0l-3.368 2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 1 0 00-.364-1.118L2.05 9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
               </svg>
             </div>
             <p className="text-sm text-gray-400">
@@ -245,22 +215,20 @@ const ProScannerPage = () => {
           </div>
         </div>
 
-        {/* Screenshots */}
+        {/* Screenshots Slider */}
         <div className="pt-10">
           <h2 className="text-2xl font-semibold text-white mb-4">
             App Screenshots
           </h2>
           <div className="flex overflow-x-auto gap-4 pb-4">
-            {["Scan+Page", "OCR+Text", "PDF+Editor", "Share+Scan"].map(
-              (text) => (
-                <img
-                  key={text}
-                  src={`https://placehold.co/280x500/1E293B/94A3B8?text=${text}`}
-                  alt={text}
-                  className="rounded-xl shadow-md hover:scale-[1.02] transition-transform"
-                />
-              )
-            )}
+            {screenshots.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Screenshot ${idx + 1}`}
+                className="rounded-xl shadow-md hover:scale-[1.02] transition-transform flex-shrink-0 w-[280px] h-auto"
+              />
+            ))}
           </div>
         </div>
 
@@ -270,23 +238,26 @@ const ProScannerPage = () => {
             About this app
           </h2>
           <p className="text-gray-300 leading-relaxed max-w-3xl">
-            Turn your device into a professional-grade scanner with{" "}
+            Transform your device into a professional scanner with{" "}
             <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent font-semibold">
-              Pro Scanner
+              Scanf
             </span>
-            . Capture, crop, enhance, and extract text instantly using advanced
-            OCR technology. Export high-quality PDFs or images in seconds.
+            . Capture, crop, enhance, and extract text instantly. Export
+            high-quality PDFs or images in seconds. This app is 100% free,
+            secure, ad-free, and respects your privacy. All data is temporary
+            and removed after 30 days.
           </p>
 
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-white mb-2">
-              What's New
+              What's New in V1.0
             </h3>
             <ul className="text-gray-300 list-disc pl-6 space-y-1">
-              <li>Improved document edge detection accuracy</li>
-              <li>Optimized PDF export and sharing speed</li>
+              <li>100% free, no ads, no in-app purchases</li>
+              <li>Optimized performance for fast scanning</li>
+              <li>Secure and privacy-friendly: data removed after 30 days</li>
+              <li>Enhanced document edge detection and OCR accuracy</li>
               <li>New multi-page batch scan feature</li>
-              <li>Performance improvements and minor bug fixes</li>
             </ul>
           </div>
         </div>
@@ -311,7 +282,6 @@ const ProScannerPage = () => {
               className="bg-slate-800/40 p-5 rounded-xl mb-4 border border-slate-700"
             >
               <div className="flex items-start gap-4">
-                {/* Avatar with first letter */}
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-sky-500 to-cyan-400 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                   {review.initial}
                 </div>
@@ -331,25 +301,7 @@ const ProScannerPage = () => {
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
-                          <path
-                            d="M9.049 2.927c.3-.921 1.603-.921 
-                          1.902 0l1.286 3.959a1 1 0 
-                          00.95.69h4.162c.969 0 
-                          1.371 1.24.588 
-                          1.81l-3.368 
-                          2.446a1 1 0 
-                          00-.364 1.118l1.287 
-                          3.96c.3.921-.755 
-                          1.688-1.54 
-                          1.118l-3.368-2.446a1 1 0 
-                          00-1.175 0l-3.368 
-                          2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 
-                          1 0 
-                          00-.364-1.118L2.05 
-                          9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 
-                          1 0 
-                          00.95-.69L9.049 2.927z"
-                          />
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.959a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.446a1 1 0 00-.364 1.118l1.287 3.96c.3.921-.755 1.688-1.54 1.118l-3.368-2.446a1 1 0 00-1.175 0l-3.368 2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 1 0 00-.364-1.118L2.05 9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
                         </svg>
                       ))}
                     </div>
@@ -370,7 +322,6 @@ const ProScannerPage = () => {
               Write a Review
             </h3>
 
-            {/* Rating Stars */}
             <div className="mb-6">
               <label className="text-gray-300 text-sm mb-2 block">
                 Your Rating
@@ -389,32 +340,13 @@ const ProScannerPage = () => {
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
-                      <path
-                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 
-                      0l1.286 3.959a1 1 0 
-                      00.95.69h4.162c.969 0 
-                      1.371 1.24.588 
-                      1.81l-3.368 
-                      2.446a1 1 0 
-                      00-.364 1.118l1.287 
-                      3.96c.3.921-.755 
-                      1.688-1.54 
-                      1.118l-3.368-2.446a1 1 0 
-                      00-1.175 0l-3.368 
-                      2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 
-                      1 0 
-                      00-.364-1.118L2.05 
-                      9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 
-                      1 0 
-                      00.95-.69L9.049 2.927z"
-                      />
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.959a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.446a1 1 0 00-.364 1.118l1.287 3.96c.3.921-.755 1.688-1.54 1.118l-3.368-2.446a1 1 0 00-1.175 0l-3.368 2.446c-.784.57-1.838-.197-1.54-1.118l1.287-3.96a1 1 0 00-.364-1.118L2.05 9.386c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
                     </svg>
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Email Input */}
             <div className="mb-4">
               <label className="text-gray-300 text-sm mb-2 block">Email</label>
               <input
@@ -426,7 +358,6 @@ const ProScannerPage = () => {
               />
             </div>
 
-            {/* Comment Textarea */}
             <div className="mb-6">
               <label className="text-gray-300 text-sm mb-2 block">
                 Comment
@@ -435,12 +366,11 @@ const ProScannerPage = () => {
                 value={userComment}
                 onChange={(e) => setUserComment(e.target.value)}
                 placeholder="Share your experience..."
-                rows="4"
+                rows={4}
                 className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white border border-slate-600 focus:border-sky-500 focus:outline-none resize-none"
               />
             </div>
 
-            {/* Buttons */}
             <div className="flex gap-3">
               <button
                 onClick={() => setShowReviewModal(false)}
