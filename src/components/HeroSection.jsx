@@ -1,0 +1,120 @@
+import { BiLogoLinkedin } from "react-icons/bi";
+import { IoLogoGithub } from "react-icons/io";
+import { RiFacebookFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import cvFile from "../assets/cv_pappu_dey_junior_software_engineer_CSE (2).pdf";
+import pappuImg from "../assets/pappu-dey.jpg";
+
+const HeroSection = () => {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div
+      id="home"
+      className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-16 z-50 px-4 sm:px-6 lg:px-0"
+    >
+      <div className="intro_text">
+        <svg viewBox="0 0 500 500">
+          <text x="50%" y="50%" textAnchor="middle" className="animate-stroke">
+            Hi
+          </text>
+        </svg>
+      </div>
+      <div className="flex flex-col lg:flex-row justify-between font-sora">
+        {/* Left side */}
+        <div className="w-full lg:w-[56%] mb-8 sm:mb-12 lg:mb-0">
+          <h2 className="text-3xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-5 font-bold text-white">
+            I am Pappu Dey
+          </h2>
+          <h2
+            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] xl:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3] inline-block"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
+            }}
+          >
+            Software Engineer &
+          </h2>
+          <h2
+            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] xl:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
+            style={{
+              backgroundImage:
+                "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
+            }}
+          >
+            SaaS Builder
+          </h2>
+          <p className="mt-4 sm:mt-6 lg:mt-10 text-base sm:text-lg lg:text-lg text-[#ffffffb0] max-w-full sm:w-[90%] md:max-w-[70%]">
+            I build scalable web applications, SaaS platforms, and AI-powered
+            automation systems using React, Node.js, and Laravel. Currently
+            building enterprise HRM systems at Xceed Bangladesh.
+          </p>
+          <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:justify-center md:justify-start sm:flex-row items-center gap-4">
+            <button
+              onClick={scrollToContact}
+              className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[#0EABE6] hover:bg-[#0c96ca] text-white rounded-full cursor-pointer transition duration-300 ease-in-out z-50 font-semibold"
+            >
+              Book a Discovery Call
+            </button>
+            <a
+              href={cvFile}
+              download="Pappu_Dey_CV.pdf"
+              className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border border-[#0EABE6] hover:bg-[#0EABE6] hover:text-white text-[#0EABE6] rounded-full cursor-pointer transition duration-300 ease-in-out z-50"
+            >
+              Download CV
+            </a>
+            {/* Social media icons */}
+            <ul className="flex space-x-4">
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  target="_blank"
+                  to="https://www.facebook.com/coderpappudey"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <RiFacebookFill size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  target="_blank"
+                  to="https://www.linkedin.com/in/coderpappu/"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <BiLogoLinkedin size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+              <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
+                <Link
+                  target="_blank"
+                  to="https://github.com/coderpappu/"
+                  className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
+                >
+                  <IoLogoGithub size={20} />
+                </Link>
+                <span className="absolute inset-0 bg-[#0EABE6] rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Right side */}
+        <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[44%] w-full mx-auto hero-image-box z-30">
+          <img
+            src={pappuImg}
+            alt="Pappu Dey - Software Engineer"
+            className="rounded-[38px] border-2 border-[#7343D2] transform rotate-[4.29deg] transition-transform duration-300 ease-in-out hover:rotate-0 hover:border-[#0DCFD2] w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HeroSection;
