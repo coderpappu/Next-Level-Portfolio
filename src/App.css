@@ -27,10 +27,15 @@
   border: 0;
 }
 
+.buttonStyle:hover {
+  --x: 100%;
+  filter: brightness(1.1);
+}
+
 .hero-section {
   position: relative;
-  height: 100vh; /* Adjust this based on your layout */
-  overflow: hidden; /* To prevent any overflow issues */
+  height: 100vh;
+  overflow: hidden;
 }
 
 .hero-section:before {
@@ -137,4 +142,15 @@
   border-radius: 8px;
   padding: 9px;
   box-sizing: border-box;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(14, 171, 230, 0.3);
+  color: #fff;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }

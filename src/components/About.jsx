@@ -1,83 +1,110 @@
+import { FaArrowRight } from "react-icons/fa";
 import ProfileImg from "../assets/pic.jpg";
 
 const About = () => {
+  const scrollToResume = () => {
+    const section = document.getElementById("resume");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="text-white my-20 px-4">
-      <div className="text-center">
+    <section id="about" className="pt-8 pb-16 lg:pt-12 lg:pb-20 text-white relative isolate">
+      {/* Ambient background layers — matches Services/Projects sections */}
+      <div className="absolute top-1/4 -right-16 hidden lg:block w-[320px] h-[320px] rounded-full bg-gradient-to-r from-violet-600 to-indigo-800 opacity-35 blur-[100px] -z-10" />
+      <div className="absolute bottom-10 -left-16 hidden lg:block w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#0dd1d1] to-[#0EABE6] opacity-15 blur-[100px] -z-10" />
+
+      <div className="text-center mb-16">
+        <span className="text-xs font-sora text-[#0EABE6]/70 uppercase tracking-[0.3em] font-semibold">
+          About
+        </span>
         <h3
-          className="text-5xl font-sora font-bold text-transparent bg-clip-text"
+          className="text-3xl lg:text-5xl font-sora font-bold mt-3 text-transparent bg-clip-text"
           style={{
             backgroundImage:
               "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
           }}
         >
-          About US
+          About Me
         </h3>
+        <p className="text-[#ffffffa0] mt-3 font-sora text-base">
+          The engineer behind the code
+        </p>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap justify-between items-start mt-20 gap-8">
-        {/* Profile Card */}
-        <div className="w-full lg:w-[20%] relative m-auto">
-          <div className="w-[260px] h-[350px] rounded-md p-[3px] bg-gradient-to-r from-sky-400 to-indigo-800 m-auto">
-            <div className="w-full h-full bg-[#131e36] rounded-md"></div>
+      <div className="w-full px-4 sm:px-6 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          {/* Profile image */}
+          <div className="lg:col-span-4 flex justify-center">
+            <img
+              src={ProfileImg}
+              alt="Pappu Dey - Software Engineer"
+              loading="lazy"
+              className="w-full max-w-[380px] rounded-lg object-cover shadow-2xl shadow-black/40 transform -rotate-3 transition-all duration-300 ease-in-out hover:rotate-0 hover:scale-105"
+            />
           </div>
 
-          <div
-            className="
-      group 
-      w-[260px] h-[350px] rounded-md p-[3px] bg-gradient-to-r from-blue-600 to-sky-400 
-      absolute top-[-20px]
-      left-1/2 -translate-x-1/2
-      lg:left-[-20px] lg:translate-x-0
-      transition-transform duration-300 ease-in-out -rotate-6
-      hover:scale-105 hover:rotate-3 hover:shadow-2xl hover:shadow-blue-500/30
+          {/* About text */}
+          <div className="lg:col-span-8 lg:border-l border-t lg:border-t-0 border-white/[0.06] pt-8 lg:pt-0 lg:pl-10">
+            <div className="rounded-lg bg-white/[0.03] border border-white/[0.05] p-6 lg:p-8">
+              <p className="text-[#ffffffb0] text-xs md:text-sm font-sora leading-relaxed">
+                I&apos;m Pappu Dey — a software engineer from Chattogram,
+                Bangladesh with 4+ years of experience building production web
+                applications and SaaS platforms.
+              </p>
+              <p className="text-[#ffffffb0] text-xs md:text-sm font-sora leading-relaxed mt-4">
+                I currently work at{" "}
+                <span className="text-white font-normal">
+                  Xceed Bangladesh
+                </span>
+                , where I build and maintain enterprise HRM (Human Resource
+                Management) SaaS systems handling real business operations for
+                multiple organizations.
+              </p>
+              <p className="text-[#ffffffb0] text-xs md:text-sm font-sora leading-relaxed mt-4">
+                Previously, I built a full{" "}
+                <span className="text-white font-normal">
+                  SaaS-based E-Clearance system
+                </span>{" "}
+                for Chattogram Polytechnic Institute — officially recognized
+                with a Certificate of Achievement from the institution. I also
+                competed in{" "}
+                <span className="text-white font-normal">
+                  ICPC Asia Dhaka Regional 2024
+                </span>
+                .
+              </p>
+              <p className="text-[#ffffffb0] text-xs md:text-sm font-sora leading-relaxed mt-4">
+                Outside of client work, I founded{" "}
+                <span className="text-white font-normal">Codex Devware</span>,
+                a small software studio where I lead a team building the Codex
+                LMS platform and other client projects. That mix of employed
+                and founder experience pushed me beyond just web development —
+                into Android app development, DevOps pipelines, AI-powered
+                automation, and hardware integration for IoT projects.
+              </p>
+              <p className="text-[#ffffffb0] text-xs md:text-sm font-sora leading-relaxed mt-4">
+                My core stack:{" "}
+                <span className="text-white font-normal">
+                  React, Next.js, Node.js, Laravel, PostgreSQL, and Prisma
+                </span>
+                . I&apos;m passionate about clean architecture, scalable
+                systems, and solving real business problems through software.
+              </p>
 
-    "
-          >
-            <div className="w-full h-full bg-[#0F172A] rounded-md overflow-hidden">
-              <img
-                src={ProfileImg}
-                alt="profile"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* About Text */}
-        <div className="w-full lg:w-[60%] border-t lg:border-t-0 lg:border-l border-violet-600 border-opacity-45 border-dashed pt-8 lg:pt-0 lg:pl-10">
-          <div className="w-full lg:w-[80%] h-auto p-[2px] rounded-md bg-gradient-to-l to-[#37baf814] via-[#3730a38a] from-[#1d1b4793]">
-            <div className="bg-[#0F172A]">
-              <div
-                className="rounded-md text-justify p-6"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgb(112 26 216 / 10%) 0%, rgba(143, 134, 153, 0) 100%)",
-                }}
+              <button
+                onClick={scrollToResume}
+                className="mt-6 pt-5 w-full border-t border-white/[0.05] flex items-center gap-2 text-sm text-white font-sora font-semibold bg-transparent cursor-pointer group/cta"
               >
-                <h3 className="text-[#c3c3c3] text-sm md:text-base leading-relaxed">
-                  Hello, I'm Pappu Dey. Creative Web Designer And Developer with
-                  more than 5 years experience. I design your website whereas
-                  multidisciplinary intellectual capital. Distinctively
-                  synergize market-driven master and prospective channels.
-                  Dramatically drive an expanded array of expertise with modern
-                  technology. Completely cultivate standardized manufactured
-                  processes. Continue transforming process-centric systems
-                  rather than compelling growth strategies. Energistically
-                  streamline low-risk high-yield supply chains via scalable
-                  intellectual capital.
-                </h3>
-
-                <button className="px-6 py-2 bg-gradient-to-r from-violet-950 via-violet-900 to-violet-950 rounded-md mt-5 font-sora text-sm">
-                  Know More
-                </button>
-              </div>
+                View My Experience
+                <FaArrowRight className="text-xs group-hover/cta:translate-x-1 transition-transform duration-300" />
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

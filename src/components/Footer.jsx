@@ -1,63 +1,184 @@
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import { IoSend } from "react-icons/io5";
 import PappuDeyLogo from "../assets/logo.png";
+
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    projectType: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Using Formspree — replace YOUR_FORM_ID with your actual Formspree ID
+    try {
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", projectType: "", message: "" });
+        setTimeout(() => setSubmitted(false), 5000);
+      }
+    } catch {
+      // Fallback: mailto
+      window.location.href = `mailto:pappudeydeveloper@gmail.com?subject=Project Inquiry: ${formData.projectType}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0A${formData.message}`;
+    }
+    setIsSubmitting(false);
+  };
+
   return (
-    <footer id="contact">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start  mx-auto">
-        {/* Left: Branding and Contact */}
-        <div className="w-full md:w-1/2 flex flex-col gap-0 lg:gap-4 mb-10 md:mb-0 ">
-          {/* Branding */}
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <img
-                src={PappuDeyLogo}
-                alt=""
-                loading="lazy"
-                srcSet=""
-                className="w-14 h-auto mb-1"
+    <footer id="contact" className="pt-16 pb-8">
+      {/* Contact Section Header */}
+      <div className="text-center mb-12">
+        <h3
+          className="text-3xl lg:text-5xl font-sora font-bold text-transparent bg-clip-text"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, #0ea5ea, #0dd1d1 51%, #0ea5ea)",
+          }}
+        >
+          Let&apos;s Build Something Great Together
+        </h3>
+        <p className="text-[#ffffffa0] mt-3 font-sora text-base max-w-2xl mx-auto">
+          Have a project in mind? Let&apos;s discuss how I can help you build
+          it. Book a free discovery call or send me a message.
+        </p>
+      </div>
+
+      {/* Contact Form + Info Grid */}
+      <div className="flex flex-col lg:flex-row gap-10 mb-16">
+        {/* Contact Form */}
+        <div className="w-full lg:w-[60%]">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <input
+                type="text"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className="flex-1 px-4 py-3 text-slate-100 bg-[#172442] border border-slate-600/30 rounded-lg outline-none focus:border-[#0EABE6] transition-colors duration-300 font-sora text-sm"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your email"
+                className="flex-1 px-4 py-3 text-slate-100 bg-[#172442] border border-slate-600/30 rounded-lg outline-none focus:border-[#0EABE6] transition-colors duration-300 font-sora text-sm"
               />
             </div>
-            <div className="text-slate-500 mb-3">#A passionate Programmer</div>
-          </div>
-          {/* Contact info */}
-          <div className="flex flex-col md:flex-row gap-2 lg:gap-8 ">
-            <div>
-              <div className="text-slate-300 font-sora">Email</div>
-              <div className="text-slate-500">pappudeydeveloper@gmail.com</div>
-            </div>
-            <div>
-              <div className="text-slate-300 font-sora">Location</div>
-              <div className="text-slate-500">Chattogram , Bangladesh</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right: Newsletter/CTA */}
-        <div className="w-full md:w-2/4 px-5  md:px-2 lg:px-0 my-3 md:my-0 text-center md:text-right">
-          <div className="mb-4">
-            <h2
-              className="text-2xl font-sora font-bold text-transparent bg-clip-text mb-5"
-              style={{
-                backgroundImage:
-                  "linear-gradient(90deg, #0ea5ea, #0dd1d1 51%, #0ea5ea)",
-              }}
+            <select
+              name="projectType"
+              value={formData.projectType}
+              onChange={handleChange}
+              className="w-full px-4 py-3 text-slate-100 bg-[#172442] border border-slate-600/30 rounded-lg outline-none focus:border-[#0EABE6] transition-colors duration-300 font-sora text-sm"
             >
-              Grow up your business with me..
-            </h2>
-          </div>
-          {/* Newsletter form */}
-          <div className="w-full flex flex-wrap gap-4 items-center justify-center  md:justify-end">
-            <input
-              type="email"
+              <option value="">Select project type</option>
+              <option value="SaaS Application">SaaS Application</option>
+              <option value="Custom Web App">Custom Web Application</option>
+              <option value="AI Automation">AI Automation System</option>
+              <option value="Technical Consulting">Technical Consulting</option>
+              <option value="Other">Other</option>
+            </select>
+            <textarea
+              name="message"
               required
-              placeholder="Your email"
-              className="w-[300px] px-3 py-2 text-slate-100 bg-[#172442] border border-slate-100 border-opacity-5 rounded-sm outline-none mb-2"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell me about your project..."
+              rows={4}
+              className="w-full px-4 py-3 text-slate-100 bg-[#172442] border border-slate-600/30 rounded-lg outline-none focus:border-[#0EABE6] transition-colors duration-300 font-sora text-sm resize-none"
             />
             <button
               type="submit"
-              className="text-white py-2 px-6 bg-[#0EA9E7] rounded-full"
+              disabled={isSubmitting}
+              className="flex items-center gap-2 px-8 py-3 bg-[#0EA9E7] hover:bg-[#0c96ca] text-white rounded-full font-sora font-semibold transition-all duration-300 disabled:opacity-50"
             >
-              Send
+              {isSubmitting ? (
+                "Sending..."
+              ) : submitted ? (
+                "✓ Message Sent!"
+              ) : (
+                <>
+                  Send Message <IoSend />
+                </>
+              )}
             </button>
+          </form>
+        </div>
+
+        {/* Contact Info + Quick Links */}
+        <div className="w-full lg:w-[40%] flex flex-col gap-6">
+          {/* Calendly Embed Placeholder */}
+          <div className="rounded-xl border border-slate-600/30 bg-[#172442] p-6 text-center">
+            <h4 className="text-white font-sora font-semibold text-lg mb-2">
+              📅 Book a Discovery Call
+            </h4>
+            <p className="text-slate-400 text-sm mb-4 font-sora">
+              Free 15-minute call to discuss your project
+            </p>
+            <a
+              href="https://calendly.com/pappudeydeveloper/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-[#0ea5ea] to-[#0dd1d1] text-white rounded-full font-sora font-semibold hover:opacity-90 transition-opacity duration-300"
+            >
+              Schedule Now →
+            </a>
+          </div>
+
+          {/* Contact Details */}
+          <div className="space-y-4">
+            <div>
+              <div className="text-slate-300 font-sora font-semibold text-sm">
+                Email
+              </div>
+              <a
+                href="mailto:pappudeydeveloper@gmail.com"
+                className="text-[#0EABE6] hover:underline text-sm"
+              >
+                pappudeydeveloper@gmail.com
+              </a>
+            </div>
+            <div>
+              <div className="text-slate-300 font-sora font-semibold text-sm">
+                Location
+              </div>
+              <div className="text-slate-400 text-sm">
+                Chattogram, Bangladesh
+              </div>
+            </div>
+            <div>
+              <div className="text-slate-300 font-sora font-semibold text-sm">
+                WhatsApp
+              </div>
+              <a
+                href="https://wa.me/8801XXXXXXXXX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#25D366] hover:underline text-sm"
+              >
+                <FaWhatsapp /> Chat on WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -67,16 +188,25 @@ const Footer = () => {
 
       {/* Bottom row: copyright & social */}
       <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto gap-6">
-        <div className="w-full h-16 px-3 lg:px-0 flex flex-wrap md:justify-between items-center text-white font-sora gap-5 md:gap-0  justify-center">
-          <p className="text-sm text-slate-200">
-            All rights reserved © 2025 Pappu Dey
-          </p>
+        <div className="w-full h-16 px-3 lg:px-0 flex flex-wrap md:justify-between items-center text-white font-sora gap-5 md:gap-0 justify-center">
+          <div className="flex items-center gap-3">
+            <img
+              src={PappuDeyLogo}
+              alt="Pappu Dey"
+              loading="lazy"
+              className="w-8 h-auto"
+            />
+            <p className="text-sm text-slate-200">
+              © 2025 Pappu Dey — Software Engineer & SaaS Builder
+            </p>
+          </div>
           <ul className="flex space-x-4">
             <li className="relative w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-[#0EABE6] text-[#0EABE6] flex items-center justify-center overflow-hidden group">
               <a
                 className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://www.facebook.com/coderpappudey"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   stroke="currentColor"
@@ -97,6 +227,7 @@ const Footer = () => {
                 className="relative z-10 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://www.linkedin.com/in/coderpappu/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   stroke="currentColor"
@@ -118,6 +249,7 @@ const Footer = () => {
                 className="relative z-50 text-[#0EABE6] group-hover:text-white transition duration-300"
                 href="https://github.com/coderpappu/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg
                   stroke="currentColor"

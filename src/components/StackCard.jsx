@@ -1,53 +1,84 @@
 import djangoImg from "../assets/django.svg";
+import DockerImg from "../assets/Docker.png";
+import laravelImg from "../assets/Express.png";
 import gitImg from "../assets/git.svg";
 import githubImg from "../assets/github-v.svg";
 import JsImg from "../assets/js.png";
-import laravelImg from "../assets/laravel.svg";
 import mongoImg from "../assets/mongo.svg";
 import mysqlImg from "../assets/mysql.svg";
 import nextjsImg from "../assets/nextjs.png";
+import nginxImg from "../assets/NGINX.png";
 import nodeImg from "../assets/node-js.svg";
-import phpImg from "../assets/php.svg";
-import postgressSqlImg from "../assets/postgresql.png";
 import postmanImg from "../assets/postman.svg";
 import prismaImg from "../assets/prisma.png";
+import postgresqlImg from "../assets/postgresql.png";
 import pythonImg from "../assets/python-logo.png";
 import reactImg from "../assets/reactjs.png";
 import reduxImg from "../assets/redux.svg";
 import tailwindImg from "../assets/tailwind.svg";
 import typescriptImg from "../assets/Typescript.png";
-import vsImg from "../assets/vs.svg";
-import { cn } from "../lib/utils/utils";
+import wordpressImg from "../assets/wordpress.png";
 
-const technologies = [
-  { name: "JavaScript", img: JsImg },
-  { name: "Python", img: pythonImg },
-  { name: "Node.js", img: nodeImg },
-  { name: "React.js", img: reactImg },
-  { name: "Next.js", img: nextjsImg },
-  { name: "TypeScript", img: typescriptImg },
-  { name: "MongoDB", img: mongoImg },
-  { name: "Prisma", img: prismaImg },
-  { name: "MySQL", img: mysqlImg },
-  { name: "Django", img: djangoImg },
-  { name: "Laravel", img: laravelImg },
-  { name: "PHP", img: phpImg },
-  { name: "PostgreSQL", img: postgressSqlImg },
-  { name: "VS Code", img: vsImg },
-  { name: "Postman", img: postmanImg },
-  { name: "Redux.js", img: reduxImg },
-  { name: "Tailwind CSS", img: tailwindImg },
-  { name: "Git", img: gitImg },
-  { name: "GitHub", img: githubImg },
+const categories = [
+  {
+    label: "Frontend",
+    techs: [
+      { name: "React.js", img: reactImg },
+      { name: "Next.js", img: nextjsImg },
+      { name: "React Native", img: reactImg },
+      { name: "TypeScript", img: typescriptImg },
+      { name: "Redux", img: reduxImg },
+      { name: "Tailwind CSS", img: tailwindImg },
+      { name: "JavaScript", img: JsImg },
+    ],
+  },
+  {
+    label: "Backend",
+    techs: [
+      { name: "Node.js", img: nodeImg },
+      { name: "Express", img: laravelImg },
+      { name: "Python", img: pythonImg },
+      { name: "Django", img: djangoImg },
+      { name: "WordPress", img: wordpressImg },
+    ],
+  },
+  {
+    label: "Database",
+    techs: [
+      { name: "PostgreSQL", img: postgresqlImg },
+      { name: "MySQL", img: mysqlImg },
+      { name: "MongoDB", img: mongoImg },
+      { name: "Prisma ORM", img: prismaImg },
+    ],
+  },
+  {
+    label: "DevOps & Tools",
+    techs: [
+      { name: "Git", img: gitImg },
+      { name: "GitHub", img: githubImg },
+      { name: "Nginx", img: nginxImg },
+      { name: "Postman", img: postmanImg },
+      { name: "Docker", img: DockerImg },
+    ],
+  },
 ];
 
 const StackCard = () => {
   return (
-    <div id="skills" className="text-white my-20 relative block">
-      {/* Experience Section  */}
-      <div className="text-center">
+    <section
+      id="skills"
+      className="pt-8 pb-16 lg:pt-12 lg:pb-20 text-white relative isolate"
+    >
+      {/* Ambient background layers — matches other sections */}
+      <div className="absolute top-1/4 -left-16 hidden lg:block w-[320px] h-[320px] rounded-full bg-gradient-to-r from-violet-600 to-indigo-800 opacity-35 blur-[100px] -z-10" />
+      <div className="absolute bottom-10 -right-16 hidden lg:block w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#0dd1d1] to-[#0EABE6] opacity-15 blur-[100px] -z-10" />
+
+      <div className="text-center mb-16">
+        <span className="text-xs font-sora text-[#0EABE6]/70 uppercase tracking-[0.3em] font-semibold">
+          Skills
+        </span>
         <h3
-          className="text-5xl font-sora font-bold text-transparent bg-clip-text"
+          className="text-3xl lg:text-5xl font-sora font-bold mt-3 text-transparent bg-clip-text"
           style={{
             backgroundImage:
               "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
@@ -55,41 +86,44 @@ const StackCard = () => {
         >
           Technology
         </h3>
+        <p className="text-[#ffffffa0] mt-3 font-sora text-base">
+          Tools and technologies I use daily to build production software
+        </p>
       </div>
-      <div className="relative flex h-auto w-full items-start justify-start flex-wrap ">
-        <div
-          className={cn(
-            "absolute inset-0",
-            "[background-size:20px_20px]",
-            "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-            "dark:[background-image:linear-gradient(to_right,#8ceaff08_1px,transparent_1px),linear-gradient(to_bottom,#8ceaff08_1px,transparent_1px)]"
-          )}
-        />
 
-        {/* Radial gradient for the container to give a faded look */}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-[#0F172A]"></div>
-
-        <div className="absolute bottom-44 top-36 -left-64 hidden h-[150px] w-[900px] -rotate-45 rounded-full bg-gradient-to-r from-violet-600 to-indigo-800 opacity-15 blur-3xl filter dark:block lg:bottom-24 lg:-left-20 lg:h-28 lg:w-[250px] lg:-rotate-12 lg:opacity-35 xl:h-40 xl:w-[500px]"></div>
-
-        <div className="flex flex-wrap items-center justify-center my-16 w-[80%] m-auto">
-          {technologies.map((tech) => (
-            <div
-              key={tech.name}
-              className="w-[100px] h-[100px] rounded-md bg-[#fdfdfd13] bg-opacity-25 p-4 m-3 z-50 border border-slate-400 border-opacity-10"
-            >
-              <img
-                src={tech.img}
-                alt={tech.name}
-                title={tech.name}
-                loading="lazy"
-                className="rounded-sm hover:scale-110 transition-transform duration-300"
-              />
+      <div className="w-full px-4 sm:px-6 lg:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+          {categories.map((category) => (
+            <div key={category.label}>
+              <h4 className="text-xs font-sora text-[#0EABE6]/70 font-semibold uppercase tracking-[0.25em] mb-4">
+                {category.label}
+              </h4>
+              <div className="flex flex-wrap gap-2.5">
+                {category.techs.map((tech) => (
+                  <div
+                    key={tech.name}
+                    className="flex items-center gap-2.5 rounded-full bg-white/[0.03] border border-white/[0.05] hover:border-white/[0.1] px-3.5 py-2 transition-colors duration-300 group"
+                  >
+                    <span className="w-6 h-6 shrink-0 rounded-full bg-white/85 flex items-center justify-center overflow-hidden p-0.5">
+                      <img
+                        src={tech.img}
+                        alt={tech.name}
+                        title={tech.name}
+                        loading="lazy"
+                        className="w-full h-full object-contain"
+                      />
+                    </span>
+                    <span className="text-xs font-sora text-white/70 group-hover:text-white transition-colors duration-300">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="absolute right-[28%] top-0 hidden h-[200px] w-[200px] rotate-45 bg-gradient-to-l from-blue-600 to-sky-400 opacity-20 blur-3xl filter dark:block dark:opacity-20 lg:-top-22 lg:-right-28 lg:h-[300px] lg:w-[300px] xl:h-[500px] xl:w-[500px] rounded-full z-20"></div>
-    </div>
+    </section>
   );
 };
 

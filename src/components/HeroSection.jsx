@@ -1,4 +1,3 @@
-// Assuming you'll add the CSS here
 import { BiLogoLinkedin } from "react-icons/bi";
 import { IoLogoGithub } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
@@ -7,15 +6,21 @@ import cvFile from "../assets/cv_pappu_dey_junior_software_engineer_CSE (2).pdf"
 import pappuImg from "../assets/pappu-dey.jpg";
 
 const HeroSection = () => {
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       id="home"
       className="relative h-auto hero-section pt-[60px] md:pt-[100px] pb-16 z-50 px-4 sm:px-6 lg:px-0"
     >
       <div className="intro_text">
-        {/* SVG for animated "Hi" text */}
         <svg viewBox="0 0 500 500">
-          <text x="50%" y="50%" textAnchor="middle" className="animate-stroke ">
+          <text x="50%" y="50%" textAnchor="middle" className="animate-stroke">
             Hi
           </text>
         </svg>
@@ -24,7 +29,7 @@ const HeroSection = () => {
         {/* Left side */}
         <div className="w-full lg:w-[56%] mb-8 sm:mb-12 lg:mb-0">
           <h2 className="text-3xl sm:text-4xl lg:text-[36px] mb-3 lg:mb-5 font-bold text-white">
-            I am Pappu
+            I am Pappu Dey
           </h2>
           <h2
             className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] xl:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3] inline-block"
@@ -33,22 +38,29 @@ const HeroSection = () => {
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
             }}
           >
-            Software Engineer +
+            Software Engineer &
           </h2>
           <h2
-            className="text-4xl sm:text-5xl  md:text-[50px] lg:text-[50px] xl:text-[65px]  font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
+            className="text-4xl sm:text-5xl md:text-[50px] lg:text-[50px] xl:text-[65px] font-bold text-transparent bg-clip-text leading-[1.4] sm:leading-[1.3] lg:leading-[1.3]"
             style={{
               backgroundImage:
                 "linear-gradient(90deg, rgb(14, 165, 234), rgb(13, 209, 209) 51%, rgb(14, 165, 234))",
             }}
           >
-            UX Designer
+            SaaS Builder
           </h2>
           <p className="mt-4 sm:mt-6 lg:mt-10 text-base sm:text-lg lg:text-lg text-[#ffffffb0] max-w-full sm:w-[90%] md:max-w-[70%]">
-            I break down complex user experience problems to create integrity
-            focused solutions that connect billions of people
+            I build scalable web applications, SaaS platforms, and AI-powered
+            automation systems using React, Node.js, and Laravel. Currently
+            building enterprise HRM systems at Xceed Bangladesh.
           </p>
           <div className="mt-8 sm:mt-6 lg:mt-10 flex flex-col sm:justify-center md:justify-start sm:flex-row items-center gap-4">
+            <button
+              onClick={scrollToContact}
+              className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-[#0EABE6] hover:bg-[#0c96ca] text-white rounded-full cursor-pointer transition duration-300 ease-in-out z-50 font-semibold"
+            >
+              Book a Discovery Call
+            </button>
             <a
               href={cvFile}
               download="Pappu_Dey_CV.pdf"
@@ -93,10 +105,10 @@ const HeroSection = () => {
         </div>
 
         {/* Right side */}
-        <div className=" max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[44%] w-full mx-auto hero-image-box z-30">
+        <div className="max-w-[280px] sm:max-w-sm md:max-w-md lg:w-[44%] w-full mx-auto hero-image-box z-30">
           <img
             src={pappuImg}
-            alt="pappudey_picture"
+            alt="Pappu Dey - Software Engineer"
             className="rounded-[38px] border-2 border-[#7343D2] transform rotate-[4.29deg] transition-transform duration-300 ease-in-out hover:rotate-0 hover:border-[#0DCFD2] w-full h-auto"
           />
         </div>

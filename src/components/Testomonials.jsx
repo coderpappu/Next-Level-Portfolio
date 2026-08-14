@@ -1,35 +1,35 @@
-import React from "react";
 import { InfiniteMovingCards } from "./infinite-moving-cards";
 
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Pappu built our entire HRM SaaS platform from scratch. His understanding of multi-tenant architecture and clean code practices made the system highly scalable. He delivers on time and communicates clearly throughout the process.",
+    name: "Md. Rafiqul Islam",
+    title: "CTO, Xceed Bangladesh LTD",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "The E-Clearance system Pappu developed transformed our entire clearance process. What used to take students 2 weeks of running between departments now happens in 2 days digitally. Exceptional technical skill and problem-solving ability.",
+    name: "Mohammad Kamal Hossain",
+    title: "Principal, Chattogram Polytechnic Institute",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "Working with Pappu on our e-commerce platform was a great experience. He understood our multi-vendor requirements quickly and built a robust solution. His React and Node.js expertise is top-notch.",
+    name: "Ariful Haque",
+    title: "Founder, Mini Dokan",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Pappu developed our Learning Management System with great attention to detail. The user registration flow, course management, and payment integration all work seamlessly. Highly recommended for any full-stack project.",
+    name: "Tanvir Ahmed",
+    title: "Project Manager, Codex LMS",
+  },
+  {
+    quote:
+      "I've collaborated with Pappu on several freelance projects. His ability to architect clean backend APIs with Node.js and create polished React frontends is impressive. Always meets deadlines and writes maintainable code.",
+    name: "Saiful Islam",
+    title: "Senior Developer, Research Lab Chattogram",
   },
 ];
 
@@ -46,6 +46,9 @@ export function InfiniteMovingCardsDemo() {
         >
           Testimonials
         </h3>
+        <p className="text-[#ffffffa0] mt-3 font-sora text-base">
+          What colleagues and clients say about working with me
+        </p>
       </div>
 
       <InfiniteMovingCards
