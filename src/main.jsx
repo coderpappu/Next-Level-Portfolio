@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import "./index.css";
 
 import ProjectDetails from "./pages/ProjectDetails.jsx";
+import ProScannerPage from "./pages/ScanfApp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
   {
     path: "/project/:id",
     element: <ProjectDetails />,
-  }
+  },
+  {
+    path: "/scanf-app-download",
+    element: <ProScannerPage />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
