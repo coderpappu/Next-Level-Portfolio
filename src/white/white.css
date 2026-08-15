@@ -5,6 +5,13 @@
    --------------------------------------------------------------------------- */
 
 .white-root {
+  /* 8-column grid over the true 896px content width:
+     8 × 84px columns + 7 × 32px gutters = 896. Every width below is a span. */
+  --w-col: 84px;
+  --w-gut: 32px;
+  --w-span-3: 316px; /* side rail   */
+  --w-span-5: 548px; /* prose, 65ch */
+
   /* surface */
   --w-bg: #ffffff;
   --w-border: #e5e7eb;
@@ -14,13 +21,15 @@
   --w-overlay: rgba(2, 9, 25, 0.4);
   --w-elevated: #ffffff;
 
-  /* text */
+  /* Five real greys. #6c727e was doing duty as body copy at 4.83:1 — that is
+     the *secondary* step. Body is now #4a5565 (7.55:1, AAA). */
   --w-heading: #020919;
-  --w-text: #6c727e;
-  --w-muted: #6a7282;
-  --w-tertiary: #4a5565;
-  --w-strong: #101828;
-  --w-icon: #364153;
+  --w-text: #4a5565;
+  --w-muted: #6c727e;
+  /* Retained as aliases so existing utilities keep resolving. */
+  --w-tertiary: var(--w-muted);
+  --w-strong: var(--w-heading);
+  --w-icon: var(--w-text);
 
   /* chips */
   --w-chip-fill: rgba(15, 24, 43, 0.8);
@@ -46,6 +55,41 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 200ms var(--w-ease), color 200ms var(--w-ease);
+
+  /* JetBrains Mono ships code ligatures on by default: "->" renders as "→"
+     and "!=" as "≠". Correct in an IDE, a tell in prose. */
+  font-variant-ligatures: none;
+  /* IBM Plex Mono's default zero is slashed — right in a terminal, costume
+     here. Lining tabular figures so columns of numbers align. */
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "zero" 0;
+}
+
+/* Mono italics are a mechanical oblique and read as blurry at 14px. A serif
+   italic is free (system font) and gives the page its one textural relief. */
+.white-root em,
+.white-root i,
+.white-root cite {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+}
+
+/* 24px leading for actual reading copy; Tailwind's text-sm pins 20px, which is
+   right for UI rows and too tight for a paragraph. */
+.white-root .w-prose {
+  line-height: 24px;
+  text-wrap: pretty;
+}
+
+.white-root h1,
+.white-root h2,
+.white-root h3 {
+  text-wrap: balance;
+}
+
+/* Deep links must clear the 56px sticky nav. */
+.white-root [id] {
+  scroll-margin-top: 96px;
 }
 
 .white-root[data-theme="dark"] {
@@ -58,11 +102,11 @@
   --w-elevated: #0f131a;
 
   --w-heading: #e8ecf3;
-  --w-text: #99a2b1;
+  --w-text: #b3bbc8;
   --w-muted: #838d9d;
-  --w-tertiary: #b3bbc8;
-  --w-strong: #f5f9ff;
-  --w-icon: #b3bbc8;
+  --w-tertiary: var(--w-muted);
+  --w-strong: var(--w-heading);
+  --w-icon: var(--w-text);
 
   --w-chip-fill: #e8ecf3;
   --w-chip-text: #0a0c10;
@@ -72,8 +116,16 @@
 .white-root h1,
 .white-root h2,
 .white-root h3 {
-  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   color: var(--w-heading);
+  font-weight: 500;
+}
+
+/* JetBrains Mono and IBM Plex Mono share a 0.6em advance and are effectively
+   indistinguishable at 14px — two downloads for contrast nobody can see. Keep
+   JetBrains only where the letterforms actually register: display sizes. */
+.white-root h1,
+.white-root .w-display {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 
 /* Links inherit body color; the icon glyph carries the affordance. */
@@ -139,9 +191,13 @@ html.white-page.white-dark {
   background-color: var(--w-chip-fill);
 }
 
+/* Outlined chips carry the Toolkit now, so the edge has to actually register —
+   rgba(0,0,0,.06) resolves lighter than the page's own hairline. */
 .w-chip-secondary {
   color: var(--w-text);
   background-color: transparent;
+  border-color: var(--w-border);
+  padding: 0.125rem 0.5rem;
 }
 
 .w-chip-secondary:hover {
@@ -175,10 +231,56 @@ html.white-page.white-dark {
   }
 }
 
+/* Paused at rest and driven by intent. A perpetually rotating multi-colour ring
+   is autoplay motion competing with the reader for attention; on hover it
+   becomes a response instead of a loop. */
 .w-ring-spin {
   animation: 8s linear infinite w-ring-spin;
+  animation-play-state: paused;
   will-change: transform;
   backface-visibility: hidden;
+}
+
+.w-avatar:hover .w-ring-spin,
+.w-avatar:focus-within .w-ring-spin {
+  animation-play-state: running;
+}
+
+/* ------------------------------ full bleed -------------------------------- */
+
+/* Escapes the card's own padding so the band touches both borders. Inside a
+   bordered card this is the strongest gesture available, which is exactly why
+   it is used once, at the end of the page. */
+.w-full-bleed {
+  margin-inline: -24px;
+  padding: 32px 24px;
+  border-top: 1px solid var(--w-border);
+  border-bottom: 1px solid var(--w-border);
+}
+
+@media (min-width: 768px) {
+  .w-full-bleed {
+    margin-inline: -48px;
+    padding: 40px 48px;
+  }
+}
+
+/* ------------------------------ status dot -------------------------------- */
+
+@keyframes w-status-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.w-status-ping {
+  animation: w-status-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 /* --------------------------- page + reveal motion ------------------------- */
@@ -265,7 +367,8 @@ html.white-page.white-dark {
   .w-page-in,
   .w-palette,
   .w-fade-in,
-  .w-hovercard {
+  .w-hovercard,
+  .w-status-ping {
     animation: none;
   }
   .w-reveal {

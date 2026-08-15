@@ -12,7 +12,7 @@ const Experience = () => (
       />
     </Helmet>
 
-    <PageTitle lede="Browse the roles, studios, and studies that shaped how Pappu Dey builds software.">
+    <PageTitle lede="Browse the roles, companies, and studies that shaped how Pappu Dey builds software.">
       Pappu Dey&apos;s Experience &amp; Education
     </PageTitle>
 
@@ -22,7 +22,7 @@ const Experience = () => (
           <div key={job.org} className="flex flex-col gap-2">
             <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className="text-base font-semibold">{job.role}</h3>
+                <h3 className="text-base font-medium">{job.role}</h3>
                 <p className="text-sm">
                   {job.org} · {job.type}
                 </p>
@@ -33,6 +33,19 @@ const Experience = () => (
               </div>
             </div>
             <p className="text-sm">{job.description}</p>
+            <ul className="list-none space-y-1.5 p-0">
+              {job.highlights.map((h) => (
+                <li key={h} className="flex gap-2.5 text-[11px]">
+                  <span
+                    className="shrink-0 text-[color:var(--w-sep)]"
+                    aria-hidden="true"
+                  >
+                    —
+                  </span>
+                  <span className="w-prose">{h}</span>
+                </li>
+              ))}
+            </ul>
             <p className="text-sm text-[color:var(--w-tertiary)]">
               Stack: {job.stack}
             </p>
@@ -52,7 +65,7 @@ const Experience = () => (
           <article key={e.institution}>
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h3 className="text-base font-semibold">{e.institution}</h3>
+                <h3 className="text-base font-medium">{e.institution}</h3>
                 <p className="text-sm">{e.degree}</p>
               </div>
               <span className="flex-none text-sm">{e.period}</span>
@@ -69,7 +82,7 @@ const Experience = () => (
           <div key={s.label}>
             <dt className="sr-only">{s.label}</dt>
             <dd>
-              <span className="block text-2xl font-bold text-[color:var(--w-heading)]">
+              <span className="block text-2xl font-medium text-[color:var(--w-heading)]">
                 {s.value}
               </span>
               <span className="text-xs text-[color:var(--w-muted)]">

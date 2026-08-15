@@ -20,7 +20,7 @@ const Services = () => (
       <div className="space-y-12">
         {services.map((s) => (
           <div key={s.title} className="flex flex-col gap-2">
-            <h3 className="text-base font-semibold">{s.title}</h3>
+            <h3 className="text-base font-medium">{s.title}</h3>
             <p className="text-sm">{s.description}</p>
           </div>
         ))}
@@ -38,7 +38,7 @@ const Services = () => (
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="flex-1">
-              <h3 className="text-base font-semibold">{step.title}</h3>
+              <h3 className="text-base font-medium">{step.title}</h3>
               <p className="text-sm">{step.description}</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Services = () => (
       <div className="space-y-6">
         {techStack.map((group) => (
           <div key={group.label}>
-            <h3 className="mb-2 text-base font-semibold">{group.label}</h3>
+            <h3 className="mb-2 text-base font-medium">{group.label}</h3>
             <ul className="flex list-none flex-wrap gap-1 p-0">
               {group.items.map((t) => (
                 <li key={t}>

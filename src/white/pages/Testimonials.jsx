@@ -28,7 +28,7 @@ const Testimonials = () => (
           <blockquote className="text-sm">{t.quote}</blockquote>
           <figcaption className="flex items-start justify-between gap-4">
             <div className="flex-1">
-              <h3 className="text-sm font-semibold md:text-base">{t.name}</h3>
+              <h3 className="text-sm font-medium md:text-base">{t.name}</h3>
               <p className="text-sm text-[color:var(--w-muted)]">{t.title}</p>
             </div>
           </figcaption>

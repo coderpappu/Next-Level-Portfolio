@@ -225,8 +225,11 @@ const WhiteLayout = () => {
 
         {/* ------------------------------ card ------------------------------ */}
         <section className="w-card mx-auto my-2 w-full space-y-8 border-b border-t border-[color:var(--w-border)] px-6 py-6 md:my-8 md:rounded-lg md:border md:px-12">
-          {/* Re-keying on pathname replays the entrance animation per page. */}
-          <div key={pathname} className="w-page-in space-y-8">
+          {/* 64px between sections against ~24px within one. Gestalt grouping
+              needs a between-to-within ratio of at least 2.5:1; at the previous
+              32px the eight sections read as one undifferentiated list.
+              Re-keying on pathname replays the entrance animation per page. */}
+          <div key={pathname} className="w-page-in space-y-16">
             <Outlet />
           </div>
         </section>

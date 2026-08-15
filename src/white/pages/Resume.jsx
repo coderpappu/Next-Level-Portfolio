@@ -30,7 +30,7 @@ const Resume = () => (
     {/* ------------------------------- header ------------------------------- */}
     <header className="mb-8 flex items-start justify-between gap-4">
       <div>
-        <h1 className="text-2xl font-bold">{profile.name}</h1>
+        <h1 className="text-2xl font-medium">{profile.name}</h1>
         <p className="text-sm">
           {profile.roleA} &amp; {profile.roleB} · {profile.location}
         </p>
@@ -75,7 +75,7 @@ const Resume = () => (
         {experience.map((job) => (
           <div key={job.org}>
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <h3 className="text-sm font-semibold">
+              <h3 className="text-sm font-medium">
                 {job.role} — {job.org}
               </h3>
               <span className="text-xs text-[color:var(--w-muted)]">
@@ -98,7 +98,7 @@ const Resume = () => (
         {projects.slice(0, 4).map((p) => (
           <div key={p.id}>
             <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <h3 className="text-sm font-semibold">
+              <h3 className="text-sm font-medium">
                 {p.name} — {p.category}
               </h3>
               <span className="text-xs text-[color:var(--w-muted)]">
@@ -120,7 +120,7 @@ const Resume = () => (
       <dl className="space-y-1.5">
         {techStack.map((group) => (
           <div key={group.label} className="flex gap-3 text-sm">
-            <dt className="w-32 shrink-0 font-semibold text-[color:var(--w-heading)]">
+            <dt className="w-32 shrink-0 font-medium text-[color:var(--w-heading)]">
               {group.label}
             </dt>
             <dd className="flex-1">{group.items.join(", ")}</dd>
@@ -138,7 +138,7 @@ const Resume = () => (
             key={e.institution}
             className="flex flex-wrap items-baseline justify-between gap-x-4"
           >
-            <h3 className="text-sm font-semibold">
+            <h3 className="text-sm font-medium">
               {e.degree} — {e.institution}
             </h3>
             <span className="text-xs text-[color:var(--w-muted)]">
@@ -155,7 +155,7 @@ const Resume = () => (
       <ul className="list-inside list-disc space-y-1 text-sm">
         {awards.map((a) => (
           <li key={a.title}>
-            <strong className="font-semibold text-[color:var(--w-heading)]">
+            <strong className="font-medium text-[color:var(--w-heading)]">
               {a.title}
             </strong>{" "}
             — {a.subtitle}, {a.year}. {a.role}

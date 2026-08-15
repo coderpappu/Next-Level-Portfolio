@@ -29,8 +29,10 @@ export const profile = {
   roleA: "Software Engineer",
   roleB: "SaaS Builder",
   headline: "Pappu Dey - Software Engineer & SaaS Builder",
+  /* Name, role, and location are already stated by the h1, the role line, and
+     the location line. The intro only has to say what the work is. */
   intro:
-    "I'm Pappu Dey (Chattogram, Bangladesh) - a Software Engineer and SaaS Builder. I build multi-tenant SaaS platforms, production web applications, and AI-powered automation systems for startups and enterprises.",
+    "I build multi-tenant SaaS platforms, production web applications, and hardware-integrated systems — for startups, institutions, and enterprises.",
   location: "Chattogram, Bangladesh",
   mapsUrl:
     "https://www.google.com/maps/search/Chattogram%2C%20Bangladesh",
@@ -44,6 +46,90 @@ export const profile = {
   whatsapp: "https://wa.me/8801XXXXXXXXX",
 };
 
+export const availability = {
+  open: true,
+  label: "Available for select projects",
+};
+
+/* Answers "what does he actually do", in plain language, with evidence.
+   Deliberately NOT a key/value fact list: role, location, and stack are
+   already stated in the hero and in the Toolkit section, and repeating them
+   here made the page read as metadata rather than as a person. */
+/* Currently unrendered: it repeated the hero intro's opening clause. Kept here
+   in case section 01 ever wants a lead again. */
+export const practiceLead =
+  "I build multi-tenant SaaS platforms end to end — data model, backend, and interface — and run a software company that ships client products alongside my own.";
+
+/* Titles are deliberately parallel and verb-led so the column completes the
+   section head as a sentence: "What I do — build…, ship…, run…". Mixed forms
+   (a noun, a possessive, an article phrase) read as three unrelated labels. */
+export const practice = [
+  {
+    title: "Build enterprise SaaS",
+    description:
+      "Multi-tenant systems with payroll, attendance, and role-based access. Currently the HRM platform at Xceed Bangladesh LTD, running real operations for multiple organisations.",
+  },
+  {
+    title: "Ship my own products",
+    description:
+      "E-Clearance turned a two-week paper process into two days for Chattogram Polytechnic Institute. Dev Tools Hunt is a discovery platform with its own ingestion and moderation pipeline.",
+  },
+  {
+    title: "Run a software company",
+    description:
+      "Codex Devware, founded 2022. Leading a small team on client work and the Codex LMS is how I ended up doing Android, DevOps, AI automation, and IoT hardware integration too.",
+  },
+];
+
+/* Short, dated "what I'm doing right now" block. Keep this current — it is the
+   part of the site that proves it is maintained. */
+/*
+ * Two approved layouts render from this one list — switch with NOW_LAYOUT at
+ * the top of pages/Home.jsx:
+ *
+ *   "columns"   — three verb-led columns
+ *   "readout"   — compact label/value status board, three lines total
+ *   "statement" — one bold headline plus supporting prose
+ *
+ * `text` feeds the columns, `short` feeds the readout, `headline` + `prose`
+ * feed the statement. All of it lives here so no version can drift from the
+ * others. Keep `updated` current — a stale "Now" is worse than none.
+ */
+export const now = {
+  updated: "August 2026",
+  headline:
+    "Rebuilding payroll and attendance for an HRM platform already in production.",
+  prose:
+    "Architecting the multi-tenant modules for Xceed HRM and the role-based access that sits under them. Leading the Codex Devware team through the Codex LMS rebuild — new data model, new enrolment flow. Reading up on distributed systems in between, alongside my BSc at East Delta University.",
+  lead: "What has my attention this month — work in progress, not the finished list.",
+
+  /* Three threads, kept short: the detail belongs on /experience and /projects.
+     `short` feeds the readout, `text` the three-column variant. */
+  items: [
+    {
+      mode: "Building",
+      subject: "POS software",
+      short:
+        "Point of sale with integrated hardware at Xceed Bangladesh LTD — software running against real devices.",
+      text: "Point of sale with integrated hardware at Xceed Bangladesh LTD.",
+    },
+    {
+      mode: "Leading",
+      subject: "CRM and AI automation",
+      short:
+        "The current builds at Codex Devware, with a small team.",
+      text: "The current builds at Codex Devware, with a small team.",
+    },
+    {
+      mode: "Learning",
+      subject: "AI/ML, electronics, algorithms",
+      short:
+        "Machine learning, electronic circuits, and algorithms, through my BSc at East Delta University.",
+      text: "Machine learning, electronic circuits, and algorithms, through my BSc at East Delta University.",
+    },
+  ],
+};
+
 export const knownFor = [
   {
     label: "Software Engineer, Xceed Bangladesh LTD",
@@ -52,7 +138,7 @@ export const knownFor = [
   },
   {
     label: "Founder & CEO, Codex Devware",
-    suffix: "(est. 2022) - software studio",
+    suffix: "(est. 2022) - software company",
     href: "https://eshop.codexdevware.com",
   },
   {
@@ -82,36 +168,59 @@ export const professionalProfiles = [
   { label: "Facebook", href: "https://www.facebook.com/coderpappudey" },
 ];
 
-/* icon key maps to a lucide component in ui.jsx */
+/* icon key maps to a lucide component in ui.jsx.
+   `group` splits the row into "where to find me" and "how to reach me", so
+   eight undifferentiated squares read as two purposeful clusters. */
 export const socials = [
-  { icon: "globe", title: "Portfolio", href: "https://pappudey.com" },
-  { icon: "github", title: "GitHub", href: "https://github.com/coderpappu" },
   {
+    group: "profiles",
+    icon: "globe",
+    title: "Portfolio",
+    href: "https://pappudey.com",
+  },
+  {
+    group: "profiles",
+    icon: "github",
+    title: "GitHub",
+    href: "https://github.com/coderpappu",
+  },
+  {
+    group: "profiles",
     icon: "linkedin",
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/coderpappu/",
   },
   {
+    group: "profiles",
     icon: "facebook",
     title: "Facebook",
     href: "https://www.facebook.com/coderpappudey",
   },
   {
+    group: "contact",
     icon: "mail",
     title: "Email",
     href: "mailto:pappudeydeveloper@gmail.com",
   },
   {
+    group: "contact",
     icon: "message",
     title: "WhatsApp",
     href: "https://wa.me/8801XXXXXXXXX",
   },
   {
+    group: "contact",
     icon: "calendar",
     title: "Book a call",
     href: "https://calendly.com/pappudeydeveloper/30min",
   },
-  { icon: "file", title: "Download CV", href: cvFile, download: true },
+  {
+    group: "contact",
+    icon: "file",
+    title: "Download CV",
+    href: cvFile,
+    download: true,
+  },
 ];
 
 export const skills = [
@@ -149,7 +258,7 @@ export const aboutParagraphs = [
   {
     id: "p3",
     parts: [
-      "Outside of employed work I founded Codex Devware, a small software studio where I lead a team building the Codex LMS platform and client projects. That mix of employed and founder experience pushed me beyond web development — into Android apps, DevOps pipelines, AI-powered automation, and hardware integration for IoT. I also competed in ",
+      "Outside of employed work I founded Codex Devware, a software company where I lead a team building the Codex LMS platform and client projects. That mix of employed and founder experience pushed me beyond web development — into Android apps, DevOps pipelines, AI-powered automation, and hardware integration for IoT. I also competed in ",
       { text: "ICPC Asia Dhaka Regional 2024", href: "https://icpc.global" },
       " with Team CPI Newbies.",
     ],
@@ -171,8 +280,17 @@ export const experience = [
     type: "Full-Time",
     location: "Chattogram, Bangladesh",
     period: "Oct 2024 – Present",
+    /* One line for the home page teaser; `description` + `highlights` carry
+       the detail on /experience. */
+    summary:
+      "Multi-tenant HRM SaaS — payroll, attendance, and RBAC, in production.",
     description:
       "Building an enterprise HRM SaaS platform serving multiple organizations. Architecting the multi-tenant system, and implementing RBAC, payroll processing, and attendance modules.",
+    highlights: [
+      "Architecting the multi-tenant data model so one deployment serves several organisations",
+      "Implementing role-based access control, payroll processing, and attendance",
+      "Owning the modules end to end — schema, API, and the interface on top",
+    ],
     stack: "React, Redux, Node.js, Express, PostgreSQL, Prisma",
   },
   {
@@ -181,8 +299,15 @@ export const experience = [
     type: "Self-Employed",
     location: "Chattogram, Bangladesh",
     period: "2022 – Present",
+    summary:
+      "Founded the company; shipped Codex LMS and client work with a small team.",
     description:
-      "Founded a software studio delivering web solutions for clients. Built and shipped the Codex LMS platform — course management, enrollment, and payments — and lead a small engineering team across client projects and internal products.",
+      "Founded a software company delivering web solutions for clients. Built and shipped the Codex LMS platform — course management, enrollment, and payments — and lead a small engineering team across client projects and internal products.",
+    highlights: [
+      "Founded the company and took it from first client to a working team",
+      "Built and shipped Codex LMS — course management, enrolment, and payments",
+      "Leading a small engineering team across client projects and internal products",
+    ],
     stack: "React, Node.js, Laravel, MySQL, Tailwind CSS",
     url: "https://eshop.codexdevware.com",
   },
@@ -192,8 +317,15 @@ export const experience = [
     type: "Full-Time",
     location: "Chattogram, Bangladesh",
     period: "2021 – 2022",
+    summary:
+      "10+ client web applications, and legacy WordPress migrated to React.",
     description:
       "Built and deployed 10+ custom web applications for clients, migrated legacy WordPress sites to modern React architectures, and owned site performance, security, and SEO.",
+    highlights: [
+      "Built and deployed 10+ custom web applications for clients",
+      "Migrated legacy WordPress sites to modern React architectures",
+      "Owned site performance, security, and SEO after launch",
+    ],
     stack: "React, WordPress, PHP, MySQL, Tailwind CSS",
   },
 ];
@@ -219,6 +351,15 @@ export const education = [
   },
 ];
 
+/*
+ * `constraint` is a one-line statement of what each system deliberately does
+ * NOT do. Naming the boundary of your own work is the strongest seniority
+ * signal on a portfolio — almost nobody does it.
+ *
+ * NOTE: these are DRAFTS inferred from each project's stated architecture.
+ * Review every one and rewrite it in your own words before publishing — only
+ * you know the real trade-offs you made.
+ */
 export const projects = [
   {
     id: "e-clearance",
@@ -232,6 +373,8 @@ export const projects = [
     live: "https://ctgpolyclearance.com",
     repo: "https://github.com/coderpappu",
     image: reportImg,
+    constraint:
+      "Modelled on one institution's approval graph. A second campus with different departmental rules would need the workflow schema generalised first.",
   },
   {
     id: "devtoolshunt",
@@ -245,6 +388,8 @@ export const projects = [
     live: "https://devtoolshunt.me",
     repo: "https://github.com/coderpappu",
     image: devtoolsHuntImg,
+    constraint:
+      "Moderation is a human admin queue. It holds at the current submission rate, but opening submissions wider would need automated spam scoring first.",
   },
   {
     id: "cribo-health-app",
@@ -258,6 +403,8 @@ export const projects = [
     live: "https://play.google.com/store/apps/details?id=com.cribohealth.mobile",
     repo: "https://github.com/coderpappu",
     image: cribohealthApp,
+    constraint:
+      "A personal record keeper, not a clinical system. It makes no claim to certified medical-record handling or clinical-grade audit trails.",
   },
   {
     id: "cribo-health",
@@ -271,6 +418,8 @@ export const projects = [
     live: "http://cribohealth.com/",
     repo: "https://github.com/coderpappu",
     image: cribohealthSite,
+    constraint:
+      "WordPress was chosen so the client could edit content without a developer. The cost is that the marketing site and the app share no code or design tokens.",
   },
   {
     id: "mini-dokan",
@@ -284,6 +433,8 @@ export const projects = [
     live: "https://eshop.codexdevware.com/",
     repo: "https://github.com/coderpappu",
     image: miniDokanImg,
+    constraint:
+      "Built on the WooCommerce multi-vendor ecosystem rather than a custom backend — quick to ship and cheap to run, but vendor payout logic is bounded by what the plugin exposes.",
   },
   {
     id: "codex-lms",
@@ -297,6 +448,8 @@ export const projects = [
     live: "https://react-lms-nine.vercel.app/",
     repo: "https://github.com/coderpappu",
     image: lmsImg,
+    constraint:
+      "Course video is served directly rather than through a streaming CDN, so it is sized for cohort-scale enrolment rather than open public courses.",
   },
   {
     id: "nexus-dashboard",
@@ -310,6 +463,8 @@ export const projects = [
     live: "https://react-dashboard-nine-tawny.vercel.app/",
     repo: "https://github.com/coderpappu",
     image: dashboardImg,
+    constraint:
+      "Interface work only — it runs against fixture data, so it demonstrates the charting and layout rather than a production data pipeline.",
   },
 ];
 
@@ -479,7 +634,7 @@ export const fastFacts = [
   },
   {
     label: "Founder",
-    value: "Codex Devware — software studio, est. 2022",
+    value: "Codex Devware — software company, est. 2022",
   },
   {
     label: "Education",
@@ -500,5 +655,5 @@ export const expertise = [
   "Core Engineering: React, Next.js, Node.js, Laravel, PostgreSQL, Prisma",
   "Architecture: multi-tenant SaaS, RBAC, REST API design, clean architecture",
   "Beyond the web: Android apps, DevOps pipelines, AI automation, IoT hardware integration",
-  "Leadership: founding and running a software studio, leading a small engineering team",
+  "Leadership: founding and running a software company, leading a small engineering team",
 ];

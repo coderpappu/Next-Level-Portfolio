@@ -140,7 +140,7 @@ export function LocationLine({ label, href }) {
 
 export function RingAvatar({ src, alt, size = 220 }) {
   return (
-    <div className="relative mx-auto flex-shrink-0 md:mx-0">
+    <div className="w-avatar relative mx-auto flex-shrink-0 md:mx-0">
       <div
         className="w-ring-spin absolute"
         style={{ inset: -8 }}
@@ -178,8 +178,13 @@ export function RingAvatar({ src, alt, size = 220 }) {
 export function PageTitle({ children, lede }) {
   return (
     <div>
-      <h1 className="mb-3 text-2xl font-bold">{children}</h1>
-      {lede ? <p className="text-sm">{lede}</p> : null}
+      {/* 600 is reserved for display sizes; body headings sit at 500. */}
+      <h1 className="mb-3 text-2xl font-semibold tracking-[-0.01em]">
+        {children}
+      </h1>
+      {lede ? (
+        <p className="w-prose max-w-[548px] text-sm">{lede}</p>
+      ) : null}
     </div>
   );
 }
@@ -189,7 +194,7 @@ export function Section({ id, title, children, className = "" }) {
     <section id={id} className={`flex flex-col gap-y-6 ${className}`}>
       {title ? (
         <div className="space-y-2">
-          <h2 className="text-xl font-bold">{title}</h2>
+          <h2 className="text-xl font-medium">{title}</h2>
         </div>
       ) : null}
       {children}
@@ -199,6 +204,141 @@ export function Section({ id, title, children, className = "" }) {
 
 export function RecordList({ children }) {
   return <div className="space-y-12">{children}</div>;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Numbered section head with a rule and an optional trailing link             */
+/* -------------------------------------------------------------------------- */
+
+export function SectionHead({ index, title, action, id }) {
+  return (
+    <div className="mb-6 flex items-baseline gap-3">
+      <span
+        className="shrink-0 text-[11px] tabular-nums text-[color:var(--w-sep)]"
+        aria-hidden="true"
+      >
+        {index}
+      </span>
+      {/* 0.12em, not 0.22em. Mono already carries generous sidebearings, so
+          tracking tuned for a proportional face runs ~40% too loose here. */}
+      <h2
+        id={id}
+        className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em]"
+      >
+        {title}
+      </h2>
+      <span
+        className="h-px flex-1"
+        style={{ backgroundColor: "var(--w-border)" }}
+        aria-hidden="true"
+      />
+      {action ? (
+        <span className="shrink-0 text-xs">
+          <GlyphLink href={action.href} internal={action.internal}>
+            {action.label}
+          </GlyphLink>
+        </span>
+      ) : null}
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Availability status with a live dot                                        */
+/* -------------------------------------------------------------------------- */
+
+/* One pill shape shared by every meta item in the hero, so the row reads as a
+   set rather than as a pill sitting next to some loose text. */
+const PILL =
+  "inline-flex items-center gap-2 rounded-full border border-[color:var(--w-border)] px-3 py-1 text-xs";
+
+export function StatusPill({ children, tone = "open" }) {
+  const color = tone === "open" ? "var(--w-ring-4)" : "var(--w-sep)";
+  return (
+    <span className={PILL}>
+      <span className="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+        <span
+          className="w-status-ping absolute inline-flex h-full w-full rounded-full opacity-60"
+          style={{ backgroundColor: color }}
+        />
+        <span
+          className="relative inline-flex h-2 w-2 rounded-full"
+          style={{ backgroundColor: color }}
+        />
+      </span>
+      {children}
+    </span>
+  );
+}
+
+export function LocationPill({ label, timezone, href }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Location: ${label}`}
+      className={`${PILL} transition-colors hover:bg-[color:var(--w-hover)]`}
+    >
+      <MapPin className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden="true" />
+      {label}
+      {timezone ? (
+        <>
+          <span className="text-[color:var(--w-sep)]" aria-hidden="true">
+            ·
+          </span>
+          <span className="text-[color:var(--w-muted)]">{timezone}</span>
+        </>
+      ) : null}
+    </a>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* Monospace bar — the font is the chart engine, no library involved           */
+/* Values come from counting real projects, never from self-rated proficiency.  */
+/* -------------------------------------------------------------------------- */
+
+/* U+2588 FULL BLOCK does not fill its advance width in IBM Plex Mono, so a run
+   of them renders as a picket fence with a hairline gap between every cell —
+   no amount of tracking closes it, because the gap is inside the glyph. The
+   cells are drawn as real elements instead: same character-grid rhythm, but it
+   renders crisply and the deliberate gap becomes part of the form.
+   One cell = one project, so the chart is countable rather than proportional. */
+export function CellMeter({ label, value, total }) {
+  return (
+    <div className="flex items-center gap-3 text-[11px]">
+      <span className="w-24 shrink-0 truncate text-[color:var(--w-text)]">
+        {label}
+      </span>
+      {/* The cell strip takes the remaining width and each cell flexes to an
+          equal share, so a row always spans its whole column instead of
+          stopping halfway and leaving a dead margin. 1px divisions keep the
+          cells countable while the fill still reads continuous. */}
+      <span
+        className="flex min-w-0 flex-1 gap-px"
+        role="img"
+        aria-label={`${value} of ${total} projects`}
+      >
+        {Array.from({ length: total }, (_, i) => (
+          <span
+            key={i}
+            className="block h-3 flex-1"
+            style={{
+              backgroundColor:
+                i < value ? "var(--w-heading)" : "var(--w-border)",
+            }}
+          />
+        ))}
+      </span>
+      <span
+        className="w-7 shrink-0 text-right tabular-nums text-[color:var(--w-muted)]"
+        aria-hidden="true"
+      >
+        {value}/{total}
+      </span>
+    </div>
+  );
 }
 
 /* -------------------------------------------------------------------------- */
@@ -241,7 +381,7 @@ export function RecordCard({
     <div className="flex flex-col gap-3">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
-          <h3 className="text-sm font-semibold md:text-base">{title}</h3>
+          <h3 className="text-sm font-medium md:text-base">{title}</h3>
           {subtitle ? (
             <p className="text-sm text-[color:var(--w-muted)]">{subtitle}</p>
           ) : null}
@@ -298,7 +438,7 @@ export function MediaItem({
       <div className="flex min-w-0 flex-col gap-2">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <h3 className="line-clamp-2 text-sm font-semibold md:line-clamp-3 md:text-base">
+            <h3 className="line-clamp-2 text-sm font-medium md:line-clamp-3 md:text-base">
               {titleHref ? (
                 <a
                   href={titleHref}

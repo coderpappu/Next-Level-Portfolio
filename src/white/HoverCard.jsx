@@ -6,7 +6,7 @@ import { useMediaQuery } from "./hooks";
  * Pointer-coarse devices (phones, tablets) skip it entirely — there is no
  * hover there, and a card triggered by a tap would fight the link itself.
  */
-export function ProjectHoverCard({ project, children }) {
+export function ProjectHoverCard({ project, children, className = "inline-block" }) {
   const canHover = useMediaQuery("(hover: hover) and (pointer: fine)");
   const [open, setOpen] = useState(false);
   const [alignRight, setAlignRight] = useState(false);
@@ -34,7 +34,7 @@ export function ProjectHoverCard({ project, children }) {
   return (
     <span
       ref={wrapRef}
-      className="relative inline-block"
+      className={`relative ${className}`}
       onMouseEnter={show}
       onMouseLeave={hide}
       onFocus={show}
@@ -57,7 +57,7 @@ export function ProjectHoverCard({ project, children }) {
             className="h-[140px] w-full object-cover"
           />
           <span className="block border-t border-[color:var(--w-border)] p-3">
-            <span className="block text-sm font-semibold text-[color:var(--w-heading)]">
+            <span className="block text-sm font-medium text-[color:var(--w-heading)]">
               {project.name}
             </span>
             <span className="mt-0.5 block text-xs text-[color:var(--w-muted)]">

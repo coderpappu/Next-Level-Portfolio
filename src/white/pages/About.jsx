@@ -31,7 +31,7 @@ const About = () => (
       />
     </Helmet>
 
-    <PageTitle lede="Read about Pappu Dey's engineering background, the products he has built, and the studio he founded.">
+    <PageTitle lede="Read about Pappu Dey's engineering background, the products he has built, and the company he founded.">
       About Pappu Dey
     </PageTitle>
 
@@ -58,7 +58,7 @@ const About = () => (
           <div key={s.label}>
             <dt className="sr-only">{s.label}</dt>
             <dd>
-              <span className="block text-2xl font-bold text-[color:var(--w-heading)]">
+              <span className="block text-2xl font-medium text-[color:var(--w-heading)]">
                 {s.value}
               </span>
               <span className="text-xs text-[color:var(--w-muted)]">
@@ -108,7 +108,7 @@ const About = () => (
     <Section title="My Journey">
       <div className="space-y-6 text-sm">
         <div className="space-y-2">
-          <h3 className="text-base font-semibold">
+          <h3 className="text-base font-medium">
             From client work to production systems
           </h3>
           <div>
@@ -120,18 +120,18 @@ const About = () => (
           </div>
         </div>
         <div className="space-y-2">
-          <h3 className="text-base font-semibold">
+          <h3 className="text-base font-medium">
             Founding Codex Devware
           </h3>
           <div>
-            In 2022 I founded Codex Devware, a small software studio. Leading a
+            In 2022 I founded Codex Devware, a software company. Leading a
             team on client projects and the Codex LMS platform pushed me past
             web development into Android apps, DevOps pipelines, AI automation,
             and hardware integration for IoT.
           </div>
         </div>
         <div className="space-y-2">
-          <h3 className="text-base font-semibold">
+          <h3 className="text-base font-medium">
             Enterprise SaaS at Xceed Bangladesh
           </h3>
           <div>

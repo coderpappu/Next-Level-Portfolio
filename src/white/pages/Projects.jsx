@@ -34,7 +34,7 @@ const Projects = () => {
         />
       </Helmet>
 
-      <PageTitle lede="Explore the SaaS platforms, web applications, and mobile apps Pappu Dey has designed, built, and shipped for institutions, startups, and his own studio.">
+      <PageTitle lede="Explore the SaaS platforms, web applications, and mobile apps Pappu Dey has designed, built, and shipped for institutions, startups, and his own company.">
         Pappu Dey&apos;s Projects
       </PageTitle>
 
@@ -109,8 +109,18 @@ const Projects = () => {
                   src={p.image}
                   alt={`${p.name} screenshot`}
                   loading="lazy"
-                  className="w-full rounded-lg border border-[color:var(--w-border)] object-cover md:max-w-lg"
+                  className="w-full rounded-md border border-[color:var(--w-border)] object-cover md:max-w-[548px]"
                 />
+                {/* Naming what a system deliberately does not do. */}
+                {p.constraint ? (
+                  <p className="w-prose max-w-[548px] border-l-2 border-[color:var(--w-border)] pl-3 text-[11px] text-[color:var(--w-muted)]">
+                    <span className="uppercase tracking-[0.14em]">
+                      Known limit
+                    </span>
+                    {" — "}
+                    {p.constraint}
+                  </p>
+                ) : null}
                 <ul className="flex list-none flex-wrap gap-1 p-0">
                   {p.stack.map((t) => (
                     <li key={t}>
