@@ -24,18 +24,32 @@ import { Link } from "react-router-dom";
 /* `arrow-up-right`, so the icon never misrepresents where the link goes.      */
 /* -------------------------------------------------------------------------- */
 
-export function GlyphLink({ href, internal = false, children, className = "" }) {
+export function GlyphLink({
+  href,
+  internal = false,
+  primary = false,
+  secondary = false,
+  children,
+  className = "",
+}) {
   const Icon = internal ? ArrowUpRight : ExternalLink;
+  const button = primary || secondary;
   const glyph = (
     <Icon
       width={13}
       height={13}
       strokeWidth={2}
-      className="translate-y-[1px] shrink-0 text-[color:var(--w-heading)]"
+      className={`translate-y-[1px] shrink-0 ${
+        button ? "" : "text-[color:var(--w-heading)]"
+      }`}
       aria-hidden="true"
     />
   );
-  const cls = `inline-flex items-baseline space-x-1 hover:underline ${className}`;
+  const cls = primary
+    ? `w-btn-primary ${className}`
+    : secondary
+      ? `w-btn-secondary ${className}`
+      : `inline-flex items-baseline space-x-1 hover:underline ${className}`;
 
   if (internal) {
     return (
@@ -145,14 +159,7 @@ export function RingAvatar({ src, alt, size = 220 }) {
         className="w-ring-spin absolute"
         style={{ inset: -8 }}
         aria-hidden="true"
-      >
-        <div className="relative h-full w-full">
-          <span className="absolute h-1/2 w-1/2 rounded-tl-full border-l-4 border-t-4 border-[color:var(--w-ring-1)]" />
-          <span className="absolute right-0 h-1/2 w-1/2 rounded-tr-full border-r-4 border-t-4 border-[color:var(--w-ring-2)]" />
-          <span className="absolute bottom-0 right-0 h-1/2 w-1/2 rounded-br-full border-b-4 border-r-4 border-[color:var(--w-ring-3)]" />
-          <span className="absolute bottom-0 h-1/2 w-1/2 rounded-bl-full border-b-4 border-l-4 border-[color:var(--w-ring-4)]" />
-        </div>
-      </div>
+      />
       <div
         className="relative overflow-hidden rounded-full"
         style={{ width: size, height: size }}
@@ -189,13 +196,26 @@ export function PageTitle({ children, lede }) {
   );
 }
 
-export function Section({ id, title, children, className = "" }) {
+export function Section({ id, title, children, className = "", bold = false }) {
   return (
     <section id={id} className={`flex flex-col gap-y-6 ${className}`}>
       {title ? (
-        <div className="space-y-2">
-          <h2 className="text-xl font-medium">{title}</h2>
-        </div>
+        bold ? (
+          <div className="flex items-baseline gap-3">
+            <h2 className="w-display shrink-0 text-base font-extrabold uppercase tracking-[0.04em]">
+              {title}
+            </h2>
+            <span
+              className="h-px flex-1"
+              style={{ backgroundColor: "var(--w-border)" }}
+              aria-hidden="true"
+            />
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <h2 className="text-xl font-medium">{title}</h2>
+          </div>
+        )
       ) : null}
       {children}
     </section>
@@ -207,23 +227,15 @@ export function RecordList({ children }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Numbered section head with a rule and an optional trailing link             */
+/* Section head with a rule and an optional trailing link                     */
 /* -------------------------------------------------------------------------- */
 
-export function SectionHead({ index, title, action, id }) {
+export function SectionHead({ title, action, id }) {
   return (
     <div className="mb-6 flex items-baseline gap-3">
-      <span
-        className="shrink-0 text-[11px] tabular-nums text-[color:var(--w-sep)]"
-        aria-hidden="true"
-      >
-        {index}
-      </span>
-      {/* 0.12em, not 0.22em. Mono already carries generous sidebearings, so
-          tracking tuned for a proportional face runs ~40% too loose here. */}
       <h2
         id={id}
-        className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em]"
+        className="w-display shrink-0 text-base font-extrabold uppercase tracking-[0.04em]"
       >
         {title}
       </h2>
@@ -271,6 +283,8 @@ export function StatusPill({ children, tone = "open" }) {
   );
 }
 
+/* Borderless: it is a fact about me, not a control, so it does not need a
+   container. The pin carries the meaning and the underline carries the link. */
 export function LocationPill({ label, timezone, href }) {
   return (
     <a
@@ -278,7 +292,7 @@ export function LocationPill({ label, timezone, href }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Location: ${label}`}
-      className={`${PILL} transition-colors hover:bg-[color:var(--w-hover)]`}
+      className="inline-flex items-center gap-2 text-xs hover:underline"
     >
       <MapPin className="h-3 w-3 shrink-0" strokeWidth={2} aria-hidden="true" />
       {label}

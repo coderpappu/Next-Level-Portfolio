@@ -292,6 +292,7 @@ export const experience = [
       "Owning the modules end to end — schema, API, and the interface on top",
     ],
     stack: "React, Redux, Node.js, Express, PostgreSQL, Prisma",
+    url: "https://xceedbd.com",
   },
   {
     role: "Founder & CEO",
@@ -309,7 +310,7 @@ export const experience = [
       "Leading a small engineering team across client projects and internal products",
     ],
     stack: "React, Node.js, Laravel, MySQL, Tailwind CSS",
-    url: "https://eshop.codexdevware.com",
+    url: "https://codexdevware.com",
   },
   {
     role: "Web Application Developer",
@@ -333,7 +334,7 @@ export const experience = [
 export const education = [
   {
     institution: "East Delta University",
-    degree: "BSc in Computer Science",
+    degree: "BSc in Computer Science and Technology",
     period: "2025 - Present",
     note: "Building on 4+ years of professional engineering experience and competitive programming.",
   },
@@ -639,7 +640,7 @@ export const fastFacts = [
   {
     label: "Education",
     value:
-      "BSc in Computer Science, East Delta University (2025 – Present); Diploma in CSE, Chattogram Polytechnic Institute (2021 – 2024)",
+      "BSc in Computer Science and Technology, East Delta University (2025 – Present); Diploma in CSE, Chattogram Polytechnic Institute (2021 – 2024)",
   },
   {
     label: "Location",

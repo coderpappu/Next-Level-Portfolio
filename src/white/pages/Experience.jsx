@@ -16,7 +16,7 @@ const Experience = () => (
       Pappu Dey&apos;s Experience &amp; Education
     </PageTitle>
 
-    <Section title="Work Experience">
+    <Section title="Work Experience" bold>
       <div className="space-y-12">
         {experience.map((job) => (
           <div key={job.org} className="flex flex-col gap-2">
@@ -33,15 +33,13 @@ const Experience = () => (
               </div>
             </div>
             <p className="text-sm">{job.description}</p>
-            <ul className="list-none space-y-1.5 p-0">
+            <ul className="list-none space-y-1 p-0 my-3">
               {job.highlights.map((h) => (
-                <li key={h} className="flex gap-2.5 text-[11px]">
+                <li key={h} className="flex gap-2.5 text-sm leading-snug">
                   <span
-                    className="shrink-0 text-[color:var(--w-sep)]"
+                    className="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--w-sep)]"
                     aria-hidden="true"
-                  >
-                    —
-                  </span>
+                  />
                   <span className="w-prose">{h}</span>
                 </li>
               ))}
@@ -59,16 +57,18 @@ const Experience = () => (
       </div>
     </Section>
 
-    <Section title="Education">
+    <Section title="Education" bold>
       <div className="space-y-4">
         {education.map((e) => (
           <article key={e.institution}>
-            <div className="flex items-start justify-between gap-2">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
               <div>
                 <h3 className="text-base font-medium">{e.institution}</h3>
                 <p className="text-sm">{e.degree}</p>
               </div>
-              <span className="flex-none text-sm">{e.period}</span>
+              <span className="shrink-0 text-sm text-[color:var(--w-muted)]">
+                {e.period}
+              </span>
             </div>
             <p className="mt-1 text-sm text-[color:var(--w-muted)]">{e.note}</p>
           </article>
@@ -76,13 +76,13 @@ const Experience = () => (
       </div>
     </Section>
 
-    <Section title="At a Glance">
+    <Section title="At a Glance" bold>
       <dl className="grid grid-cols-2 gap-6 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label}>
             <dt className="sr-only">{s.label}</dt>
             <dd>
-              <span className="block text-2xl font-medium text-[color:var(--w-heading)]">
+              <span className="w-display block text-[28px] font-semibold leading-8 tabular-nums tracking-[-0.01em] text-[color:var(--w-heading)]">
                 {s.value}
               </span>
               <span className="text-xs text-[color:var(--w-muted)]">
@@ -92,11 +92,13 @@ const Experience = () => (
           </div>
         ))}
       </dl>
-      <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        <GlyphLink href="/resume" internal>
+      <div className="flex flex-wrap gap-3 text-sm">
+        <GlyphLink href="/resume" internal primary>
           One-page résumé
         </GlyphLink>
-        <GlyphLink href={images.cv}>Download full CV (PDF)</GlyphLink>
+        <GlyphLink href={images.cv} secondary>
+          Download full CV (PDF)
+        </GlyphLink>
       </div>
     </Section>
   </>

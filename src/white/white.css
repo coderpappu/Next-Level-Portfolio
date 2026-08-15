@@ -20,6 +20,9 @@
   --w-sep: #d1d5dc;
   --w-overlay: rgba(2, 9, 25, 0.4);
   --w-elevated: #ffffff;
+  /* Translucent, not opaque — the sticky nav's backdrop-blur only reads as
+     blur if content is actually visible through it. */
+  --w-nav-bg: rgba(255, 255, 255, 0.3);
 
   /* Five real greys. #6c727e was doing duty as body copy at 4.83:1 — that is
      the *secondary* step. Body is now #4a5565 (7.55:1, AAA). */
@@ -48,8 +51,8 @@
 
   background-color: var(--w-bg);
   color: var(--w-text);
-  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
-    monospace;
+  font-family: "SFMono-Regular", "SF Mono", "IBM Plex Mono", Menlo, Consolas,
+    ui-monospace, monospace;
   font-size: 0.875rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -100,6 +103,7 @@
   --w-sep: #2a3140;
   --w-overlay: rgba(0, 0, 0, 0.65);
   --w-elevated: #0f131a;
+  --w-nav-bg: rgba(10, 12, 16, 0.3);
 
   --w-heading: #e8ecf3;
   --w-text: #b3bbc8;
@@ -125,7 +129,8 @@
    JetBrains only where the letterforms actually register: display sizes. */
 .white-root h1,
 .white-root .w-display {
-  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-family: "SFMono-Regular", "SF Mono", "JetBrains Mono", Menlo, Consolas,
+    ui-monospace, monospace;
 }
 
 /* Links inherit body color; the icon glyph carries the affordance. */
@@ -204,6 +209,53 @@ html.white-page.white-dark {
   background-color: var(--w-hover);
 }
 
+/* ----------------------------- primary button ------------------------------ */
+
+/* The one filled action on the page — everything else is a plain glyph link.
+   Reserved for the single strongest CTA so it doesn't compete with itself. */
+/* `.white-root a { color: inherit }` outranks a bare .w-btn-primary on
+   specificity, so this has to match it: element + class. */
+.white-root a.w-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--w-chip-text);
+  background-color: var(--w-chip-fill);
+  border-radius: 6px;
+  padding: 0.5rem 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--w-duration) var(--w-ease);
+}
+
+.white-root a.w-btn-primary:hover {
+  background-color: var(--w-heading);
+  text-decoration: none;
+}
+
+/* Outlined companion to .w-btn-primary — same shape and padding, so the two
+   read as a button pair rather than one button next to a plain text link. */
+.white-root a.w-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--w-text);
+  background-color: transparent;
+  border: 1px solid var(--w-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color var(--w-duration) var(--w-ease),
+    border-color var(--w-duration) var(--w-ease);
+}
+
+.white-root a.w-btn-secondary:hover {
+  background-color: var(--w-hover);
+  border-color: var(--w-sep);
+  text-decoration: none;
+}
+
 /* -------------------------------- logo mark ------------------------------- */
 
 /* logo.png is a thin dark outline on transparency. `brightness(0) invert(1)`
@@ -231,10 +283,31 @@ html.white-page.white-dark {
   }
 }
 
-/* Paused at rest and driven by intent. A perpetually rotating multi-colour ring
-   is autoplay motion competing with the reader for attention; on hover it
-   becomes a response instead of a loop. */
+/* A single conic-gradient disc, masked down to a ring, draws one continuous
+   seamless circle. The previous version built the ring from four separate
+   bordered quarter-circle spans, which left visible seams at the quadrant
+   boundaries where the photo behind it showed through as a squared-off
+   notch instead of a clean curve. */
 .w-ring-spin {
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    var(--w-ring-1),
+    var(--w-ring-2) 25%,
+    var(--w-ring-3) 50%,
+    var(--w-ring-4) 75%,
+    var(--w-ring-1) 100%
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 4px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 4px),
+    #000 calc(100% - 4px)
+  );
   animation: 8s linear infinite w-ring-spin;
   animation-play-state: paused;
   will-change: transform;

@@ -14,7 +14,6 @@ const NAV = [
   { label: "Services", href: "/services" },
   { label: "Experience", href: "/experience" },
   { label: "Awards", href: "/awards" },
-  { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -72,8 +71,8 @@ const WhiteLayout = () => {
       <main className="mx-auto max-w-screen-lg md:px-4">
         {/* ------------------------------- nav ------------------------------ */}
         <nav
-          className="sticky top-0 z-50 md:backdrop-blur-sm"
-          style={{ backgroundColor: "var(--w-bg)" }}
+          className="sticky top-0 z-50 backdrop-blur-md"
+          style={{ backgroundColor: "var(--w-nav-bg)" }}
         >
           <div className="flex h-14 items-center justify-between">
             <Link
@@ -129,7 +128,7 @@ const WhiteLayout = () => {
                   onClick={() => setPaletteOpen(true)}
                   aria-label="Open command palette"
                   title="Search — ⌘K"
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-md border border-[color:var(--w-border)] bg-transparent px-2 py-1.5 text-xs text-[color:var(--w-muted)] transition-colors hover:bg-[color:var(--w-hover)]"
+                  className="inline-flex cursor-pointer appearance-none items-center gap-2 rounded-md border border-[color:var(--w-border)] bg-transparent px-2 py-1.5 text-xs text-[color:var(--w-muted)] transition-colors hover:bg-[color:var(--w-hover)]"
                 >
                   <Search className="h-3.5 w-3.5" aria-hidden="true" />
                   <kbd className="font-[inherit]">⌘K</kbd>
@@ -142,7 +141,7 @@ const WhiteLayout = () => {
                       ? "Switch to light theme"
                       : "Switch to dark theme"
                   }
-                  className="inline-flex cursor-pointer items-center justify-center rounded-md border border-[color:var(--w-border)] bg-transparent p-2 text-[color:var(--w-icon)] transition-colors hover:bg-[color:var(--w-hover)]"
+                  className="inline-flex cursor-pointer appearance-none items-center justify-center rounded-md border border-[color:var(--w-border)] bg-transparent p-2 text-[color:var(--w-icon)] transition-colors hover:bg-[color:var(--w-hover)]"
                 >
                   {theme === "dark" ? (
                     <Sun className="h-4 w-4" aria-hidden="true" />
@@ -157,7 +156,7 @@ const WhiteLayout = () => {
                   type="button"
                   onClick={() => setPaletteOpen(true)}
                   aria-label="Open command palette"
-                  className="cursor-pointer border-none bg-transparent p-2 text-[color:var(--w-icon)]"
+                  className="cursor-pointer appearance-none border-none bg-transparent p-2 text-[color:var(--w-icon)]"
                 >
                   <Search className="h-5 w-5" aria-hidden="true" />
                 </button>
@@ -169,7 +168,7 @@ const WhiteLayout = () => {
                       ? "Switch to light theme"
                       : "Switch to dark theme"
                   }
-                  className="cursor-pointer border-none bg-transparent p-2 text-[color:var(--w-icon)]"
+                  className="cursor-pointer appearance-none border-none bg-transparent p-2 text-[color:var(--w-icon)]"
                 >
                   {theme === "dark" ? (
                     <Sun className="h-5 w-5" aria-hidden="true" />
@@ -182,7 +181,7 @@ const WhiteLayout = () => {
                   onClick={() => setOpen((v) => !v)}
                   aria-expanded={open}
                   aria-controls="mobile-menu"
-                  className="mr-2 cursor-pointer border-none bg-transparent p-2 text-[color:var(--w-icon)]"
+                  className="mr-2 cursor-pointer appearance-none border-none bg-transparent p-2 text-[color:var(--w-icon)]"
                 >
                   <span className="sr-only">
                     {open ? "Close menu" : "Open menu"}

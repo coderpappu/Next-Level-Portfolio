@@ -20,7 +20,7 @@ const PROJECT_TYPES = [
 ];
 
 const inputClass =
-  "w-full rounded-md border border-[color:var(--w-border)] bg-white px-3 py-2 text-sm text-[color:var(--w-heading)] outline-none transition-colors placeholder:text-[color:var(--w-sep)] focus:border-[color:var(--w-heading)]";
+  "w-full rounded-md border border-[color:var(--w-border)] bg-[color:var(--w-elevated)] px-3 py-2 text-sm text-[color:var(--w-heading)] outline-none transition-colors placeholder:text-[color:var(--w-sep)] focus:border-[color:var(--w-heading)]";
 
 const emptyForm = { name: "", email: "", projectType: "", message: "" };
 

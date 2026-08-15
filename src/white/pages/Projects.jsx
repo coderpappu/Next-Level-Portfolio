@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
 import { projects } from "../data";
 import { Reveal } from "../motion";
-import { Chip, PageTitle, RecordCard, RecordList } from "../ui";
+import { Chip, PageTitle, PipeLinks, RecordList } from "../ui";
 
 const ALL_TECH = [...new Set(projects.flatMap((p) => p.stack))].sort();
 
@@ -86,56 +86,81 @@ const Projects = () => {
       </div>
 
       {/* ------------------------------ records ----------------------------- */}
+      {/* Alternating image/text sides instead of one long text-over-image
+          column — at 896px wide, a fixed-side image left a dead half of the
+          row empty next to it. Alternating also breaks up seven back-to-back
+          identical rows into a rhythm. */}
       {visible.length === 0 ? (
         <p className="py-8 text-center text-sm text-[color:var(--w-muted)]">
           No project uses every selected technology. Try removing a filter.
         </p>
       ) : (
         <RecordList>
-          {visible.map((p) => (
+          {visible.map((p, i) => (
             <Reveal key={p.id}>
-              <RecordCard
-                title={p.name}
-                subtitle={p.category}
-                meta={p.year}
-                role={p.role}
-                description={p.description}
-                links={[
-                  { label: "Live Site", href: p.live },
-                  { label: "Source", href: p.repo },
-                ]}
+              <article
+                className={`flex flex-col gap-6 lg:items-center lg:gap-10 ${
+                  i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                }`}
               >
-                <img
-                  src={p.image}
-                  alt={`${p.name} screenshot`}
-                  loading="lazy"
-                  className="w-full rounded-md border border-[color:var(--w-border)] object-cover md:max-w-[548px]"
-                />
-                {/* Naming what a system deliberately does not do. */}
-                {p.constraint ? (
-                  <p className="w-prose max-w-[548px] border-l-2 border-[color:var(--w-border)] pl-3 text-[11px] text-[color:var(--w-muted)]">
-                    <span className="uppercase tracking-[0.14em]">
-                      Known limit
-                    </span>
-                    {" — "}
-                    {p.constraint}
-                  </p>
-                ) : null}
-                <ul className="flex list-none flex-wrap gap-1 p-0">
-                  {p.stack.map((t) => (
-                    <li key={t}>
-                      {/* Matched technologies stay highlighted so you can see
-                          why a project survived the filter. */}
-                      <Chip
-                        active={selected.includes(t)}
-                        aria-label={`Technology: ${t}`}
-                      >
-                        {t}
+                <div className="lg:w-[54%] lg:shrink-0">
+                  <img
+                    src={p.image}
+                    alt={`${p.name} screenshot`}
+                    loading="lazy"
+                    className="w-full rounded-md border border-[color:var(--w-border)] object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col gap-3">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <Chip aria-label={`Category: ${p.category}`}>
+                        {p.category}
                       </Chip>
-                    </li>
-                  ))}
-                </ul>
-              </RecordCard>
+                      <h3 className="mt-2 text-base font-medium md:text-lg">
+                        {p.name}
+                      </h3>
+                    </div>
+                    <span className="flex-none text-sm text-[color:var(--w-muted)]">
+                      {p.year}
+                    </span>
+                  </div>
+                  <p className="text-sm text-[color:var(--w-tertiary)]">
+                    {p.role}
+                  </p>
+                  <p className="text-sm">{p.description}</p>
+                  {/* Naming what a system deliberately does not do. */}
+                  {p.constraint ? (
+                    <p className="w-prose border-l-2 border-[color:var(--w-border)] pl-3 text-[11px] text-[color:var(--w-muted)]">
+                      <span className="uppercase tracking-[0.14em]">
+                        Known limit
+                      </span>
+                      {" — "}
+                      {p.constraint}
+                    </p>
+                  ) : null}
+                  <ul className="flex list-none flex-wrap gap-1 p-0">
+                    {p.stack.map((t) => (
+                      <li key={t}>
+                        {/* Matched technologies stay highlighted so you can
+                            see why a project survived the filter. */}
+                        <Chip
+                          active={selected.includes(t)}
+                          aria-label={`Technology: ${t}`}
+                        >
+                          {t}
+                        </Chip>
+                      </li>
+                    ))}
+                  </ul>
+                  <PipeLinks
+                    links={[
+                      { label: "Live Site", href: p.live },
+                      { label: "Source", href: p.repo },
+                    ]}
+                  />
+                </div>
+              </article>
             </Reveal>
           ))}
         </RecordList>
