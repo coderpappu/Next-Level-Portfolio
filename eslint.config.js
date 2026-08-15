@@ -35,4 +35,12 @@ export default [
       ],
     },
   },
+  {
+    // The white edition deliberately avoids the prop-types package (it is only
+    // a transitive dependency here, and adding it would churn the lockfile).
+    files: ['src/white/**/*.{js,jsx}'],
+    rules: {
+      'react/prop-types': 'off',
+    },
+  },
 ]
