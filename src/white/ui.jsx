@@ -266,22 +266,51 @@ export function RecordCard({
 /* Media item — thumbnail + text row, used by the project lists                */
 /* -------------------------------------------------------------------------- */
 
-export function MediaItem({ image, title, excerpt, meta, links = [] }) {
+export function MediaItem({
+  image,
+  title,
+  titleHref,
+  excerpt,
+  meta,
+  links = [],
+}) {
   return (
     <div className="flex gap-3 md:gap-6">
       <div className="relative h-[54px] w-24 flex-none md:h-[135px] md:w-[240px]">
-        <img
-          src={image}
-          alt=""
-          loading="lazy"
-          className="absolute inset-0 h-full w-full rounded-lg border border-[color:var(--w-border)] object-cover"
-        />
+        {titleHref ? (
+          <a href={titleHref} target="_blank" rel="noopener noreferrer">
+            <img
+              src={image}
+              alt=""
+              loading="lazy"
+              className="absolute inset-0 h-full w-full rounded-lg border border-[color:var(--w-border)] object-cover"
+            />
+          </a>
+        ) : (
+          <img
+            src={image}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full rounded-lg border border-[color:var(--w-border)] object-cover"
+          />
+        )}
       </div>
       <div className="flex min-w-0 flex-col gap-2">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <h3 className="line-clamp-2 text-sm font-semibold md:line-clamp-3 md:text-base">
-              {title}
+              {titleHref ? (
+                <a
+                  href={titleHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  {title}
+                </a>
+              ) : (
+                title
+              )}
             </h3>
             {excerpt ? (
               <p className="hidden text-sm text-[color:var(--w-muted)] md:block">

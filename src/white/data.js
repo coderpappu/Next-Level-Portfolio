@@ -59,11 +59,13 @@ export const knownFor = [
     label: "Creator, E-Clearance",
     suffix: " - SaaS clearance system for Chattogram Polytechnic Institute",
     href: "https://ctgpolyclearance.com",
+    projectId: "e-clearance",
   },
   {
     label: "Creator, Dev Tools Hunt",
     suffix: " - developer tool discovery platform",
     href: "https://devtoolshunt.me",
+    projectId: "devtoolshunt",
   },
   {
     label: "ICPC Asia Dhaka Regionalist 2024",

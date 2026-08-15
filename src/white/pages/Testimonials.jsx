@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import { PageTitle, RecordList } from "../ui";
 import { testimonials } from "../data";
+import { Reveal } from "../motion";
+import { PageTitle, RecordList } from "../ui";
 
 const Testimonials = () => (
   <>
@@ -17,8 +18,13 @@ const Testimonials = () => (
     </PageTitle>
 
     <RecordList>
-      {testimonials.map((t) => (
-        <figure key={t.name} className="flex flex-col gap-3">
+      {testimonials.map((t, i) => (
+        <Reveal
+          key={t.name}
+          delay={i * 60}
+          as="figure"
+          className="flex flex-col gap-3"
+        >
           <blockquote className="text-sm">{t.quote}</blockquote>
           <figcaption className="flex items-start justify-between gap-4">
             <div className="flex-1">
@@ -26,7 +32,7 @@ const Testimonials = () => (
               <p className="text-sm text-[color:var(--w-muted)]">{t.title}</p>
             </div>
           </figcaption>
-        </figure>
+        </Reveal>
       ))}
     </RecordList>
   </>

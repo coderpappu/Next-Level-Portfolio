@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { ProjectHoverCard } from "../HoverCard";
+import { Reveal } from "../motion";
 import {
   Badge,
   Chip,
@@ -70,8 +72,11 @@ const Home = () => {
           <div className="my-4 text-sm" aria-label="Known for">
             <h2 className="text-lg font-medium">Known for</h2>
             <ul className="list-inside list-disc">
-              {knownFor.map((item) => (
-                <li key={item.label}>
+              {knownFor.map((item) => {
+                const project = item.projectId
+                  ? projects.find((p) => p.id === item.projectId)
+                  : null;
+                const link = (
                   <a
                     href={item.href}
                     target="_blank"
@@ -80,9 +85,19 @@ const Home = () => {
                   >
                     {item.label}
                   </a>
-                  {item.suffix}
-                </li>
-              ))}
+                );
+                return (
+                  <li key={item.label}>
+                    {/* Named products get a hover preview of the real thing. */}
+                    {project ? (
+                      <ProjectHoverCard project={project}>{link}</ProjectHoverCard>
+                    ) : (
+                      link
+                    )}
+                    {item.suffix}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -241,18 +256,20 @@ const Home = () => {
       >
         <Section title="Featured Projects">
           <div className="space-y-12">
-            {projects.slice(0, 4).map((p) => (
-              <MediaItem
-                key={p.id}
-                image={p.image}
-                title={p.name}
-                excerpt={p.description}
-                meta={p.year}
-                links={[
-                  { label: "Live Site", href: p.live },
-                  { label: "Source", href: p.repo },
-                ]}
-              />
+            {projects.slice(0, 4).map((p, i) => (
+              <Reveal key={p.id} delay={i * 60}>
+                <MediaItem
+                  image={p.image}
+                  title={p.name}
+                  titleHref={p.live}
+                  excerpt={p.description}
+                  meta={p.year}
+                  links={[
+                    { label: "Live Site", href: p.live },
+                    { label: "Source", href: p.repo },
+                  ]}
+                />
+              </Reveal>
             ))}
           </div>
           <div className="text-sm">

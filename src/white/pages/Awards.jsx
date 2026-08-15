@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import { PageTitle, RecordCard, RecordList } from "../ui";
 import { awards } from "../data";
+import { Reveal } from "../motion";
+import { PageTitle, RecordCard, RecordList } from "../ui";
 
 const Awards = () => (
   <>
@@ -18,24 +19,23 @@ const Awards = () => (
 
     <RecordList>
       {awards.map((a) => (
-        <RecordCard
-          key={a.title}
-          title={a.title}
-          subtitle={a.subtitle}
-          meta={a.year}
-          role={a.role}
-          description={a.description}
-          links={a.links}
-        >
-          <div className="relative">
+        <Reveal key={a.title}>
+          <RecordCard
+            title={a.title}
+            subtitle={a.subtitle}
+            meta={a.year}
+            role={a.role}
+            description={a.description}
+            links={a.links}
+          >
             <img
               src={a.image}
               alt={`${a.title} certificate`}
               loading="lazy"
               className="w-full rounded-lg border border-[color:var(--w-border)] object-cover md:max-w-sm"
             />
-          </div>
-        </RecordCard>
+          </RecordCard>
+        </Reveal>
       ))}
     </RecordList>
   </>

@@ -79,7 +79,10 @@ const Experience = () => (
           </div>
         ))}
       </dl>
-      <div className="text-sm">
+      <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+        <GlyphLink href="/resume" internal>
+          One-page résumé
+        </GlyphLink>
         <GlyphLink href={images.cv}>Download full CV (PDF)</GlyphLink>
       </div>
     </Section>

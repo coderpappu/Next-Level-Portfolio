@@ -43,6 +43,29 @@
 
     <link rel="icon" href="/logo.png" />
 
+    <!--
+      Applies the stored/system theme before first paint so dark-mode visitors
+      never see a white flash. Must stay inline and before the app bundle.
+    -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("pd-theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          if (t === "dark") {
+            document.documentElement.classList.add("white-dark");
+            document.documentElement.style.backgroundColor = "#0a0c10";
+          }
+        } catch (e) {
+          /* storage unavailable — fall through to the light default */
+        }
+      })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -98,8 +121,8 @@
         }
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CAedolub.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C3d_PwIx.css">
+    <script type="module" crossorigin src="/assets/index-CFhcnLG5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-COZzWvbs.css">
   </head>
   <body>
     <div id="root"></div>
