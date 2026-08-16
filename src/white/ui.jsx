@@ -379,44 +379,6 @@ export function PipeLinks({ links }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Record card — one anatomy shared by projects / awards / experience          */
-/* -------------------------------------------------------------------------- */
-
-export function RecordCard({
-  title,
-  subtitle,
-  meta,
-  role,
-  description,
-  links = [],
-  children,
-}) {
-  return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex-1">
-          <h3 className="text-sm font-medium md:text-base">{title}</h3>
-          {subtitle ? (
-            <p className="text-sm text-[color:var(--w-muted)]">{subtitle}</p>
-          ) : null}
-        </div>
-        {meta ? (
-          <span className="flex-none text-sm text-[color:var(--w-muted)]">
-            {meta}
-          </span>
-        ) : null}
-      </div>
-      {role ? (
-        <p className="text-sm text-[color:var(--w-tertiary)]">{role}</p>
-      ) : null}
-      {description ? <p className="text-sm">{description}</p> : null}
-      {children}
-      {links.length > 0 ? <PipeLinks links={links} /> : null}
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
 /* Media item — thumbnail + text row, used by the project lists                */
 /* -------------------------------------------------------------------------- */
 

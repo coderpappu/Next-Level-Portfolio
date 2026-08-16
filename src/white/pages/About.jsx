@@ -9,6 +9,7 @@ import {
   profile,
   stats,
 } from "../data";
+import { useCvUrl } from "../hooks";
 
 const Prose = ({ parts }) =>
   parts.map((part, i) =>
@@ -21,7 +22,10 @@ const Prose = ({ parts }) =>
     ),
   );
 
-const About = () => (
+const About = () => {
+  const cvUrl = useCvUrl(images.cv);
+
+  return (
   <>
     <Helmet>
       <title>About | Pappu Dey</title>
@@ -99,7 +103,7 @@ const About = () => (
               </GlyphLink>
             ))}
             <GlyphLink href={profile.calendly}>Book a Call</GlyphLink>
-            <GlyphLink href={images.cv}>Download CV</GlyphLink>
+            <GlyphLink href={cvUrl}>Download CV</GlyphLink>
           </div>
         </li>
       </ul>
@@ -144,6 +148,7 @@ const About = () => (
       </div>
     </Section>
   </>
-);
+  );
+};
 
 export default About;

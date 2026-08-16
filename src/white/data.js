@@ -542,7 +542,7 @@ export const awards = [
     year: "2025",
     role: "Awarded for modernizing and streamlining the institutional clearance process",
     description:
-      "Officially recognized by Chattogram Polytechnic Institute for the design and delivery of a SaaS-based Clearance Software System. Issued 18-06-2025 by Mohammad Kamal Hossain, Principal.",
+      "Certified by Chattogram Polytechnic Institute for designing, developing, and implementing a SaaS-based Clearance Software System praised as fully customizable, efficient, and robust — improving operational efficiency, reducing manual workload, and enhancing transparency across the institution's clearance process. The letter credits exceptional technical proficiency, analytical thinking, and problem-solving skills, and recommends the work for further academic or professional opportunities. Issued 18-06-2025 by Mohammad Kamal Hossain, Principal, Chattogram Polytechnic Institute, Nasirabad.",
     image: recommendationLetter,
     links: [{ label: "View Certificate", href: recommendationLetter }],
   },

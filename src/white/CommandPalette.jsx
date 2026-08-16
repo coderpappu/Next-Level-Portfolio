@@ -14,6 +14,7 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { images, profile, projects } from "./data";
+import { useCvUrl } from "./hooks";
 
 const PAGES = [
   { label: "Home", to: "/", keywords: "start index hero" },
@@ -22,6 +23,7 @@ const PAGES = [
   { label: "Services", to: "/services", keywords: "hire capabilities process" },
   { label: "Experience", to: "/experience", keywords: "resume cv jobs education" },
   { label: "Awards", to: "/awards", keywords: "recognition icpc certificate" },
+  { label: "Blog", to: "/blog", keywords: "articles writing posts notes" },
   { label: "Testimonials", to: "/testimonials", keywords: "reviews clients" },
   { label: "Résumé", to: "/resume", keywords: "cv print pdf one page" },
   { label: "Contact", to: "/contact", keywords: "email hire message call" },
@@ -31,6 +33,7 @@ const normalise = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
 const CommandPalette = ({ open, onClose, theme, onToggleTheme }) => {
   const navigate = useNavigate();
+  const cvUrl = useCvUrl(images.cv);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const [copied, setCopied] = useState(false);
@@ -87,7 +90,7 @@ const CommandPalette = ({ open, onClose, theme, onToggleTheme }) => {
         icon: FileText,
         run: () => {
           const a = document.createElement("a");
-          a.href = images.cv;
+          a.href = cvUrl;
           a.download = "Pappu_Dey_CV.pdf";
           a.click();
         },
@@ -131,7 +134,7 @@ const CommandPalette = ({ open, onClose, theme, onToggleTheme }) => {
     ];
 
     return [...pageItems, ...projectItems, ...actionItems];
-  }, [navigate, theme, onToggleTheme, copied]);
+  }, [navigate, theme, onToggleTheme, copied, cvUrl]);
 
   const results = useMemo(() => {
     const q = normalise(query);

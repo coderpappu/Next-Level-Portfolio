@@ -10,6 +10,7 @@ import {
   techStack,
 } from "../data";
 import { GlyphLink } from "../ui";
+import { useCvUrl } from "../hooks";
 
 const Rule = ({ children }) => (
   <h2 className="mb-3 border-b border-[color:var(--w-border)] pb-1 text-xs uppercase tracking-[0.18em]">
@@ -17,7 +18,10 @@ const Rule = ({ children }) => (
   </h2>
 );
 
-const Resume = () => (
+const Resume = () => {
+  const cvUrl = useCvUrl(images.cv);
+
+  return (
   <div className="w-resume-page">
     <Helmet>
       <title>Résumé | Pappu Dey</title>
@@ -50,7 +54,7 @@ const Resume = () => (
           Print / Save as PDF
         </button>
         <span className="text-center text-[11px] text-[color:var(--w-muted)]">
-          <GlyphLink href={images.cv}>Original PDF</GlyphLink>
+          <GlyphLink href={cvUrl}>Original PDF</GlyphLink>
         </span>
       </div>
     </header>
@@ -164,6 +168,7 @@ const Resume = () => (
       </ul>
     </section>
   </div>
-);
+  );
+};
 
 export default Resume;

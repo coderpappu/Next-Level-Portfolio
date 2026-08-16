@@ -7,11 +7,14 @@ import "./index.css";
 import WhiteLayout from "./white/WhiteLayout.jsx";
 import About from "./white/pages/About.jsx";
 import Awards from "./white/pages/Awards.jsx";
+import Blog from "./white/pages/Blog.jsx";
+import BlogPost from "./white/pages/BlogPost.jsx";
 import Contact from "./white/pages/Contact.jsx";
 import Experience from "./white/pages/Experience.jsx";
 import Home from "./white/pages/Home.jsx";
 import Projects from "./white/pages/Projects.jsx";
 import Resume from "./white/pages/Resume.jsx";
+import ServiceDetail from "./white/pages/ServiceDetail.jsx";
 import Services from "./white/pages/Services.jsx";
 import Testimonials from "./white/pages/Testimonials.jsx";
 
@@ -35,9 +38,12 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "projects", element: <Projects /> },
       { path: "services", element: <Services /> },
+      { path: "services/:slug", element: <ServiceDetail /> },
       { path: "experience", element: <Experience /> },
       { path: "resume", element: <Resume /> },
       { path: "awards", element: <Awards /> },
+      { path: "blog", element: <Blog /> },
+      { path: "blog/:slug", element: <BlogPost /> },
       { path: "testimonials", element: <Testimonials /> },
       { path: "contact", element: <Contact /> },
     ],

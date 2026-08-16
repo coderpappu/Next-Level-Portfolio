@@ -1,8 +1,12 @@
 import { Helmet } from "react-helmet";
 import { Badge, GlyphLink, PageTitle, Section } from "../ui";
 import { education, experience, images, stats } from "../data";
+import { useCvUrl } from "../hooks";
 
-const Experience = () => (
+const Experience = () => {
+  const cvUrl = useCvUrl(images.cv);
+
+  return (
   <>
     <Helmet>
       <title>Experience | Pappu Dey</title>
@@ -96,12 +100,13 @@ const Experience = () => (
         <GlyphLink href="/resume" internal primary>
           One-page résumé
         </GlyphLink>
-        <GlyphLink href={images.cv} secondary>
+        <GlyphLink href={cvUrl} secondary>
           Download full CV (PDF)
         </GlyphLink>
       </div>
     </Section>
   </>
-);
+  );
+};
 
 export default Experience;

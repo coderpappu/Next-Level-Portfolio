@@ -11,6 +11,12 @@ node_modules
 
 *.local
 
+# .env.development holds no secrets (just the local API URL) and is meant to
+# be committed — only .local variants are for real secrets.
+.env
+.env.local
+.env.*.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

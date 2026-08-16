@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { Chip, GlyphLink, PageTitle, Section } from "../ui";
 import { process, profile, projects, services, techStack } from "../data";
+import { useServices } from "../hooks";
 
 /* Only two of the six services have a shipped project that demonstrates
    them directly — AI Automation, DevOps, API, and Hardware are real
@@ -12,7 +14,10 @@ const RELATED_PROJECT_IDS = {
 };
 const projectById = Object.fromEntries(projects.map((p) => [p.id, p]));
 
-const Services = () => (
+const Services = () => {
+  const liveServices = useServices(services);
+
+  return (
   <>
     <Helmet>
       <title>Services | Pappu Dey</title>
@@ -28,14 +33,20 @@ const Services = () => (
 
     <Section title="What I Build" bold>
       <div className="grid gap-6 md:grid-cols-2">
-        {services.map((s, i) => {
+        {liveServices.map((s, i) => {
           const related = (RELATED_PROJECT_IDS[s.title] || [])
             .map((id) => projectById[id])
             .filter(Boolean);
+          {/* A plain <div>, not a <Link> — two of these cards also render a
+              GlyphLink (an <a>) for a shipped project, and nesting an <a>
+              inside a <Link>'s own <a> is invalid HTML. Title + "Learn more"
+              are their own independent links to the same place instead. */}
           return (
             <div
               key={s.title}
-              className="flex flex-col gap-2 rounded-md border border-[color:var(--w-border)] p-5"
+              className={`flex flex-col gap-2 rounded-md border border-[color:var(--w-border)] p-5 ${
+                s.slug ? "transition-colors w-hover-border-soft" : ""
+              }`}
             >
               <span
                 className="text-xs tabular-nums text-[color:var(--w-sep)]"
@@ -43,7 +54,15 @@ const Services = () => (
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-base font-medium">{s.title}</h3>
+              <h3 className="text-base font-medium">
+                {s.slug ? (
+                  <Link to={`/services/${s.slug}`} className="hover:underline">
+                    {s.title}
+                  </Link>
+                ) : (
+                  s.title
+                )}
+              </h3>
               <p className="text-sm">{s.description}</p>
               {related.length > 0 ? (
                 <p className="mt-1 text-sm">
@@ -58,6 +77,18 @@ const Services = () => (
                     </span>
                   ))}
                 </p>
+              ) : null}
+              {s.slug ? (
+                <div className="mt-auto flex justify-end pt-3">
+                  <GlyphLink
+                    href={`/services/${s.slug}`}
+                    internal
+                    secondary
+                    className="!px-3 !py-1.5 !text-xs"
+                  >
+                    Learn more
+                  </GlyphLink>
+                </div>
               ) : null}
             </div>
           );
@@ -117,6 +148,7 @@ const Services = () => (
       </div>
     </Section>
   </>
-);
+  );
+};
 
 export default Services;

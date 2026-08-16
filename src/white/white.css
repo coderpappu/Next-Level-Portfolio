@@ -68,6 +68,16 @@
   font-feature-settings: "zero" 0;
 }
 
+/* Fades a card's border on hover instead of the more common "get bolder on
+   hover" — the default (unhovered) border stays exactly --w-border, full
+   opacity, untouched. Tailwind's `/opacity` modifier doesn't reliably apply
+   to an arbitrary `[color:var(--x)]` value — it silently compiles to
+   nothing rather than erroring — so this is a real CSS rule instead of a
+   class name that only looks like it worked. */
+.white-root .w-hover-border-soft:hover {
+  border-color: color-mix(in srgb, var(--w-border) 40%, transparent);
+}
+
 /* Mono italics are a mechanical oblique and read as blurry at 14px. A serif
    italic is free (system font) and gives the page its one textural relief. */
 .white-root em,
@@ -191,7 +201,10 @@ html.white-page.white-dark {
     color var(--w-duration) var(--w-ease);
 }
 
-.w-chip {
+/* Specificity has to beat `.white-root a { color: inherit }` (class+tag) so
+   the active nav link actually renders in --w-chip-text instead of falling
+   back to the muted body color. */
+.white-root .w-chip {
   color: var(--w-chip-text);
   background-color: var(--w-chip-fill);
 }
@@ -429,6 +442,88 @@ html.white-page.white-dark {
 
 .w-hovercard {
   animation: w-hovercard-in 140ms var(--w-ease) both;
+}
+
+/* ------------------------------ blog content ------------------------------ */
+/* Typography for rendered Markdown post bodies — plain-tag styling since
+   `marked` outputs bare h1-h6/p/ul/pre with no classes of its own. */
+
+.w-blog-content h1,
+.w-blog-content h2,
+.w-blog-content h3 {
+  color: var(--w-heading);
+  font-weight: 600;
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
+}
+.w-blog-content h1 {
+  font-size: 1.3em;
+}
+.w-blog-content h2 {
+  font-size: 1.15em;
+}
+.w-blog-content h3 {
+  font-size: 1.05em;
+}
+.w-blog-content p {
+  margin-bottom: 1em;
+}
+.w-blog-content ul,
+.w-blog-content ol {
+  margin: 0 0 1em 1.4em;
+}
+.w-blog-content ul {
+  list-style: disc;
+}
+.w-blog-content ol {
+  list-style: decimal;
+}
+.w-blog-content li {
+  margin-bottom: 0.35em;
+}
+.w-blog-content a {
+  color: var(--w-heading);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.w-blog-content strong {
+  color: var(--w-heading);
+  font-weight: 600;
+}
+.w-blog-content code {
+  background-color: var(--w-badge);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+.w-blog-content pre {
+  background-color: var(--w-heading);
+  color: var(--w-bg);
+  padding: 0.9em 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.w-blog-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.w-blog-content blockquote {
+  border-left: 2px solid var(--w-border);
+  padding-left: 0.9em;
+  color: var(--w-muted);
+  margin-bottom: 1em;
+}
+.w-blog-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--w-border);
+}
+.w-blog-content hr {
+  border: none;
+  border-top: 1px solid var(--w-border);
+  margin: 1.75em 0;
 }
 
 /* ----------------------------- reduced motion ----------------------------- */

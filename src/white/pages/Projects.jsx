@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
 import { projects } from "../data";
 import { Reveal } from "../motion";
-import { Chip, PageTitle, PipeLinks, RecordList } from "../ui";
+import { Chip, GlyphLink, PageTitle, RecordList } from "../ui";
 
 const ALL_TECH = [...new Set(projects.flatMap((p) => p.stack))].sort();
 
@@ -131,13 +131,14 @@ const Projects = () => {
                   <p className="text-sm">{p.description}</p>
                   {/* Naming what a system deliberately does not do. */}
                   {p.constraint ? (
-                    <p className="w-prose border-l-2 border-[color:var(--w-border)] pl-3 text-[11px] text-[color:var(--w-muted)]">
-                      <span className="uppercase tracking-[0.14em]">
+                    <div className="rounded-md bg-[color:var(--w-hover)] px-3 py-2">
+                      <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-[color:var(--w-tertiary)]">
                         Known limit
                       </span>
-                      {" — "}
-                      {p.constraint}
-                    </p>
+                      <p className="w-prose mt-1 text-[11px] text-[color:var(--w-muted)]">
+                        {p.constraint}
+                      </p>
+                    </div>
                   ) : null}
                   <ul className="flex list-none flex-wrap gap-1 p-0">
                     {p.stack.map((t) => (
@@ -153,12 +154,14 @@ const Projects = () => {
                       </li>
                     ))}
                   </ul>
-                  <PipeLinks
-                    links={[
-                      { label: "Live Site", href: p.live },
-                      { label: "Source", href: p.repo },
-                    ]}
-                  />
+                  <div className="mt-1 flex flex-wrap gap-3 text-sm">
+                    <GlyphLink href={p.live} primary>
+                      Live Site
+                    </GlyphLink>
+                    <GlyphLink href={p.repo} secondary>
+                      Source
+                    </GlyphLink>
+                  </div>
                 </div>
               </article>
             </Reveal>

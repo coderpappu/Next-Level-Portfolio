@@ -1,0 +1,8 @@
+node_modules
+dist
+
+# .env.development holds no secrets (just the local API URL) and is meant to
+# be committed, matching Vite's own convention — only .local variants are for
+# real secrets.
+.env.local
+.env.*.local

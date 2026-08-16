@@ -121,6 +121,136 @@ export function useScrollProgress() {
 }
 
 /* -------------------------------------------------------------------------- */
+/* Live site content — resolves admin-managed values from the backend when   */
+/* VITE_API_BASE_URL is configured; every consumer falls back to its         */
+/* bundled/static value otherwise (unset, or the API unreachable), so the    */
+/* site never breaks. One shared cached fetch backs every hook below, so a   */
+/* page pulling in more than one of them (e.g. Home's CV link + testimonial  */
+/* photos) still only hits /api/public/site-content once.                   */
+/* -------------------------------------------------------------------------- */
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
+let siteContentPromise = null;
+
+function fetchSiteContent() {
+  if (!API_BASE) return Promise.resolve(null);
+  if (!siteContentPromise) {
+    siteContentPromise = fetch(`${API_BASE}/api/public/site-content`)
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
+      .catch(() => null);
+  }
+  return siteContentPromise;
+}
+
+export function useCvUrl(fallback) {
+  const [url, setUrl] = useState(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchSiteContent().then((data) => {
+      if (cancelled) return;
+      setUrl(data?.profile?.cv_url ? `${API_BASE}${data.profile.cv_url}` : fallback);
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return url;
+}
+
+/* Testimonials with admin-uploaded photos — `avatar` is only present once a
+   photo has actually been set for that person; callers fall back to a
+   lettered avatar (see initialsOf in lib/initials.js) when it's absent,
+   same as before this existed. */
+export function useTestimonials(fallback) {
+  const [items, setItems] = useState(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchSiteContent().then((data) => {
+      if (cancelled) return;
+      if (!data?.testimonials?.length) {
+        setItems(fallback);
+        return;
+      }
+      setItems(
+        data.testimonials.map((t) => ({
+          ...t,
+          avatar: t.avatar ? `${API_BASE}${t.avatar}` : null,
+        })),
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return items;
+}
+
+/* Services with admin-managed detail pages — `slug`/`contentMd`/`image` are
+   only present once an admin has filled in the detail content for that
+   service; a card with no slug stays exactly as it renders today (a plain,
+   non-linked card), so this is additive, not a breaking change for anyone
+   who hasn't written a detail page yet. */
+export function useServices(fallback) {
+  const [items, setItems] = useState(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchSiteContent().then((data) => {
+      if (cancelled) return;
+      if (!data?.services?.length) {
+        setItems(fallback);
+        return;
+      }
+      setItems(
+        data.services.map((s) => ({
+          ...s,
+          image: s.image ? `${API_BASE}${s.image}` : null,
+        })),
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return items;
+}
+
+/* Single service, looked up by slug for the /services/:slug detail page —
+   no dedicated public endpoint for this exists since the aggregate payload
+   already carries every service's full content. */
+export function useService(slug) {
+  const [state, setState] = useState({ service: null, loading: true });
+
+  useEffect(() => {
+    let cancelled = false;
+    setState({ service: null, loading: true });
+    fetchSiteContent().then((data) => {
+      if (cancelled) return;
+      const found = data?.services?.find((s) => s.slug === slug);
+      setState({
+        service: found
+          ? { ...found, image: found.image ? `${API_BASE}${found.image}` : null }
+          : null,
+        loading: false,
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  return state;
+}
+
+/* -------------------------------------------------------------------------- */
 /* Media query                                                                 */
 /* -------------------------------------------------------------------------- */
 

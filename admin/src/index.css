@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900;
+}
+
+/* Scrollbars hidden everywhere (main content pane, modals, dropdowns) —
+   scrolling itself still works via wheel/trackpad/keyboard, only the visible
+   track+thumb is removed. Firefox via the standard property, WebKit/Blink
+   (Chrome, Edge, Safari) via the vendor pseudo-element. */
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typography for the WYSIWYG blog editor's content-editable area (see
+   MarkdownEditor.jsx) — kept as plain CSS instead of pulling in
+   @tailwindcss/typography to keep dependencies minimal. */
+.w-blog-editor-content h1,
+.w-blog-editor-content h2,
+.w-blog-editor-content h3 {
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+.w-blog-editor-content h1 { font-size: 1.4em; }
+.w-blog-editor-content h2 { font-size: 1.2em; }
+.w-blog-editor-content h3 { font-size: 1.05em; }
+.w-blog-editor-content p { margin-bottom: 0.75em; line-height: 1.6; }
+.w-blog-editor-content ul,
+.w-blog-editor-content ol { margin: 0 0 0.75em 1.25em; }
+.w-blog-editor-content ul { list-style: disc; }
+.w-blog-editor-content ol { list-style: decimal; }
+.w-blog-editor-content a { color: #2563eb; text-decoration: underline; }
+.w-blog-editor-content code {
+  background: #e2e8f0;
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  font-size: 0.85em;
+}
+.w-blog-editor-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 0.75em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 0.75em;
+}
+.w-blog-editor-content pre code { background: transparent; padding: 0; }
+.w-blog-editor-content blockquote {
+  border-left: 3px solid #cbd5e1;
+  padding-left: 0.75em;
+  color: #64748b;
+  margin-bottom: 0.75em;
+}
+.w-blog-editor-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin: 0.5em 0;
+}

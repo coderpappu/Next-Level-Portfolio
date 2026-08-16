@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { ProjectHoverCard } from "../HoverCard";
+import { BlogCard } from "../BlogCard";
+import { usePosts } from "../lib/blog";
 import {
   education,
   images,
@@ -16,6 +18,8 @@ import {
   testimonials,
 } from "../data";
 import { Reveal } from "../motion";
+import { useCvUrl, useTestimonials } from "../hooks";
+import { initialsOf } from "../lib/initials";
 import {
   Chip,
   GlyphLink,
@@ -37,18 +41,6 @@ const stackFrequency = (() => {
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .slice(0, 8);
 })();
-
-/* First two words of the name, initials only — none of these reviewers has
-   a photo on file, so a lettered avatar stands in rather than a fabricated
-   headshot. */
-const initialsOf = (name) =>
-  name
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
 
 /*
  * Section 03 has three stored layouts. Flip this one word to switch:
@@ -92,12 +84,20 @@ function VoicesCarousel({ items }) {
           </span>
         </blockquote>
         <figcaption className="flex flex-col items-start gap-2 md:pt-2">
-          <span
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[color:var(--w-border)] bg-[color:var(--w-badge)] text-sm font-medium text-[color:var(--w-heading)]"
-            aria-hidden="true"
-          >
-            {initialsOf(current.name)}
-          </span>
+          {current.avatar ? (
+            <img
+              src={current.avatar}
+              alt=""
+              className="h-12 w-12 shrink-0 rounded-full border border-[color:var(--w-border)] object-cover"
+            />
+          ) : (
+            <span
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[color:var(--w-border)] bg-[color:var(--w-badge)] text-sm font-medium text-[color:var(--w-heading)]"
+              aria-hidden="true"
+            >
+              {initialsOf(current.name)}
+            </span>
+          )}
           <span className="text-[11px] text-[color:var(--w-muted)]">
             <span className="block text-sm text-[color:var(--w-heading)]">
               {current.name}
@@ -132,7 +132,12 @@ function VoicesCarousel({ items }) {
   );
 }
 
-const Home = () => (
+const Home = () => {
+  const cvUrl = useCvUrl(images.cv);
+  const liveTestimonials = useTestimonials(testimonials);
+  const { posts: latestPosts } = usePosts({ pageSize: 3 });
+
+  return (
   <>
     <Helmet>
       <title>
@@ -196,7 +201,7 @@ const Home = () => (
                       <IconButton
                         icon={s.icon}
                         title={s.title}
-                        href={s.href}
+                        href={s.icon === "file" ? cvUrl : s.href}
                         download={s.download}
                       />
                     </li>
@@ -539,7 +544,7 @@ const Home = () => (
           internal: true,
         }}
       />
-      <VoicesCarousel items={testimonials} />
+      <VoicesCarousel items={liveTestimonials} />
     </Reveal>
 
     {/* ============================== 08 elsewhere =========================== */}
@@ -553,6 +558,23 @@ const Home = () => (
         ))}
       </ul>
     </Reveal>
+
+    {/* ============================== 09 blog ================================ */}
+    {latestPosts.length > 0 ? (
+      <Reveal as="section">
+        <SectionHead
+          index="09"
+          title="Latest Writing"
+          id="writing"
+          action={{ href: "/blog", label: "All posts", internal: true }}
+        />
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          {latestPosts.map((post) => (
+            <BlogCard key={post.slug} post={post} />
+          ))}
+        </div>
+      </Reveal>
+    ) : null}
 
     {/* ================================ contact ============================== */}
     {/* The page's one full-bleed moment: a band that meets both card borders.
@@ -584,6 +606,7 @@ const Home = () => (
       </div>
     </Reveal>
   </>
-);
+  );
+};
 
 export default Home;

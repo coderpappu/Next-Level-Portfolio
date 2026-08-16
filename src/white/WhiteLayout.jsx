@@ -14,6 +14,7 @@ const NAV = [
   { label: "Services", href: "/services" },
   { label: "Experience", href: "/experience" },
   { label: "Awards", href: "/awards" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -128,10 +129,9 @@ const WhiteLayout = () => {
                   onClick={() => setPaletteOpen(true)}
                   aria-label="Open command palette"
                   title="Search — ⌘K"
-                  className="inline-flex cursor-pointer appearance-none items-center gap-2 rounded-md border border-[color:var(--w-border)] bg-transparent px-2 py-1.5 text-xs text-[color:var(--w-muted)] transition-colors hover:bg-[color:var(--w-hover)]"
+                  className="inline-flex cursor-pointer appearance-none items-center justify-center rounded-md border border-[color:var(--w-border)] bg-transparent p-2 text-[color:var(--w-icon)] transition-colors hover:bg-[color:var(--w-hover)]"
                 >
-                  <Search className="h-3.5 w-3.5" aria-hidden="true" />
-                  <kbd className="font-[inherit]">⌘K</kbd>
+                  <Search className="h-4 w-4" aria-hidden="true" />
                 </button>
                 <button
                   type="button"
