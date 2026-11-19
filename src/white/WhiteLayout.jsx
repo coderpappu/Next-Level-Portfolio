@@ -7,6 +7,8 @@ import { profile } from "./data";
 import { useTheme } from "./hooks";
 import { ReadingProgress } from "./motion";
 import "./white.css";
+// After white.css so the home shell's scoped rules land later in the cascade.
+import EditorialShell from "./editorial/EditorialShell";
 
 const NAV = [
   { label: "About", href: "/about" },
@@ -33,6 +35,9 @@ const WhiteLayout = () => {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const { pathname } = useLocation();
   const { theme, toggle } = useTheme();
+  // The home page is drawn in the Editorial Taste shell; every other route
+  // keeps the white edition frame below.
+  const isHome = pathname === "/";
 
   useEffect(() => {
     document.documentElement.classList.add("white-page");
@@ -42,6 +47,11 @@ const WhiteLayout = () => {
       document.body.classList.remove("white-page", "white-dark");
     };
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("et-page", isHome);
+    return () => document.documentElement.classList.remove("et-page");
+  }, [isHome]);
 
   useEffect(() => {
     setOpen(false);
@@ -64,6 +74,32 @@ const WhiteLayout = () => {
   }, []);
 
   const closePalette = useCallback(() => setPaletteOpen(false), []);
+  const openPalette = useCallback(() => setPaletteOpen(true), []);
+
+  if (isHome) {
+    return (
+      <div className="white-root min-h-screen" data-theme={theme}>
+        <EditorialShell
+          nav={NAV}
+          pathname={pathname}
+          theme={theme}
+          onToggleTheme={toggle}
+          onOpenPalette={openPalette}
+          menuOpen={open}
+          setMenuOpen={setOpen}
+        >
+          <Outlet />
+        </EditorialShell>
+
+        <CommandPalette
+          open={paletteOpen}
+          onClose={closePalette}
+          theme={theme}
+          onToggleTheme={toggle}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="white-root min-h-screen" data-theme={theme}>
