@@ -32,3 +32,8 @@ node_modules
 /.next/
 /out/
 next-env.d.ts
+
+# Old Vite build artifacts — the site is now built by `next build` into out/
+/dist/
+/dist.zip
+build_output*.txt
