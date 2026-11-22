@@ -1,97 +1,83 @@
-import { useEffect, useState } from "react";
+/* ---------------------------------------------------------------------------
+   Blog + services content for build time (server only).
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL;
+   With a static export, every page is rendered once, at `next build`. These
+   helpers fetch from the backend API when NEXT_PUBLIC_API_BASE_URL is set and
+   reachable, and fall back to the built-in posts (postsFallback.js) when it
+   is not, so the blog always has real, crawlable content. Publishing a new
+   post from the admin panel means: rebuild, then upload out/.
+   --------------------------------------------------------------------------- */
+
+import { fallbackPosts } from "./postsFallback";
+
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+
+async function apiGet(path) {
+  if (!API_BASE) return null;
+  try {
+    const res = await fetch(`${API_BASE}${path}`, {
+      signal: AbortSignal.timeout(4000),
+    });
+    return res.ok ? await res.json() : null;
+  } catch {
+    return null;
+  }
+}
 
 /* Prefixes a server-relative media path ("/uploads/posts/x.jpg") with the API
    origin so it resolves whether the site and API share a domain or not. */
 export function resolveMediaUrl(path) {
   if (!path) return null;
   if (/^https?:\/\//i.test(path)) return path;
-  return `${API_BASE || ""}${path}`;
+  return `${API_BASE}${path}`;
 }
 
-/* Fetches the most recent published posts, `limit` at a time. Blog content
-   has no static-file fallback (unlike the CV) — if VITE_API_BASE_URL isn't
-   configured or the API is unreachable, callers get an empty list plus an
-   `unavailable` flag so the UI can say so instead of silently showing nothing. */
-export function usePosts({ page = 1, pageSize = 12 } = {}) {
-  const [state, setState] = useState({
-    posts: [],
-    total: 0,
-    loading: true,
-    unavailable: !API_BASE,
-  });
+const byNewest = (a, b) =>
+  new Date(b.published_at).getTime() - new Date(a.published_at).getTime();
 
-  useEffect(() => {
-    if (!API_BASE) {
-      setState({ posts: [], total: 0, loading: false, unavailable: true });
-      return undefined;
-    }
+/* Every published post, newest first, each with its full markdown. */
+export async function getAllPosts() {
+  const list = await apiGet("/api/public/posts?page=1&pageSize=100");
+  if (!list?.items?.length) return [...fallbackPosts].sort(byNewest);
 
-    let cancelled = false;
-    setState((s) => ({ ...s, loading: true }));
-
-    fetch(`${API_BASE}/api/public/posts?page=${page}&pageSize=${pageSize}`)
-      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
-      .then((data) => {
-        if (cancelled) return;
-        setState({
-          posts: data.items,
-          total: data.total,
-          loading: false,
-          unavailable: false,
-        });
-      })
-      .catch(() => {
-        if (!cancelled) setState({ posts: [], total: 0, loading: false, unavailable: true });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [page, pageSize]);
-
-  return state;
+  const full = await Promise.all(
+    list.items.map(async (item) => {
+      if (item.content_md) return item;
+      const post = await apiGet(`/api/public/posts/${item.slug}`);
+      return post ? { ...item, ...post } : item;
+    }),
+  );
+  return full.sort(byNewest);
 }
 
-export function usePost(slug) {
-  const [state, setState] = useState({ post: null, loading: true, notFound: false });
-
-  useEffect(() => {
-    if (!API_BASE) {
-      setState({ post: null, loading: false, notFound: true });
-      return undefined;
-    }
-
-    let cancelled = false;
-    setState({ post: null, loading: true, notFound: false });
-
-    fetch(`${API_BASE}/api/public/posts/${slug}`)
-      .then((res) => {
-        if (res.status === 404) return null;
-        if (!res.ok) return Promise.reject(res);
-        return res.json();
-      })
-      .then((data) => {
-        if (!cancelled) setState({ post: data, loading: false, notFound: !data });
-      })
-      .catch(() => {
-        if (!cancelled) setState({ post: null, loading: false, notFound: true });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [slug]);
-
-  return state;
+export async function getPost(slug) {
+  const posts = await getAllPosts();
+  return posts.find((p) => p.slug === slug) || null;
 }
+
+/* Services that have an admin-written detail page (slug + content). */
+export async function getServiceDetails() {
+  const data = await apiGet("/api/public/site-content");
+  return (data?.services || [])
+    .filter((s) => s.slug)
+    .map((s) => ({ ...s, image: s.image ? resolveMediaUrl(s.image) : null }));
+}
+
+/* ------------------------------- formatting ------------------------------- */
 
 export function formatPostDate(iso) {
   if (!iso) return "";
-  return new Date(iso).toLocaleDateString(undefined, {
+  return new Date(iso).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
+}
+
+/* Minutes to read, at ~220 words a minute. */
+export function readingTime(markdown) {
+  if (!markdown) return null;
+  const words = markdown.replace(/[`#*_>[\]()-]/g, " ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
 }

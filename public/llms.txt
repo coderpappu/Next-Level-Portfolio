@@ -1,0 +1,27 @@
+# Pappu Dey
+
+> Software engineer and founder in Chattogram, Bangladesh. Builds multi-tenant SaaS platforms, production web applications and AI automation with React, Next.js, Node.js, Laravel, PostgreSQL and Prisma. Software Engineer at Xceed Bangladesh LTD (enterprise HRM SaaS) and founder of Codex Devware (software company, est. 2022).
+
+## Key facts
+
+- Current role: Software Engineer at Xceed Bangladesh LTD (Oct 2024 – present): multi-tenant HRM SaaS with payroll, attendance and role-based access control.
+- Founder & CEO of Codex Devware (2022 – present): client work and the Codex LMS platform.
+- Previously Web Application Developer at Research Lab Chattogram (2021 – 2022): 10+ client web applications.
+- Built E-Clearance, a SaaS clearance system that cut Chattogram Polytechnic Institute's clearance process from two weeks to two days (Certificate of Achievement, 2025).
+- ICPC Asia Dhaka Regional 2024 regionalist (Team CPI Newbies).
+- Education: BSc in Computer Science and Technology, East Delta University (2025 – present); Diploma in Computer Science & Engineering, Chattogram Polytechnic Institute (2021 – 2024).
+
+## Pages
+
+- [About](https://pappudey.com/about): biography, journey and quick facts
+- [Projects](https://pappudey.com/projects): shipped SaaS platforms, web and mobile apps, with stack and known limits
+- [Services](https://pappudey.com/services): what he builds and how projects run
+- [Experience](https://pappudey.com/experience): roles and education in detail
+- [Résumé](https://pappudey.com/resume): one-page résumé
+- [Blog](https://pappudey.com/blog): articles on SaaS architecture and engineering
+- [Contact](https://pappudey.com/contact): email pappudeydeveloper@gmail.com, or book a call
+
+## Elsewhere
+
+- GitHub: https://github.com/coderpappu
+- LinkedIn: https://www.linkedin.com/in/coderpappu/

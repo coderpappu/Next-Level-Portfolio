@@ -3,18 +3,63 @@
    Every page reads from here — edit content in one place.
    --------------------------------------------------------------------------- */
 
-import avatar from "../assets/pappu-dey.jpg";
-import cribohealthApp from "../assets/cribohealth-app.png";
-import cribohealthSite from "../assets/cribohealth-site.png";
-import dashboardImg from "../assets/dashboard.png";
-import devtoolsHuntImg from "../assets/devtoolshunt.png";
-import icpcCertificate from "../assets/icpc_certificate.png";
-import lmsImg from "../assets/lms-system.jpg";
-import miniDokanImg from "../assets/mini-dokan.png";
-import recommendationLetter from "../assets/pappudey_recomendation_certificate.jpg";
-import reportImg from "../assets/report.png";
-import workstationImg from "../assets/work-time-station.jpg";
-import cvFile from "../assets/cv_pappu_dey_junior_software_engineer_CSE (2).pdf";
+import avatarAsset from "../assets/pappu-dey.jpg";
+import cribohealthAppAsset from "../assets/cribohealth-app.png";
+import cribohealthSiteAsset from "../assets/cribohealth-site.png";
+import dashboardImgAsset from "../assets/dashboard.png";
+import devtoolsHuntImgAsset from "../assets/devtoolshunt.png";
+import icpcCertificateAsset from "../assets/icpc_certificate.png";
+import lmsImgAsset from "../assets/lms-system.jpg";
+import miniDokanImgAsset from "../assets/mini-dokan.png";
+import recommendationLetterAsset from "../assets/pappudey_recomendation_certificate.jpg";
+import reportImgAsset from "../assets/report.png";
+import workstationImgAsset from "../assets/work-time-station.jpg";
+// Cropped, right-sized copy of CriboHealth.png (the 2481px original is still
+// used by the classic site).
+import criboHealthLogoAsset from "../assets/logos/cribohealth-mark.png";
+import chattogramPolyLogoAsset from "../assets/logos/chattogram-polytechnic.png";
+import decEngineersClubLogoAsset from "../assets/logos/decEngineersClub.webp";
+import milgecLogoAsset from "../assets/logos/milgec.png";
+import wMarkLogoAsset from "../assets/logos/w-mark.png";
+import researchLabLogoAsset from "../assets/logos/researchLabLogo.png";
+import xceedLogoAsset from "../assets/logos/xceedLogo.png";
+// Lighter copies (800px tall) of traning-…jpg and icpc-team-…jpg, for the
+// home page's Experience picture panel.
+import codexSeminarImgAsset from "../assets/exp-codex-seminar.jpg";
+import cpiIcpcImgAsset from "../assets/exp-cpi-icpc.jpg";
+// Gallery. gallery-border-robot.jpg is an 800px-tall copy of robot-my-…jpg.
+import borderRobotImgAsset from "../assets/gallery-border-robot.jpg";
+import rlcRobotImgAsset from "../assets/robotics-rlc-DdnqF7T4.jpg";
+import speakingImgAsset from "../assets/pic.jpg";
+
+/* Next.js image imports are objects ({ src, width, height }); the site works
+   with plain URLs, so every asset is resolved to its URL once, here. */
+const assetUrl = (asset) => (typeof asset === "string" ? asset : asset.src);
+const avatar = assetUrl(avatarAsset);
+const cribohealthApp = assetUrl(cribohealthAppAsset);
+const cribohealthSite = assetUrl(cribohealthSiteAsset);
+const dashboardImg = assetUrl(dashboardImgAsset);
+const devtoolsHuntImg = assetUrl(devtoolsHuntImgAsset);
+const icpcCertificate = assetUrl(icpcCertificateAsset);
+const lmsImg = assetUrl(lmsImgAsset);
+const miniDokanImg = assetUrl(miniDokanImgAsset);
+const recommendationLetter = assetUrl(recommendationLetterAsset);
+const reportImg = assetUrl(reportImgAsset);
+const workstationImg = assetUrl(workstationImgAsset);
+const criboHealthLogo = assetUrl(criboHealthLogoAsset);
+const chattogramPolyLogo = assetUrl(chattogramPolyLogoAsset);
+const decEngineersClubLogo = assetUrl(decEngineersClubLogoAsset);
+const milgecLogo = assetUrl(milgecLogoAsset);
+const wMarkLogo = assetUrl(wMarkLogoAsset);
+const researchLabLogo = assetUrl(researchLabLogoAsset);
+const xceedLogo = assetUrl(xceedLogoAsset);
+const codexSeminarImg = assetUrl(codexSeminarImgAsset);
+const cpiIcpcImg = assetUrl(cpiIcpcImgAsset);
+const borderRobotImg = assetUrl(borderRobotImgAsset);
+const rlcRobotImg = assetUrl(rlcRobotImgAsset);
+const speakingImg = assetUrl(speakingImgAsset);
+// The CV lives in public/ so it has a clean, stable URL.
+const cvFile = "/pappu-dey-cv.pdf";
 
 export const images = {
   avatar,
@@ -22,6 +67,20 @@ export const images = {
   recommendationLetter,
   icpcCertificate,
   cv: cvFile,
+};
+
+/* Photos used as page-header images on the inner pages, with their pixel
+   sizes so they show at their own shape (never cropped). */
+export const photos = {
+  avatar: { src: avatar, width: 704, height: 872, alt: "Portrait of Pappu Dey" },
+  workstation: { src: workstationImg, width: 864, height: 864, alt: "Pappu Dey at his workstation in Chattogram" },
+  speaking: { src: speakingImg, width: 689, height: 891, alt: "Pappu Dey speaking at a D Engineers Club event", caption: "Speaking at a D Engineers Club event" },
+  seminar: { src: codexSeminarImg, width: 1200, height: 800, alt: "Pappu Dey presenting at a school IT seminar run by Codex Devware", caption: "School IT seminar · Codex Devware" },
+  icpcTeam: { src: cpiIcpcImg, width: 1067, height: 800, alt: "Team CPI Newbies at the ICPC Asia Dhaka Regional Contest 2024", caption: "ICPC Asia Dhaka Regional 2024 · Team CPI Newbies" },
+  rlcTeam: { src: rlcRobotImg, width: 720, height: 755, alt: "Team RLC with their surveillance robot", caption: "Surveillance robot · Team RLC" },
+  borderRobot: { src: borderRobotImg, width: 1003, height: 800, alt: "Visitors at the border guard robot demonstration", caption: "Border guard robot" },
+  eClearance: { src: reportImg, width: 862, height: 652, alt: "E-Clearance dashboard on laptop and phone", caption: "E-Clearance · SaaS clearance system" },
+  criboApp: { src: cribohealthApp, width: 1482, height: 936, alt: "Cribo Health Android app screens", caption: "Cribo Health · Android app" },
 };
 
 export const profile = {
@@ -160,6 +219,73 @@ export const knownFor = [
   },
 ];
 
+/* Organisations I have worked for or built for: the logo row on the home
+   page. Same list and links as the classic site's "Built for & trusted by".
+   Logos show in their own colours on the light page. `tone` picks how each
+   mark turns monochrome where colour would not read:
+     "gray"   dark theme: inverted grayscale, keeps inner detail
+     "solid"  dark theme: one white shape
+     "invert" a mark drawn in white for dark backgrounds; shown inverted
+              (black) on the light page so it does not vanish
+   `height` (px) balances the marks optically, since every file has a
+   different shape and a different amount of empty padding.
+   `url` is optional: an entry without one shows the logo with no link. */
+export const trustedBy = [
+  {
+    name: "Xceed Bangladesh",
+    logo: xceedLogo,
+    url: "https://xceedbd.com",
+    tone: "gray",
+    height: 48,
+  },
+  {
+    name: "Research Lab CTG",
+    logo: researchLabLogo,
+    url: "https://researchlabctg.com",
+    tone: "solid",
+    height: 60,
+  },
+  {
+    name: "Chattogram Polytechnic Institute",
+    logo: chattogramPolyLogo,
+    url: "https://chattogram.polytech.gov.bd",
+    tone: "gray",
+    height: 60,
+  },
+  {
+    name: "Cribo Health",
+    logo: criboHealthLogo,
+    url: "https://cribohealth.com",
+    tone: "solid",
+    height: 44,
+  },
+  {
+    name: "D Engineers Club",
+    logo: decEngineersClubLogo,
+    url: "https://dengineersclub.org",
+    tone: "gray",
+    height: 50,
+  },
+  {
+    // milgec.png is the supplied logo with its thin white letter outline
+    // removed, so the solid black treatment stays readable.
+    // TODO: add `url` once the company website is confirmed.
+    name: "Milgec (中邦)",
+    logo: milgecLogo,
+    tone: "solid",
+    height: 44,
+  },
+  {
+    // w-mark.png is the supplied blue app-icon tile turned into a transparent
+    // mark in the brand's own blue (#1F51FE), to sit with the other logos.
+    // TODO: replace "Client" with the company's real name and add its `url`.
+    name: "Client",
+    logo: wMarkLogo,
+    tone: "solid",
+    height: 40,
+  },
+];
+
 export const professionalProfiles = [
   { label: "GitHub", href: "https://github.com/coderpappu" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/coderpappu/" },
@@ -293,6 +419,12 @@ export const experience = [
     ],
     stack: "React, Redux, Node.js, Express, PostgreSQL, Prisma",
     url: "https://xceedbd.com",
+    /* `media` feeds the home page's Experience picture panel: a photo
+       (fills the frame) or a logo (centred on white). Without it the panel
+       shows a name card. Swap in your own photo any time. */
+    media: { kind: "logo", src: xceedLogo },
+    // Photo row under this role: src/assets/experience/xceed/ (see README).
+    photoFolder: "xceed",
   },
   {
     role: "Founder & CEO",
@@ -311,6 +443,9 @@ export const experience = [
     ],
     stack: "React, Node.js, Laravel, MySQL, Tailwind CSS",
     url: "https://codexdevware.com",
+    // School IT seminar run by Codex Devware (its banners are in the shot).
+    media: { kind: "photo", src: codexSeminarImg },
+    photoFolder: "codex-devware",
   },
   {
     role: "Web Application Developer",
@@ -328,9 +463,12 @@ export const experience = [
       "Owned site performance, security, and SEO after launch",
     ],
     stack: "React, WordPress, PHP, MySQL, Tailwind CSS",
+    media: { kind: "logo", src: researchLabLogo },
+    photoFolder: "research-lab",
   },
 ];
 
+/* `media` works as on `experience`; entries without it show a name card. */
 export const education = [
   {
     institution: "East Delta University",
@@ -343,6 +481,8 @@ export const education = [
     degree: "Diploma in Computer Science & Engineering",
     period: "2021 - 2024",
     note: "Completed with 3.50 GPA. Built the institute's official E-Clearance system as a capstone project. Competed in ICPC Asia Dhaka Regional 2024.",
+    // Team CPI Newbies at ICPC Asia Dhaka Regional 2024.
+    media: { kind: "photo", src: cpiIcpcImg },
   },
   {
     institution: "Raozan Barrister Suresh Vidyayatan",
@@ -544,6 +684,9 @@ export const awards = [
     description:
       "Certified by Chattogram Polytechnic Institute for designing, developing, and implementing a SaaS-based Clearance Software System praised as fully customizable, efficient, and robust — improving operational efficiency, reducing manual workload, and enhancing transparency across the institution's clearance process. The letter credits exceptional technical proficiency, analytical thinking, and problem-solving skills, and recommends the work for further academic or professional opportunities. Issued 18-06-2025 by Mohammad Kamal Hossain, Principal, Chattogram Polytechnic Institute, Nasirabad.",
     image: recommendationLetter,
+    /* Pixel size of `image`. The home page uses the shapes to size the two
+       award columns so both certificates show whole at the same height. */
+    imageSize: [729, 1013],
     links: [{ label: "View Certificate", href: recommendationLetter }],
   },
   {
@@ -554,6 +697,7 @@ export const awards = [
     description:
       "Competed in the world's largest and most prestigious collegiate programming competition as part of Team CPI Newbies.",
     image: icpcCertificate,
+    imageSize: [1125, 793],
     links: [
       { label: "View Certificate", href: icpcCertificate },
       { label: "About ICPC", href: "https://icpc.global" },
@@ -592,6 +736,43 @@ export const testimonials = [
     name: "Saiful Islam",
     title: "Senior Developer, Research Lab Chattogram",
   },
+];
+
+/* Home page gallery, one array per row. Photos in a row are shown at one
+   shared height and the row fills the full width, so each photo keeps its
+   own shape and nothing is cropped. `size` is the file's pixel size.
+   Captions come from the classic site's gallery, except the last one. */
+export const gallery = [
+  [
+    {
+      src: cpiIcpcImg,
+      size: [1067, 800],
+      caption: "ICPC Asia Dhaka Regional 2024 — Team CPI Newbies",
+    },
+    {
+      src: codexSeminarImg,
+      size: [1200, 800],
+      caption: "School IT seminar — Codex Devware",
+    },
+  ],
+  [
+    {
+      src: borderRobotImg,
+      size: [1003, 800],
+      caption: "Border guard robot",
+    },
+    {
+      src: rlcRobotImg,
+      size: [720, 755],
+      caption: "Surveillance robot — Team RLC",
+    },
+    {
+      src: speakingImg,
+      size: [689, 891],
+      // Inferred from the D Engineers Club banner in the photo: confirm.
+      caption: "Speaking at a D Engineers Club event",
+    },
+  ],
 ];
 
 export const stats = [

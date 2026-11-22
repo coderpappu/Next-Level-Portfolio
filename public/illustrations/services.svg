@@ -1,0 +1,120 @@
+<svg class="iso" width="695" height="464" xmlns="http://www.w3.org/2000/svg" viewBox="-278.34 -66.00 695.25 464.00" role="img" aria-labelledby="iso-services-title">
+<title id="iso-services-title">Six capabilities as modules: web apps, mobile, AI, cloud, APIs and IoT</title>
+<style>.iso-grid line { stroke: #D4D4D4; stroke-width: .75; }
+.iso-face { stroke: #A3A3A3; stroke-width: 1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.iso-top { fill: #FFFFFF; } .iso-left { fill: #F5F5F5; } .iso-right { fill: #E5E5E5; }
+.is-active .iso-face { stroke: #151515; } .is-active .iso-top { fill: #F5F5F5; }
+.iso-vertex { fill: #151515; }
+.iso-label { font: 400 11px "Geist Mono", ui-monospace, SFMono-Regular, monospace; letter-spacing: 1.6px; fill: #404040; }
+.iso-led { fill: #D4D4D4; } .is-active .iso-led { fill: #737373; }
+.iso-path { fill: none; stroke: #737373; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.iso-path.is-dashed { stroke-dasharray: 3 4; }
+.iso-signal { fill: #FF4D2E; }
+.iso-ring { fill: none; stroke: #FF4D2E; stroke-opacity: .5; stroke-width: 1; stroke-dasharray: 2 3; vector-effect: non-scaling-stroke; }
+.iso-pulse { fill: none; stroke: #FF4D2E; stroke-width: 1; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; opacity: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .iso-pulse { animation: isoPulse 2.4s cubic-bezier(.16, 1, .3, 1) infinite; }
+}
+@keyframes isoPulse { 0% { opacity: .6; transform: scale(.5); } 100% { opacity: 0; transform: scale(1.6); } }</style>
+<defs>
+<radialGradient id="iso-services-fade" cx="50%" cy="50%" r="55%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".65" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+<mask id="iso-services-mask"><rect x="-304.34" y="-121.4" width="747.25" height="574.81" fill="url(#iso-services-fade)"/></mask>
+</defs>
+<g class="iso-grid" mask="url(#iso-services-mask)"><line x1="45.03" y1="-1466" x2="-2795.53" y2="174"/><line x1="93.53" y1="-1466" x2="2934.09" y2="174"/><line x1="79.67" y1="-1446" x2="-2760.89" y2="194"/><line x1="58.89" y1="-1446" x2="2899.45" y2="194"/><line x1="114.32" y1="-1426" x2="-2726.25" y2="214"/><line x1="24.25" y1="-1426" x2="2864.81" y2="214"/><line x1="148.96" y1="-1406" x2="-2691.61" y2="234"/><line x1="-10.39" y1="-1406" x2="2830.17" y2="234"/><line x1="183.6" y1="-1386" x2="-2656.97" y2="254"/><line x1="-45.03" y1="-1386" x2="2795.53" y2="254"/><line x1="218.24" y1="-1366" x2="-2622.32" y2="274"/><line x1="-79.67" y1="-1366" x2="2760.89" y2="274"/><line x1="252.88" y1="-1346" x2="-2587.68" y2="294"/><line x1="-114.32" y1="-1346" x2="2726.25" y2="294"/><line x1="287.52" y1="-1326" x2="-2553.04" y2="314"/><line x1="-148.96" y1="-1326" x2="2691.61" y2="314"/><line x1="322.16" y1="-1306" x2="-2518.4" y2="334"/><line x1="-183.6" y1="-1306" x2="2656.97" y2="334"/><line x1="356.8" y1="-1286" x2="-2483.76" y2="354"/><line x1="-218.24" y1="-1286" x2="2622.32" y2="354"/><line x1="391.44" y1="-1266" x2="-2449.12" y2="374"/><line x1="-252.88" y1="-1266" x2="2587.68" y2="374"/><line x1="426.08" y1="-1246" x2="-2414.48" y2="394"/><line x1="-287.52" y1="-1246" x2="2553.04" y2="394"/><line x1="460.73" y1="-1226" x2="-2379.84" y2="414"/><line x1="-322.16" y1="-1226" x2="2518.4" y2="414"/><line x1="495.37" y1="-1206" x2="-2345.2" y2="434"/><line x1="-356.8" y1="-1206" x2="2483.76" y2="434"/><line x1="530.01" y1="-1186" x2="-2310.56" y2="454"/><line x1="-391.44" y1="-1186" x2="2449.12" y2="454"/><line x1="564.65" y1="-1166" x2="-2275.91" y2="474"/><line x1="-426.08" y1="-1166" x2="2414.48" y2="474"/><line x1="599.29" y1="-1146" x2="-2241.27" y2="494"/><line x1="-460.73" y1="-1146" x2="2379.84" y2="494"/><line x1="633.93" y1="-1126" x2="-2206.63" y2="514"/><line x1="-495.37" y1="-1126" x2="2345.2" y2="514"/><line x1="668.57" y1="-1106" x2="-2171.99" y2="534"/><line x1="-530.01" y1="-1106" x2="2310.56" y2="534"/><line x1="703.21" y1="-1086" x2="-2137.35" y2="554"/><line x1="-564.65" y1="-1086" x2="2275.91" y2="554"/><line x1="737.85" y1="-1066" x2="-2102.71" y2="574"/><line x1="-599.29" y1="-1066" x2="2241.27" y2="574"/><line x1="772.49" y1="-1046" x2="-2068.07" y2="594"/><line x1="-633.93" y1="-1046" x2="2206.63" y2="594"/><line x1="807.14" y1="-1026" x2="-2033.43" y2="614"/><line x1="-668.57" y1="-1026" x2="2171.99" y2="614"/><line x1="841.78" y1="-1006" x2="-1998.79" y2="634"/><line x1="-703.21" y1="-1006" x2="2137.35" y2="634"/><line x1="876.42" y1="-986" x2="-1964.15" y2="654"/><line x1="-737.85" y1="-986" x2="2102.71" y2="654"/><line x1="911.06" y1="-966" x2="-1929.5" y2="674"/><line x1="-772.49" y1="-966" x2="2068.07" y2="674"/><line x1="945.7" y1="-946" x2="-1894.86" y2="694"/><line x1="-807.14" y1="-946" x2="2033.43" y2="694"/><line x1="980.34" y1="-926" x2="-1860.22" y2="714"/><line x1="-841.78" y1="-926" x2="1998.79" y2="714"/><line x1="1014.98" y1="-906" x2="-1825.58" y2="734"/><line x1="-876.42" y1="-906" x2="1964.15" y2="734"/><line x1="1049.62" y1="-886" x2="-1790.94" y2="754"/><line x1="-911.06" y1="-886" x2="1929.5" y2="754"/><line x1="1084.26" y1="-866" x2="-1756.3" y2="774"/><line x1="-945.7" y1="-866" x2="1894.86" y2="774"/><line x1="1118.9" y1="-846" x2="-1721.66" y2="794"/><line x1="-980.34" y1="-846" x2="1860.22" y2="794"/><line x1="1153.55" y1="-826" x2="-1687.02" y2="814"/><line x1="-1014.98" y1="-826" x2="1825.58" y2="814"/><line x1="1188.19" y1="-806" x2="-1652.38" y2="834"/><line x1="-1049.62" y1="-806" x2="1790.94" y2="834"/><line x1="1222.83" y1="-786" x2="-1617.74" y2="854"/><line x1="-1084.26" y1="-786" x2="1756.3" y2="854"/><line x1="1257.47" y1="-766" x2="-1583.09" y2="874"/><line x1="-1118.9" y1="-766" x2="1721.66" y2="874"/><line x1="1292.11" y1="-746" x2="-1548.45" y2="894"/><line x1="-1153.55" y1="-746" x2="1687.02" y2="894"/><line x1="1326.75" y1="-726" x2="-1513.81" y2="914"/><line x1="-1188.19" y1="-726" x2="1652.38" y2="914"/><line x1="1361.39" y1="-706" x2="-1479.17" y2="934"/><line x1="-1222.83" y1="-706" x2="1617.74" y2="934"/><line x1="1396.03" y1="-686" x2="-1444.53" y2="954"/><line x1="-1257.47" y1="-686" x2="1583.09" y2="954"/><line x1="1430.67" y1="-666" x2="-1409.89" y2="974"/><line x1="-1292.11" y1="-666" x2="1548.45" y2="974"/><line x1="1465.31" y1="-646" x2="-1375.25" y2="994"/><line x1="-1326.75" y1="-646" x2="1513.81" y2="994"/><line x1="1499.96" y1="-626" x2="-1340.61" y2="1014"/><line x1="-1361.39" y1="-626" x2="1479.17" y2="1014"/><line x1="1534.6" y1="-606" x2="-1305.97" y2="1034"/><line x1="-1396.03" y1="-606" x2="1444.53" y2="1034"/><line x1="1569.24" y1="-586" x2="-1271.33" y2="1054"/><line x1="-1430.67" y1="-586" x2="1409.89" y2="1054"/><line x1="1603.88" y1="-566" x2="-1236.68" y2="1074"/><line x1="-1465.31" y1="-566" x2="1375.25" y2="1074"/><line x1="1638.52" y1="-546" x2="-1202.04" y2="1094"/><line x1="-1499.96" y1="-546" x2="1340.61" y2="1094"/><line x1="1673.16" y1="-526" x2="-1167.4" y2="1114"/><line x1="-1534.6" y1="-526" x2="1305.97" y2="1114"/><line x1="1707.8" y1="-506" x2="-1132.76" y2="1134"/><line x1="-1569.24" y1="-506" x2="1271.33" y2="1134"/><line x1="1742.44" y1="-486" x2="-1098.12" y2="1154"/><line x1="-1603.88" y1="-486" x2="1236.68" y2="1154"/><line x1="1777.08" y1="-466" x2="-1063.48" y2="1174"/><line x1="-1638.52" y1="-466" x2="1202.04" y2="1174"/><line x1="1811.73" y1="-446" x2="-1028.84" y2="1194"/><line x1="-1673.16" y1="-446" x2="1167.4" y2="1194"/><line x1="1846.37" y1="-426" x2="-994.2" y2="1214"/><line x1="-1707.8" y1="-426" x2="1132.76" y2="1214"/><line x1="1881.01" y1="-406" x2="-959.56" y2="1234"/><line x1="-1742.44" y1="-406" x2="1098.12" y2="1234"/><line x1="1915.65" y1="-386" x2="-924.92" y2="1254"/><line x1="-1777.08" y1="-386" x2="1063.48" y2="1254"/><line x1="1950.29" y1="-366" x2="-890.27" y2="1274"/><line x1="-1811.73" y1="-366" x2="1028.84" y2="1274"/><line x1="1984.93" y1="-346" x2="-855.63" y2="1294"/><line x1="-1846.37" y1="-346" x2="994.2" y2="1294"/><line x1="2019.57" y1="-326" x2="-820.99" y2="1314"/><line x1="-1881.01" y1="-326" x2="959.56" y2="1314"/><line x1="2054.21" y1="-306" x2="-786.35" y2="1334"/><line x1="-1915.65" y1="-306" x2="924.92" y2="1334"/><line x1="2088.85" y1="-286" x2="-751.71" y2="1354"/><line x1="-1950.29" y1="-286" x2="890.27" y2="1354"/><line x1="2123.49" y1="-266" x2="-717.07" y2="1374"/><line x1="-1984.93" y1="-266" x2="855.63" y2="1374"/><line x1="2158.14" y1="-246" x2="-682.43" y2="1394"/><line x1="-2019.57" y1="-246" x2="820.99" y2="1394"/><line x1="2192.78" y1="-226" x2="-647.79" y2="1414"/><line x1="-2054.21" y1="-226" x2="786.35" y2="1414"/><line x1="2227.42" y1="-206" x2="-613.15" y2="1434"/><line x1="-2088.85" y1="-206" x2="751.71" y2="1434"/><line x1="2262.06" y1="-186" x2="-578.5" y2="1454"/><line x1="-2123.49" y1="-186" x2="717.07" y2="1454"/><line x1="2296.7" y1="-166" x2="-543.86" y2="1474"/><line x1="-2158.14" y1="-166" x2="682.43" y2="1474"/><line x1="2331.34" y1="-146" x2="-509.22" y2="1494"/><line x1="-2192.78" y1="-146" x2="647.79" y2="1494"/><line x1="2365.98" y1="-126" x2="-474.58" y2="1514"/><line x1="-2227.42" y1="-126" x2="613.15" y2="1514"/><line x1="2400.62" y1="-106" x2="-439.94" y2="1534"/><line x1="-2262.06" y1="-106" x2="578.5" y2="1534"/><line x1="2435.26" y1="-86" x2="-405.3" y2="1554"/><line x1="-2296.7" y1="-86" x2="543.86" y2="1554"/><line x1="2469.9" y1="-66" x2="-370.66" y2="1574"/><line x1="-2331.34" y1="-66" x2="509.22" y2="1574"/><line x1="2504.55" y1="-46" x2="-336.02" y2="1594"/><line x1="-2365.98" y1="-46" x2="474.58" y2="1594"/><line x1="2539.19" y1="-26" x2="-301.38" y2="1614"/><line x1="-2400.62" y1="-26" x2="439.94" y2="1614"/><line x1="2573.83" y1="-6" x2="-266.74" y2="1634"/><line x1="-2435.26" y1="-6" x2="405.3" y2="1634"/><line x1="2608.47" y1="14" x2="-232.09" y2="1654"/><line x1="-2469.9" y1="14" x2="370.66" y2="1654"/><line x1="2643.11" y1="34" x2="-197.45" y2="1674"/><line x1="-2504.55" y1="34" x2="336.02" y2="1674"/><line x1="2677.75" y1="54" x2="-162.81" y2="1694"/><line x1="-2539.19" y1="54" x2="301.38" y2="1694"/><line x1="2712.39" y1="74" x2="-128.17" y2="1714"/><line x1="-2573.83" y1="74" x2="266.74" y2="1714"/><line x1="2747.03" y1="94" x2="-93.53" y2="1734"/><line x1="-2608.47" y1="94" x2="232.09" y2="1734"/><line x1="2781.67" y1="114" x2="-58.89" y2="1754"/><line x1="-2643.11" y1="114" x2="197.45" y2="1754"/><line x1="2816.31" y1="134" x2="-24.25" y2="1774"/><line x1="-2677.75" y1="134" x2="162.81" y2="1774"/><line x1="2850.96" y1="154" x2="10.39" y2="1794"/><line x1="-2712.39" y1="154" x2="128.17" y2="1794"/><line x1="2885.6" y1="174" x2="45.03" y2="1814"/><line x1="-2747.03" y1="174" x2="93.53" y2="1814"/></g>
+<g class="iso-block is-active" style="--d: 0ms">
+<polygon class="iso-face iso-left" points="-117.78,24 0,92 0,136 -117.78,68"/>
+<polygon class="iso-face iso-right" points="117.78,24 0,92 0,136 117.78,68"/>
+<polygon class="iso-face iso-top" points="0,-44 117.78,24 0,92 -117.78,24"/>
+<circle class="iso-vertex" cx="0" cy="-32" r="2"/>
+<circle class="iso-vertex" cx="96.99" cy="24" r="2"/>
+<circle class="iso-vertex" cx="0" cy="80" r="2"/>
+<circle class="iso-vertex" cx="-96.99" cy="24" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 -117.78 24)">
+<text class="iso-label" x="14" y="18">WEB APPS</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+<circle class="iso-led" cx="44" cy="29" r="2.4"/>
+<circle class="iso-led" cx="53" cy="29" r="2.4"/>
+</g>
+</g>
+<g class="iso-block" style="--d: 120ms">
+<polygon class="iso-face iso-left" points="20.78,104 138.56,172 138.56,216 20.78,148"/>
+<polygon class="iso-face iso-right" points="256.34,104 138.56,172 138.56,216 256.34,148"/>
+<polygon class="iso-face iso-top" points="138.56,36 256.34,104 138.56,172 20.78,104"/>
+<circle class="iso-vertex" cx="138.56" cy="48" r="2"/>
+<circle class="iso-vertex" cx="235.56" cy="104" r="2"/>
+<circle class="iso-vertex" cx="138.56" cy="160" r="2"/>
+<circle class="iso-vertex" cx="41.57" cy="104" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 20.78 104)">
+<text class="iso-label" x="14" y="18">MOBILE</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+<circle class="iso-led" cx="44" cy="29" r="2.4"/>
+</g>
+</g>
+<g class="iso-block" style="--d: 240ms">
+<polygon class="iso-face iso-left" points="-256.34,104 -138.56,172 -138.56,216 -256.34,148"/>
+<polygon class="iso-face iso-right" points="-20.78,104 -138.56,172 -138.56,216 -20.78,148"/>
+<polygon class="iso-face iso-top" points="-138.56,36 -20.78,104 -138.56,172 -256.34,104"/>
+<circle class="iso-vertex" cx="-138.56" cy="48" r="2"/>
+<circle class="iso-vertex" cx="-41.57" cy="104" r="2"/>
+<circle class="iso-vertex" cx="-138.56" cy="160" r="2"/>
+<circle class="iso-vertex" cx="-235.56" cy="104" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 -256.34 104)">
+<text class="iso-label" x="14" y="18">CLOUD</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+<circle class="iso-led" cx="44" cy="29" r="2.4"/>
+</g>
+</g>
+<g class="iso-block" style="--d: 360ms">
+<polygon class="iso-face iso-left" points="159.35,184 277.13,252 277.13,296 159.35,228"/>
+<polygon class="iso-face iso-right" points="394.91,184 277.13,252 277.13,296 394.91,228"/>
+<polygon class="iso-face iso-top" points="277.13,116 394.91,184 277.13,252 159.35,184"/>
+<circle class="iso-vertex" cx="277.13" cy="128" r="2"/>
+<circle class="iso-vertex" cx="374.12" cy="184" r="2"/>
+<circle class="iso-vertex" cx="277.13" cy="240" r="2"/>
+<circle class="iso-vertex" cx="180.13" cy="184" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 159.35 184)">
+<text class="iso-label" x="14" y="18">AI</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+</g>
+</g>
+<g class="iso-block" style="--d: 480ms">
+<polygon class="iso-face iso-left" points="-117.78,184 0,252 0,296 -117.78,228"/>
+<polygon class="iso-face iso-right" points="117.78,184 0,252 0,296 117.78,228"/>
+<polygon class="iso-face iso-top" points="0,116 117.78,184 0,252 -117.78,184"/>
+<circle class="iso-vertex" cx="0" cy="128" r="2"/>
+<circle class="iso-vertex" cx="96.99" cy="184" r="2"/>
+<circle class="iso-vertex" cx="0" cy="240" r="2"/>
+<circle class="iso-vertex" cx="-96.99" cy="184" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 -117.78 184)">
+<text class="iso-label" x="14" y="18">APIS</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+<circle class="iso-led" cx="44" cy="29" r="2.4"/>
+<circle class="iso-led" cx="53" cy="29" r="2.4"/>
+</g>
+</g>
+<g class="iso-block" style="--d: 600ms">
+<polygon class="iso-face iso-left" points="20.78,264 138.56,332 138.56,376 20.78,308"/>
+<polygon class="iso-face iso-right" points="256.34,264 138.56,332 138.56,376 256.34,308"/>
+<polygon class="iso-face iso-top" points="138.56,196 256.34,264 138.56,332 20.78,264"/>
+<circle class="iso-vertex" cx="138.56" cy="208" r="2"/>
+<circle class="iso-vertex" cx="235.56" cy="264" r="2"/>
+<circle class="iso-vertex" cx="138.56" cy="320" r="2"/>
+<circle class="iso-vertex" cx="41.57" cy="264" r="2"/>
+<g transform="matrix(0.87 0.5 0 1 20.78 264)">
+<text class="iso-label" x="14" y="18">IOT</text>
+<circle class="iso-led" cx="17" cy="29" r="2.4"/>
+<circle class="iso-led" cx="26" cy="29" r="2.4"/>
+<circle class="iso-led" cx="35" cy="29" r="2.4"/>
+</g>
+</g>
+</svg>
