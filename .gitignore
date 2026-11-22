@@ -27,3 +27,8 @@ node_modules
 *.njsproj
 *.sln
 *.sw?
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts

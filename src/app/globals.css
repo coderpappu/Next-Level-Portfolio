@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The page itself (everything visual lives in src/white/editorial/). */
+html {
+  -webkit-text-size-adjust: 100%;
+}

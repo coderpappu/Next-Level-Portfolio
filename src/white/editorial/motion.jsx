@@ -97,17 +97,21 @@ export function RevealImage({ className = "", delay = 0, children }) {
    An invisible copy of the final value reserves the width, so nothing
    jitters; assistive tech only ever hears the final value. Pass `play`
    (and `delay` in ms) to start it with the hero intro instead of the
-   viewport. */
+   viewport. The server HTML holds the real value (so it is correct without
+   JS and for crawlers); with motion allowed, it resets to zero once JS runs,
+   while the number is still hidden by its reveal, then counts up. */
 export function CountUp({ value, play, delay = 0 }) {
   const ref = useRef(null);
   const seen = useInView(ref);
   const inView = play === undefined ? seen : play;
   const match = String(value).match(/-?\d+(?:[.,]\d+)?/);
-  const [text, setText] = useState(() =>
-    match && !prefersReduced()
-      ? value.slice(0, match.index) + "0" + value.slice(match.index + match[0].length)
-      : value,
-  );
+  const [text, setText] = useState(value);
+
+  useEffect(() => {
+    if (!match || prefersReduced()) return;
+    setText(value.slice(0, match.index) + "0" + value.slice(match.index + match[0].length));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (!inView) return undefined;

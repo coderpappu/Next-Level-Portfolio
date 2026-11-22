@@ -3,35 +3,63 @@
    Every page reads from here — edit content in one place.
    --------------------------------------------------------------------------- */
 
-import avatar from "../assets/pappu-dey.jpg";
-import cribohealthApp from "../assets/cribohealth-app.png";
-import cribohealthSite from "../assets/cribohealth-site.png";
-import dashboardImg from "../assets/dashboard.png";
-import devtoolsHuntImg from "../assets/devtoolshunt.png";
-import icpcCertificate from "../assets/icpc_certificate.png";
-import lmsImg from "../assets/lms-system.jpg";
-import miniDokanImg from "../assets/mini-dokan.png";
-import recommendationLetter from "../assets/pappudey_recomendation_certificate.jpg";
-import reportImg from "../assets/report.png";
-import workstationImg from "../assets/work-time-station.jpg";
-import cvFile from "../assets/cv_pappu_dey_junior_software_engineer_CSE (2).pdf";
+import avatarAsset from "../assets/pappu-dey.jpg";
+import cribohealthAppAsset from "../assets/cribohealth-app.png";
+import cribohealthSiteAsset from "../assets/cribohealth-site.png";
+import dashboardImgAsset from "../assets/dashboard.png";
+import devtoolsHuntImgAsset from "../assets/devtoolshunt.png";
+import icpcCertificateAsset from "../assets/icpc_certificate.png";
+import lmsImgAsset from "../assets/lms-system.jpg";
+import miniDokanImgAsset from "../assets/mini-dokan.png";
+import recommendationLetterAsset from "../assets/pappudey_recomendation_certificate.jpg";
+import reportImgAsset from "../assets/report.png";
+import workstationImgAsset from "../assets/work-time-station.jpg";
 // Cropped, right-sized copy of CriboHealth.png (the 2481px original is still
 // used by the classic site).
-import criboHealthLogo from "../assets/logos/cribohealth-mark.png";
-import chattogramPolyLogo from "../assets/logos/chattogram-polytechnic.png";
-import decEngineersClubLogo from "../assets/logos/decEngineersClub.webp";
-import milgecLogo from "../assets/logos/milgec.png";
-import wMarkLogo from "../assets/logos/w-mark.png";
-import researchLabLogo from "../assets/logos/researchLabLogo.png";
-import xceedLogo from "../assets/logos/xceedLogo.png";
+import criboHealthLogoAsset from "../assets/logos/cribohealth-mark.png";
+import chattogramPolyLogoAsset from "../assets/logos/chattogram-polytechnic.png";
+import decEngineersClubLogoAsset from "../assets/logos/decEngineersClub.webp";
+import milgecLogoAsset from "../assets/logos/milgec.png";
+import wMarkLogoAsset from "../assets/logos/w-mark.png";
+import researchLabLogoAsset from "../assets/logos/researchLabLogo.png";
+import xceedLogoAsset from "../assets/logos/xceedLogo.png";
 // Lighter copies (800px tall) of traning-…jpg and icpc-team-…jpg, for the
 // home page's Experience picture panel.
-import codexSeminarImg from "../assets/exp-codex-seminar.jpg";
-import cpiIcpcImg from "../assets/exp-cpi-icpc.jpg";
+import codexSeminarImgAsset from "../assets/exp-codex-seminar.jpg";
+import cpiIcpcImgAsset from "../assets/exp-cpi-icpc.jpg";
 // Gallery. gallery-border-robot.jpg is an 800px-tall copy of robot-my-…jpg.
-import borderRobotImg from "../assets/gallery-border-robot.jpg";
-import rlcRobotImg from "../assets/robotics-rlc-DdnqF7T4.jpg";
-import speakingImg from "../assets/pic.jpg";
+import borderRobotImgAsset from "../assets/gallery-border-robot.jpg";
+import rlcRobotImgAsset from "../assets/robotics-rlc-DdnqF7T4.jpg";
+import speakingImgAsset from "../assets/pic.jpg";
+
+/* Next.js image imports are objects ({ src, width, height }); the site works
+   with plain URLs, so every asset is resolved to its URL once, here. */
+const assetUrl = (asset) => (typeof asset === "string" ? asset : asset.src);
+const avatar = assetUrl(avatarAsset);
+const cribohealthApp = assetUrl(cribohealthAppAsset);
+const cribohealthSite = assetUrl(cribohealthSiteAsset);
+const dashboardImg = assetUrl(dashboardImgAsset);
+const devtoolsHuntImg = assetUrl(devtoolsHuntImgAsset);
+const icpcCertificate = assetUrl(icpcCertificateAsset);
+const lmsImg = assetUrl(lmsImgAsset);
+const miniDokanImg = assetUrl(miniDokanImgAsset);
+const recommendationLetter = assetUrl(recommendationLetterAsset);
+const reportImg = assetUrl(reportImgAsset);
+const workstationImg = assetUrl(workstationImgAsset);
+const criboHealthLogo = assetUrl(criboHealthLogoAsset);
+const chattogramPolyLogo = assetUrl(chattogramPolyLogoAsset);
+const decEngineersClubLogo = assetUrl(decEngineersClubLogoAsset);
+const milgecLogo = assetUrl(milgecLogoAsset);
+const wMarkLogo = assetUrl(wMarkLogoAsset);
+const researchLabLogo = assetUrl(researchLabLogoAsset);
+const xceedLogo = assetUrl(xceedLogoAsset);
+const codexSeminarImg = assetUrl(codexSeminarImgAsset);
+const cpiIcpcImg = assetUrl(cpiIcpcImgAsset);
+const borderRobotImg = assetUrl(borderRobotImgAsset);
+const rlcRobotImg = assetUrl(rlcRobotImgAsset);
+const speakingImg = assetUrl(speakingImgAsset);
+// The CV lives in public/ so it has a clean, stable URL.
+const cvFile = "/pappu-dey-cv.pdf";
 
 export const images = {
   avatar,
@@ -39,6 +67,20 @@ export const images = {
   recommendationLetter,
   icpcCertificate,
   cv: cvFile,
+};
+
+/* Photos used as page-header images on the inner pages, with their pixel
+   sizes so they show at their own shape (never cropped). */
+export const photos = {
+  avatar: { src: avatar, width: 704, height: 872, alt: "Portrait of Pappu Dey" },
+  workstation: { src: workstationImg, width: 864, height: 864, alt: "Pappu Dey at his workstation in Chattogram" },
+  speaking: { src: speakingImg, width: 689, height: 891, alt: "Pappu Dey speaking at a D Engineers Club event", caption: "Speaking at a D Engineers Club event" },
+  seminar: { src: codexSeminarImg, width: 1200, height: 800, alt: "Pappu Dey presenting at a school IT seminar run by Codex Devware", caption: "School IT seminar · Codex Devware" },
+  icpcTeam: { src: cpiIcpcImg, width: 1067, height: 800, alt: "Team CPI Newbies at the ICPC Asia Dhaka Regional Contest 2024", caption: "ICPC Asia Dhaka Regional 2024 · Team CPI Newbies" },
+  rlcTeam: { src: rlcRobotImg, width: 720, height: 755, alt: "Team RLC with their surveillance robot", caption: "Surveillance robot · Team RLC" },
+  borderRobot: { src: borderRobotImg, width: 1003, height: 800, alt: "Visitors at the border guard robot demonstration", caption: "Border guard robot" },
+  eClearance: { src: reportImg, width: 862, height: 652, alt: "E-Clearance dashboard on laptop and phone", caption: "E-Clearance · SaaS clearance system" },
+  criboApp: { src: cribohealthApp, width: 1482, height: 936, alt: "Cribo Health Android app screens", caption: "Cribo Health · Android app" },
 };
 
 export const profile = {
