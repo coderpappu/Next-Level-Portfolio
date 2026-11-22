@@ -90,6 +90,7 @@ router.get("/", async (req, res, next) => {
         highlights: r.highlights,
         stack: r.stack,
         url: r.url || undefined,
+        logo: r.logo_url || undefined,
       })),
       education: educationRows.map((r) => ({
         institution: r.institution,

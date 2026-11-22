@@ -104,6 +104,7 @@ export const resourceConfigs = [
       { name: "highlights", label: "Highlights", type: "array-of-strings" },
       { name: "stack", label: "Stack", type: "text", hint: "Plain text, e.g. \"React, Node.js\" — not a tag list." },
       { name: "url", label: "URL", type: "url" },
+      { name: "logo_url", label: "Company Logo", type: "image", category: "experience" },
     ],
   },
   {

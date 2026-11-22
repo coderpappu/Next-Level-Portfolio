@@ -1,10 +1,11 @@
 import { Helmet } from "react-helmet";
 import { Badge, GlyphLink, PageTitle, Section } from "../ui";
-import { education, experience, images, stats } from "../data";
-import { useCvUrl } from "../hooks";
+import { education, experience as experienceFallback, images, stats } from "../data";
+import { useCvUrl, useExperience } from "../hooks";
 
 const Experience = () => {
   const cvUrl = useCvUrl(images.cv);
+  const experience = useExperience(experienceFallback);
 
   return (
   <>
@@ -25,11 +26,20 @@ const Experience = () => {
         {experience.map((job) => (
           <div key={job.org} className="flex flex-col gap-2">
             <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-              <div>
-                <h3 className="text-base font-medium">{job.role}</h3>
-                <p className="text-sm">
-                  {job.org} · {job.type}
-                </p>
+              <div className="flex items-start gap-3">
+                {job.logo ? (
+                  <img
+                    src={job.logo}
+                    alt={`${job.org} logo`}
+                    className="mt-0.5 h-8 w-8 shrink-0 rounded-md object-contain"
+                  />
+                ) : null}
+                <div>
+                  <h3 className="text-base font-medium">{job.role}</h3>
+                  <p className="text-sm">
+                    {job.org} · {job.type}
+                  </p>
+                </div>
               </div>
               <div className="flex flex-col items-start text-sm md:items-end">
                 <Badge>{job.location}</Badge>

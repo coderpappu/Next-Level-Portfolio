@@ -223,6 +223,36 @@ export function useServices(fallback) {
   return items;
 }
 
+/* Experience entries with admin-managed company logos — `logo` is only
+   present once an admin has uploaded one; callers render without an image
+   when it's absent, same as before this existed. */
+export function useExperience(fallback) {
+  const [items, setItems] = useState(fallback);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchSiteContent().then((data) => {
+      if (cancelled) return;
+      if (!data?.experience?.length) {
+        setItems(fallback);
+        return;
+      }
+      setItems(
+        data.experience.map((e) => ({
+          ...e,
+          logo: e.logo ? `${API_BASE}${e.logo}` : null,
+        })),
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return items;
+}
+
 /* Single service, looked up by slug for the /services/:slug detail page —
    no dedicated public endpoint for this exists since the aggregate payload
    already carries every service's full content. */

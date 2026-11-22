@@ -72,6 +72,7 @@ const COLLECTIONS = [
       "highlights",
       "stack",
       "url",
+      "logo_url",
       "sort_order",
     ],
     // NOTE: `stack` here is a plain display string ("React, Node.js"), not

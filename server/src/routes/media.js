@@ -10,7 +10,7 @@ const { logActivity } = require("../lib/activityLog");
 const router = express.Router();
 
 const UPLOADS_ROOT = path.join(__dirname, "..", "..", "uploads");
-const ALLOWED_CATEGORIES = new Set(["projects", "awards", "posts", "profile", "testimonials", "services"]);
+const ALLOWED_CATEGORIES = new Set(["projects", "awards", "posts", "profile", "testimonials", "services", "experience"]);
 const EXT_BY_MIME = {
   "image/jpeg": ".jpg",
   "image/png": ".png",
